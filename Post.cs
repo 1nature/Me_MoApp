@@ -2,8 +2,15 @@
 {
     public class Post
     {
-        private string _path;
+        private StatusCategory _status;
+        public StatusCategory Status
+        {
+            get { return _status; }
+            set { _status = value; }
 
+        }
+
+        private string _path;
         public string Path
         {
             get { return _path; }
@@ -11,13 +18,12 @@
         }
 
         private PostCategory _categorization;
-
         public PostCategory Categorization
         {
             get { return _categorization; }
             set { _categorization = value; }
         }
-        
+
         //Create enum for validation category
 
         private string _description;
@@ -27,45 +33,24 @@
             set { _description = value; }
         }
 
-        //public string Comment { get; set; }
 
-
-        private List<Comment> _userComments; 
-
-        public List<Comment> Usercomments
+        private Comment _comments;
+        public Comment Comment
         {
-            get { return _userComments; }
-            set { _userComments = value; }
+            get { return _comments; }
+            set { _comments = value; }
         }
 
-        private List<User> _addUsers;
-
-        public List<User> AddUsers
+        private Address _address;
+        public Address Address
         {
-            get { return _addUsers; }
-            set { _addUsers = value; }
+            get { return _address; }
+            set { _address = value; }
         }
-
-        private List<Vendor> _addVendors;
-
-        public List<Vendor> AddVendors
-        {
-            get { return _addVendors; }
-            set { _addVendors = value; }
-        }
-
-        private List<User> _addUserAddress;
-
-        public List<User> AddUserAddress
-        {
-            get { return _addUserAddress; }
-            set { _addUserAddress = value; }
-        }
-
 
         private User _user;
         public User User
-        { 
+        {
             get { return _user; }
             set { _user = value; }
         }
@@ -84,19 +69,21 @@
             set { _timeStamp = value; }
         }
 
-        private ValidationCategory _category;
-        public ValidationCategory Category
+        private List<Vote> _votes = new List<Vote>(); //this list stores all votes
+        public List<Vote> Votes
         {
-            get { return _category; }
-            set { _category = value; }
+            get { return _votes; }
+            set { _votes = value; }
         }
 
-        //private Voting _voteOnPost;
-        //public Voting Voteonpost
-        //{
-        //    get { return _voteOnPost; }
-        //    set { _voteOnPost = value; }
-        //}
-        //Should there be a Voting method that calls the voting class?
+        public void Vote(int points, User u)
+        {
+            Vote userVote = new();
+            userVote.TimeStamp = DateTime.Now;
+            userVote.User = u;
+            userVote.Amount = points;
+
+            _votes.Add(userVote);
+        }
     }
 }

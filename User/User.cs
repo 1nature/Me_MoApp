@@ -1,28 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Me_MoApp
+﻿namespace Me_MoApp
 {
     public class User
     {
-        private string _path; //is path necessary here?
-        public string Path
-        {
-            get { return _path; }
-            set { _path = value; }
-        }
-
         private string _businessName;
-
         public string BusinessName
         {
             get { return _businessName; }
             set { _businessName = value; }
         }
-
 
         private string _firstName;
         public string FirstName
@@ -30,7 +15,7 @@ namespace Me_MoApp
             get { return _firstName; }
             set { _firstName = value; }
         }
-                
+
         private string _lastName;
         public string LastName
         {
@@ -52,44 +37,22 @@ namespace Me_MoApp
             set { _phone = value; }
         }
 
-        private Address _address;
-
-        public Address Address
+        private List<Validate> _validateusers; //this list stores all validated users
+        public List<Validate> ValidatedUsers
         {
-            get { return _address; }
-            set { _address = value; }
+            get { return _validateusers; }
+            set { _validateusers = value; }
         }
 
+        public void ValidateUser(User u, double score) //Need a method that loops through all to show validation status
+        {
+            Validate v = new();
+            v.TimeStamp = DateTime.Now;
+            v.User = u;
+            v.Total = score;
+            //user.HasValidated = validationStatus;
 
-        //private Address _door;
-        //public Address Door
-        //{
-        //    get { return _door; }
-        //    set { _door = value; }
-        //}
-
-        //private Address _street;
-        //public Address Street
-        //{
-        //    get { return _street; }
-        //    set { _street = value; }
-        //}
-
-        //private Address _city;
-        //public Address City
-        //{
-        //    get { return _city; }
-        //    set { _city = value; }
-        //}
-
-
-
-        //private Address _email;
-        //public Address Email
-        //{
-        //    get { return _email; }
-        //    set { _email = value; }
-        //}
-
+            _validateusers.Add(v);
+        }
     }
 }
