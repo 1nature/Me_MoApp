@@ -2,7 +2,7 @@
 {
     public class Post
     {
-        private StatusCategory _status;
+        private StatusCategory _status = new();
         public StatusCategory Status
         {
             get { return _status; }
@@ -70,11 +70,27 @@
         }
 
         private List<Vote> _votes = new List<Vote>(); //this list stores all votes
-        public List<Vote> Votes
+        public List<Vote> Votes //User is not known when their vote is added to the list
         {
             get { return _votes; }
             set { _votes = value; }
         }
+
+        public int TotalVotes
+        {
+            get
+            {
+                int totalvotes = 0;
+                foreach (Vote vo in _votes)
+                {
+                    totalvotes += vo.Amount;
+                }
+
+                return totalvotes;
+            }
+        }
+
+
 
         public void Vote(int points, User u)
         {
@@ -85,5 +101,11 @@
 
             _votes.Add(userVote);
         }
+
+        public override string ToString()
+        {
+            return $"{User.FirstName} {User.LastName} - {Description}";
+        }
+
     }
 }

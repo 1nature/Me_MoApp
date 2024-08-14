@@ -13,6 +13,7 @@
             user1.Sex = "Male";
             user1.Phone = phone1;
             user1.Phone.PhoneNumber = "07340264066";
+            user1.ID = 1;
             
             User user2 = new();
             Phone phone2 = new Phone();
@@ -21,6 +22,7 @@
             user2.Sex = "Male";
             user2.Phone = phone2;
             user2.Phone.PhoneNumber = "07366264996";
+            user2.ID = 2;
 
 
             User user3 = new();
@@ -30,7 +32,7 @@
             user3.Sex = "Female";
             user3.Phone = phone3;
             user3.Phone.PhoneNumber = "07356784066";
-
+            user3.ID = 3;
 
             User user4 = new();
             Phone phone4 = new Phone();
@@ -39,8 +41,7 @@
             user4.Sex = "Female";
             user4.Phone = phone4;
             user4.Phone.PhoneNumber = "07399884066";
-
-
+            user4.ID = 4;
 
             userList.Add(user1);
             userList.Add(user2);
@@ -156,19 +157,21 @@
             PostCategory post1Category = PostCategory.Party;
             post1.Categorization = post1Category;
             post1.Description = "....party vibes";
-            for (int i = 0; i < 50; i++)
-            {
-                post1.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
-            }
 
             for (int i = 0; i < 50; i++)
             {
-                post1.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
+                //post1.Vote(1, GetUsers()[3]);
+                post1.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);//randomness to change the users randomly
             }
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    post1.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
+            //}
             post1.Comment = MakeComments()[0];
             post1.Comment = MakeComments()[1];
-            post1.Vendor = GetVendors()[0];
-            post1.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
+            post1.Vendor = GetVendors()[1];
+            //post1.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
 
 
             Post post2 = new();
@@ -179,19 +182,18 @@
             post2.Categorization = post2Category;
             post2.Description = "....life z simple";
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 5; i++)
             {
                 post2.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
             }
 
-            for (int i = 0; i < 50; i++)
-            {
-                post2.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    post2.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
+            //}
             post2.Comment = MakeComments()[2];
             post2.Comment = MakeComments()[3];
             post2.Vendor = GetVendors()[2];
-            post2.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
 
 
             Post post3 = new();
@@ -202,24 +204,26 @@
             post3.Categorization = post3Category;
             post3.Description = "....one look@atime";
             
-            for(int i = 0; i < 150; i++)
+            for(int i = 0; i < 6; i++)
             {
                 post3.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
             }
 
-            for (int i = 0; i < 50; i++)
-            {
-                post3.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
-            }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    post3.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
+            //}
             post3.Comment = MakeComments()[0];
             post3.Comment = MakeComments()[2];
-            post3.Vendor = GetVendors()[3];
-            post3.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
+            post3.Vendor = GetVendors()[0];
+            //post3.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
             
 
             thePostsList.Add(post1);
             thePostsList.Add(post2);
             thePostsList.Add(post3);
+            //post2.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(thePostsList));
+            //make a list of post, and just feed the list to the post
 
             return thePostsList;
         }
@@ -246,7 +250,7 @@
             theValidationList.Add(validateUser2);
 
 
-            return theValidationList;
+            return theValidationList; //revisit this
         }
         
     }

@@ -10,7 +10,7 @@
         }
 
         private int _amount;
-        public int Amount
+        public int Amount  //TODO: either +1 or -1
         {
             get { return _amount; }
             set { _amount = value; }

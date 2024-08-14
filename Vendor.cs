@@ -8,56 +8,21 @@ namespace Me_MoApp
 {
     public class Vendor
     {
-        private User _user;
+        private User _user = new();
         public User User
         {
             get { return _user; }
             set { _user = value; }
         }
 
-        private Address _address;
+        private Address _address = new();
         public Address Address
         {
             get { return _address; }
             set { _address = value; }
         }
-        //private Address _door;
-        //public Address Door
-        //{
-        //    get { return _door; }
-        //    set { _door = value; }
-        //}
 
-        //private Address _streetName;
-        //public Address StreetName
-        //{
-        //    get { return _streetName; }
-        //    set { _streetName = value; }
-        //}
-
-        //private Address _city;
-        //public Address City
-        //{
-        //    get { return _city; }
-        //    set { _city = value; }
-        //}
-
-        //private Address _country;
-
-        //public Address Country
-        //{
-        //    get { return _country; }
-        //    set { _country = value; }
-        //}
-
-        //private Address _email;
-        //public Address Email
-        //{
-        //    get { return _email; }
-        //    set { _email = value; }
-        //}
-
-        private Phone _phone;
+        private Phone _phone = new();
         public Phone Phone
         {
             get { return _phone; }

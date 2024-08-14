@@ -23,7 +23,6 @@
             set { _total = value; }
         }
 
-
         private StatusCategory _status;
         public StatusCategory Status
         {

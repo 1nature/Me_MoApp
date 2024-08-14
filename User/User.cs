@@ -2,6 +2,9 @@
 {
     public class User
     {
+
+        public int ID { get; set; } 
+
         private string _businessName;
         public string BusinessName
         {
@@ -30,6 +33,15 @@
             set { _sex = value; }
         }
 
+        private Validate _validate;
+
+        public Validate Validate
+        {
+            get { return _validate; }
+            set { _validate = value; }
+        }
+
+
         private Phone _phone;
         public Phone Phone
         {
@@ -53,6 +65,11 @@
             //user.HasValidated = validationStatus;
 
             _validateusers.Add(v);
+        }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
         }
     }
 }
