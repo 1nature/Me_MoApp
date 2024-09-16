@@ -5,12 +5,12 @@
 
         public int ID { get; set; } 
 
-        private string _businessName;
-        public string BusinessName
-        {
-            get { return _businessName; }
-            set { _businessName = value; }
-        }
+        //private string _businessName;
+        //public string BusinessName
+        //{
+        //    get { return _businessName; }
+        //    set { _businessName = value; }
+        //}
 
         private string _firstName;
         public string FirstName
@@ -25,6 +25,15 @@
             get { return _lastName; }
             set { _lastName = value; }
         }
+
+        private string _picture;
+
+        public string Picture
+        {
+            get { return _picture; }
+            set { _picture = value; }
+        }
+
 
         private string _sex;
         public string Sex
@@ -41,15 +50,30 @@
             set { _validate = value; }
         }
 
+        private Vendor _vendor = new();
+        public Vendor Vendor
+        {
+            get { return _vendor; }
+            set { _vendor = value; }
+        }
 
-        private Phone _phone;
+        //private Comment _comment = new();
+
+        //public Comment Comment
+        //{
+        //    get { return _comment = new(); }
+        //    set { _comment = value; }
+        //}
+
+
+        private Phone _phone = new();
         public Phone Phone
         {
             get { return _phone; }
             set { _phone = value; }
         }
 
-        private List<Validate> _validateusers; //this list stores all validated users
+        private List<Validate> _validateusers = new(); //this list stores all validated users
         public List<Validate> ValidatedUsers
         {
             get { return _validateusers; }

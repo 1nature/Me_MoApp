@@ -16,11 +16,6 @@ namespace Me_MoApp
             set { _phoneNumber = value; }
         }
 
-        private User _user;
-        public User User
-        {
-            get { return _user; }
-            set { _user = value; }
-        }
+        
     }
 }

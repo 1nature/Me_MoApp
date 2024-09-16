@@ -10,6 +10,7 @@
             Phone phone1 = new Phone();
             user1.FirstName = "Ayokunle";
             user1.LastName = "Olanipekun";
+            user1.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
             user1.Sex = "Male";
             user1.Phone = phone1;
             user1.Phone.PhoneNumber = "07340264066";
@@ -19,6 +20,7 @@
             Phone phone2 = new Phone();
             user2.FirstName = "John";
             user2.LastName = "Briggs";
+            user2.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
             user2.Sex = "Male";
             user2.Phone = phone2;
             user2.Phone.PhoneNumber = "07366264996";
@@ -29,15 +31,17 @@
             Phone phone3 = new Phone();
             user3.FirstName = "Sharon";
             user3.LastName = "Stone";
+            user3.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
             user3.Sex = "Female";
             user3.Phone = phone3;
             user3.Phone.PhoneNumber = "07356784066";
             user3.ID = 3;
 
             User user4 = new();
-            Phone phone4 = new Phone();
+            Phone phone4 = new Phone(); //no need for this here. Should be elsewhere
             user4.FirstName = "Doga";
             user4.LastName = "Golizade";
+            user4.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
             user4.Sex = "Female";
             user4.Phone = phone4;
             user4.Phone.PhoneNumber = "07399884066";
@@ -88,7 +92,7 @@
             var theVendorsList = new List<Vendor>();
 
             Vendor vendor1 = new();
-            vendor1.User.BusinessName = "XYZ Ventures";
+            vendor1.BusinessName = "XYZ Ventures";
             vendor1.Address.Door = "9";
             vendor1.Address.City = "Lagos";
             vendor1.Address.Country = "Nigeria";
@@ -96,7 +100,7 @@
             vendor1.Phone.PhoneNumber = "07775678800";
 
             Vendor vendor2 = new();
-            vendor2.User.BusinessName = "Streams Fashion House";
+            vendor2.BusinessName = "Streams Fashion House";
             vendor2.Address.Door = "9";
             vendor2.Address.City = "Briggs Lane";
             vendor2.Address.Country = "United Kingdom";
@@ -104,7 +108,7 @@
             vendor2.Phone.PhoneNumber = "07775673459";
 
             Vendor vendor3 = new();
-            vendor3.User.BusinessName = "Josh 2 Fun Designs";
+            vendor3.BusinessName = "Josh 2 Fun Designs";
             vendor3.Address.Door = "29";
             vendor3.Address.City = "Border Avenue Crossing";
             vendor3.Address.Country = "United Kingdom";
@@ -123,11 +127,13 @@
             var commentsList = new List<Comment>();
 
             Comment comment1 = new();
+            comment1.User = GetUsers().First();
             comment1.Text = "You def. havn a blast!";
             comment1.TimeStamp = DateTime.Now;
 
             Comment comment2 = new();
             comment2.Text = "Good one, bruv";
+            comment2.User = GetUsers().First();
             comment2.TimeStamp = DateTime.Now;
 
             Comment comment3 = new();
@@ -153,14 +159,14 @@
             Post post1 = new();
             post1.User = GetUsers().First();
             post1.Address = GetUserAddress()[0];
-            post1.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
+            post1.Path = @"/images/_SLK9321.jpg"; //what if 2 or more posts?
+            post1.User.Vendor = GetVendors().First();  
             PostCategory post1Category = PostCategory.Party;
             post1.Categorization = post1Category;
             post1.Description = "....party vibes";
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 70; i++)
             {
-                //post1.Vote(1, GetUsers()[3]);
                 post1.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);//randomness to change the users randomly
             }
 
@@ -168,16 +174,21 @@
             //{
             //    post1.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
             //}
-            post1.Comment = MakeComments()[0];
-            post1.Comment = MakeComments()[1];
-            post1.Vendor = GetVendors()[1];
-            //post1.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
+
+            //post1.User.Comment = MakeComments()[0];
+            //post1.User.Comment = MakeComments()[1];
+
+            //This may not work
+            post1.TheComments.Add(MakeComments()[0]);
+            post1.TheComments.Add(MakeComments()[1]);
+            post1.ID = 1;
 
 
             Post post2 = new();
             post2.User = GetUsers()[1];
             post2.Address = GetUserAddress()[1];
             post2.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
+            post2.User.Vendor = GetVendors()[1];
             PostCategory post2Category = PostCategory.Wedding;
             post2.Categorization = post2Category;
             post2.Description = "....life z simple";
@@ -191,20 +202,27 @@
             //{
             //    post2.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
             //}
-            post2.Comment = MakeComments()[2];
-            post2.Comment = MakeComments()[3];
-            post2.Vendor = GetVendors()[2];
+            
+            //post2.User.Comment = MakeComments()[2];
+            //post2.User.Comment = MakeComments()[3];
+
+            //This may not work
+            post2.TheComments.Add(MakeComments()[2]);
+            post2.TheComments.Add(MakeComments()[3]);
+            post2.ID = 2;
+
 
 
             Post post3 = new();
             post3.User = GetUsers()[2];
             post3.Address = GetUserAddress()[2];
             post3.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
+            post3.User.Vendor = GetVendors()[2];
             PostCategory post3Category = PostCategory.Office;
             post3.Categorization = post3Category;
             post3.Description = "....one look@atime";
             
-            for(int i = 0; i < 6; i++)
+            for(int i = 0; i < 10; i++)
             {
                 post3.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
             }
@@ -213,45 +231,30 @@
             //{
             //    post3.Vote(-1, GetUsers()[rng.Next(GetUsers().Count)]);
             //}
-            post3.Comment = MakeComments()[0];
-            post3.Comment = MakeComments()[2];
-            post3.Vendor = GetVendors()[0];
-            //post3.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(MakePosts()));
+
+            //post3.User.Comment = MakeComments()[0];
+            //post3.User.Comment = MakeComments()[2];
             
+
+            //This may not work
+            post3.TheComments.Add(MakeComments()[0]);
+            post3.TheComments.Add(MakeComments()[2]);
+            post1.ID = 3;
 
             thePostsList.Add(post1);
             thePostsList.Add(post2);
             thePostsList.Add(post3);
-            //post2.Status = LogicMethod.GetStatus(LogicMethod.GetVotesForPost(thePostsList));
-            //make a list of post, and just feed the list to the post
-
+            
             return thePostsList;
         }
 
-        public static List<Validate> ValidateUsers()
-        {
-            var theValidationList = new List<Validate>();
-
-            Validate validateUser1 = new();
-            validateUser1.Post.User = GetUsers()[0];
-            validateUser1.AllUserVotes = LogicMethod.GetAllVotes(MakePosts());
-            validateUser1.EachUserVote = LogicMethod.GetAllVotesForUser(validateUser1.Post.User, MakePosts());
-            validateUser1.ValidationScore = LogicMethod.CalculateValidationScore(validateUser1.AllUserVotes, validateUser1.AllUserVotes);
-            validateUser1.User.ValidateUser(validateUser1.Post.User, validateUser1.ValidationScore);
-
-            Validate validateUser2 = new();
-            validateUser2.Post.User = GetUsers()[1];
-            validateUser2.AllUserVotes = LogicMethod.GetAllVotes(MakePosts());
-            validateUser2.EachUserVote = LogicMethod.GetAllVotesForUser(validateUser2.Post.User, MakePosts());
-            validateUser2.ValidationScore = LogicMethod.CalculateValidationScore(validateUser2.AllUserVotes, validateUser2.AllUserVotes);
-            validateUser2.User.ValidateUser(validateUser2.Post.User, validateUser2.ValidationScore);
-
-            theValidationList.Add(validateUser1);
-            theValidationList.Add(validateUser2);
-
-
-            return theValidationList; //revisit this
-        }
+        //USE LINQ
+       //Get the name of users that make posts
+       //Get the comment from post
+       //Get comment from one post
+       //Get user address & comment from post/posts
+       //Get user name, address, vendor info from a post
+       //What if a user has mulitiple uploads/paths
         
     }
 }

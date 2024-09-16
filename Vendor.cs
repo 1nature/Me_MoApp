@@ -8,12 +8,20 @@ namespace Me_MoApp
 {
     public class Vendor
     {
-        private User _user = new();
-        public User User
+
+        private string _businessName;
+        public string BusinessName
         {
-            get { return _user; }
-            set { _user = value; }
+            get { return _businessName; }
+            set { _businessName = value; }
         }
+
+        //private User _user;
+        //public User User
+        //{
+        //    get { return _user; }
+        //    set { _user = value; }
+        //}
 
         private Address _address = new();
         public Address Address

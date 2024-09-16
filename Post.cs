@@ -10,6 +10,8 @@
 
         }
 
+        public int ID { get; set; }
+
         private string _path;
         public string Path
         {
@@ -17,7 +19,7 @@
             set { _path = value; }
         }
 
-        private PostCategory _categorization;
+        private PostCategory _categorization = new();
         public PostCategory Categorization
         {
             get { return _categorization; }
@@ -33,36 +35,37 @@
             set { _description = value; }
         }
 
+        private List<Comment> _thecoments = new();
 
-        private Comment _comments;
-        public Comment Comment
+        public List<Comment> TheComments
         {
-            get { return _comments; }
-            set { _comments = value; }
+            get { return _thecoments; }
+            set { _thecoments = value; }
         }
 
-        private Address _address;
+
+        private Address _address = new();
         public Address Address
         {
             get { return _address; }
             set { _address = value; }
         }
 
-        private User _user;
+        private User _user = new();
         public User User
         {
             get { return _user; }
             set { _user = value; }
         }
 
-        private Vendor _vendor;
+        private Vendor _vendor = new();
         public Vendor Vendor
         {
             get { return _vendor; }
             set { _vendor = value; }
         }
 
-        private DateTime _timeStamp;
+        private DateTime _timeStamp = new();
         public DateTime TimeStamp
         {
             get { return _timeStamp; }
@@ -90,8 +93,6 @@
             }
         }
 
-
-
         public void Vote(int points, User u)
         {
             Vote userVote = new();
@@ -101,6 +102,7 @@
 
             _votes.Add(userVote);
         }
+        //need a way to save a post
 
         public override string ToString()
         {

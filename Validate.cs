@@ -71,7 +71,7 @@
             get { return Validatte.ValidationScore > 90; }
         }
 
-        private bool _hasvalidated;
+        private bool _hasvalidated = new();
         public bool HasValidated
         {
             get { return _hasvalidated; }
