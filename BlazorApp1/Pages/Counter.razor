@@ -1,0 +1,69 @@
+﻿@page "/counter"
+@using Me_MoApp
+@inject Data.UserDataService uInfo
+@inject Data.AddressDataService aInfo
+
+
+<PageTitle>Counter</PageTitle>
+
+<h5>User Personal Details</h5>
+<p> <UserDisplay DUser="uInfo.GetUsers()[0]"></UserDisplay> </p>
+<br />
+
+<h5>Personal Address Details</h5>
+<p> <AddressDisplay DAddress="aInfo.GetAddresses()[0]"></AddressDisplay> </p>
+<br />
+
+
+<h5>Post Details/Picture not showing</h5>
+<p> <PostDisplay PostUserFirstName="John"/> </p>
+<p> <PostDisplay PostUserLastName="Brooks" /> </p>
+@* <p> <PostDisplay PostUserPicture="img src="images/Ayo_Peks.png" /> </p> *@
+<p> <PostDisplay PostDescription="Cheers" /> </p>
+<p> <PostDisplay PostCategory="Office" /> </p>
+<p> <PostDisplay PostTotalVotes=34 /> </p>
+<p> <PostDisplay PostTime=DateTime.Now /> </p>
+
+<br />
+<h5>Vendor Details</h5>
+<p> <VendorDisplay VendorBusinessName="XTC Ventures"/> </p>
+<p> <VendorDisplay DoorNumber=15 /> </p>
+<p> <VendorDisplay CityLocation="Abaji" /> </p>
+<p> <VendorDisplay Country="Niger"  /> </p>
+<p> <VendorDisplay VendorEmail="xtc@gmail.com"/>  </p>
+<p> <VendorDisplay VendorPhoneNumber="090"  />  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+    
+    private void IncrementCount()
+    {
+        currentCount++;
+        
+    }
+}

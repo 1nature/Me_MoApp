@@ -1,0 +1,24 @@
+﻿@page "/vendorinterface"
+@using Me_MoApp
+@inject Data.VendorDataService vInfo
+<PageTitle>VendorInterface</PageTitle>
+
+
+<h3>Vendor Interface</h3>
+<p>
+    @foreach (Vendor v in vInfo.GetVendors())
+    {
+    <p> <strong>Business Name:</strong> @v.BusinessName</p>
+    <p> <strong>Door Number:</strong> @v.Address.Door</p>
+    <p> <strong>City Location:</strong>  @v.Address.City</p>
+    <p> <strong>Country:</strong>  @v.Address.Country</p>
+    <p> <strong>Email Address:</strong>  @v.Address.Email</p>
+    <p> <strong>Phone Number</strong> @v.Phone.PhoneNumber</p>
+    <br />
+    }
+
+</p>
+
+@code {
+
+}

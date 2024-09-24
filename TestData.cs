@@ -10,7 +10,7 @@
             Phone phone1 = new Phone();
             user1.FirstName = "Ayokunle";
             user1.LastName = "Olanipekun";
-            user1.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
+            user1.Picture = @"/images/Ayo_Peks.jpg";
             user1.Sex = "Male";
             user1.Phone = phone1;
             user1.Phone.PhoneNumber = "07340264066";

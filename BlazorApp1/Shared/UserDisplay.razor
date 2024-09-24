@@ -1,0 +1,14 @@
+﻿@using Me_MoApp
+
+<p><strong>@DUser.ID</strong></p>
+<p><strong>@DUser.FirstName</strong></p>
+<p><strong>@DUser.LastName</strong></p>
+<p><img style="width: 100px" src="@DUser.Picture" /></p>
+<p><strong>@DUser.Sex</strong></p>
+<p><strong>@DUser.Phone.PhoneNumber</strong></p>
+
+
+@code {
+    [Parameter]
+    public User DUser { get; set; }
+}

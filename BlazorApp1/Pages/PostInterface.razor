@@ -1,0 +1,56 @@
+﻿@page "/postinterface"
+@using Me_MoApp
+@inject Data.PostDataService pInfo
+<PageTitle>PostInterface</PageTitle>
+
+@* <SurveyPrompt Title="Heyyyooooooo bro"></SurveyPrompt> *@
+
+<h3>Post Interface</h3>
+
+
+<p>
+    @foreach (Post post in pInfo.GetTestPosts())
+    {
+    @* <p> <strong>User's First Name</strong> @post.User.FirstName </p> *@
+    @* <p> <strong>User's Last Name</strong> @post.User.LastName </p> *@
+    @* <p><strong>User's Picture</strong> <img style="width: 100px" src="images/Ayo_Peks.png" /></p> *@
+    <p> <strong>Post Description</strong> @post.Description </p>
+    <p> <strong>Post Category</strong> @post.Categorization </p>
+    <p> <strong>Votes </strong> @post.TotalVotes </p>
+    <p> <strong>Time </strong> @post.TimeStamp </p>
+
+
+    <h5>Comments under the post</h5>
+    @* @foreach(var c in post.TheComments)
+        {
+            <CommentDisplay @comment ="c"></CommentDisplay>
+        }
+     *@    <br />
+    }
+
+
+</p>
+
+@code {
+    // [Parameter]
+    // public Post? post { get; set; } 
+
+
+    // private Post _post = new();
+
+    // private void LoadFirstTestPost()
+    // {
+    //     var allposts = pInfo.GetTestPosts();
+    // }
+
+    // protected override void OnAfterRender(bool firstRender)
+    // {
+    //     var allposts = pInfo.GetTestPosts();
+
+    //     _post = allposts.First();
+
+    //     StateHasChanged();
+    //     base.OnAfterRender(firstRender);
+    // }
+}
+
