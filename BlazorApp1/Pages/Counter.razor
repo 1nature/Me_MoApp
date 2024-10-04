@@ -2,6 +2,10 @@
 @using Me_MoApp
 @inject Data.UserDataService uInfo
 @inject Data.AddressDataService aInfo
+@inject Data.PostDataService pInfo
+@inject Data.VendorDataService vInfo
+
+
 
 
 <PageTitle>Counter</PageTitle>
@@ -15,24 +19,13 @@
 <br />
 
 
-<h5>Post Details/Picture not showing</h5>
-<p> <PostDisplay PostUserFirstName="John"/> </p>
-<p> <PostDisplay PostUserLastName="Brooks" /> </p>
-@* <p> <PostDisplay PostUserPicture="img src="images/Ayo_Peks.png" /> </p> *@
-<p> <PostDisplay PostDescription="Cheers" /> </p>
-<p> <PostDisplay PostCategory="Office" /> </p>
-<p> <PostDisplay PostTotalVotes=34 /> </p>
-<p> <PostDisplay PostTime=DateTime.Now /> </p>
-
+<h5>Post Details</h5>
+<p> <PostDisplay DPost="pInfo.GetTestPosts()[0]"></PostDisplay> </p>
 <br />
-<h5>Vendor Details</h5>
-<p> <VendorDisplay VendorBusinessName="XTC Ventures"/> </p>
-<p> <VendorDisplay DoorNumber=15 /> </p>
-<p> <VendorDisplay CityLocation="Abaji" /> </p>
-<p> <VendorDisplay Country="Niger"  /> </p>
-<p> <VendorDisplay VendorEmail="xtc@gmail.com"/>  </p>
-<p> <VendorDisplay VendorPhoneNumber="090"  />  </p>
 
+
+<h5>Vendor Details</h5>
+<p> <VendorDisplay DVendor="vInfo.GetVendors()[1]"></VendorDisplay> </p>
 
 
 

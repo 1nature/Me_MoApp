@@ -11,9 +11,9 @@
 <p>
     @foreach (Post post in pInfo.GetTestPosts())
     {
-    @* <p> <strong>User's First Name</strong> @post.User.FirstName </p> *@
-    @* <p> <strong>User's Last Name</strong> @post.User.LastName </p> *@
-    @* <p><strong>User's Picture</strong> <img style="width: 100px" src="images/Ayo_Peks.png" /></p> *@
+    <p> <strong>User's First Name</strong> @post.User.FirstName </p>
+    <p> <strong>User's Last Name</strong> @post.User.LastName </p>
+    <p><strong>User's Picture</strong> <img style="width: 100px" src="images/Ayo_Peks.png" /></p>
     <p> <strong>Post Description</strong> @post.Description </p>
     <p> <strong>Post Category</strong> @post.Categorization </p>
     <p> <strong>Votes </strong> @post.TotalVotes </p>
@@ -21,36 +21,18 @@
 
 
     <h5>Comments under the post</h5>
-    @* @foreach(var c in post.TheComments)
+    @foreach(var c in post.TheComments)
         {
-            <CommentDisplay @comment ="c"></CommentDisplay>
+            <p>@c.Text</p>
+            @* <CommentDisplay @comment ="c"></CommentDisplay> *@
         }
-     *@    <br />
+        <br />
     }
 
 
 </p>
 
 @code {
-    // [Parameter]
-    // public Post? post { get; set; } 
-
-
-    // private Post _post = new();
-
-    // private void LoadFirstTestPost()
-    // {
-    //     var allposts = pInfo.GetTestPosts();
-    // }
-
-    // protected override void OnAfterRender(bool firstRender)
-    // {
-    //     var allposts = pInfo.GetTestPosts();
-
-    //     _post = allposts.First();
-
-    //     StateHasChanged();
-    //     base.OnAfterRender(firstRender);
-    // }
+    
 }
 

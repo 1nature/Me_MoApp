@@ -1,22 +1,16 @@
 ﻿@using Me_MoApp
 
-<strong>@DPost.User.FirstName</strong>
-@* <strong>@DPost.User.FirstName</strong> *@
+<p><strong>@DPost.User.FirstName</strong></p>
+<p><strong>@DPost.User.LastName</strong></p>
+<p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p>
+<p><strong>@DPost.Description</strong></p>
+<p><strong>@DPost.Categorization</strong></p>
+<p><strong>@DPost.TotalVotes</strong></p>
+<p><strong>@DPost.TimeStamp</strong></p>
+<p> <strong>@DPost.</strong> </p>
 
-@* <strong>@DPost.User.LastName</strong> *@
-@* <p><img style="width: 100px" src="@DPost.User.Picture" /></p> *@
-<strong>@DPost.Description</strong>
-<strong>@DPost.Categorization</strong>
-<strong>@DPost.TotalVotes</strong>
-<strong>@DPost.TimeStamp</strong>
-
-@* <PostDisplay @Post="post"></PostDisplay> *@
 
 @code {
     [Parameter]
     public Post DPost { get; set; }
-
-
-
-
 }

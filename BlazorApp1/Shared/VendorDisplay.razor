@@ -1,27 +1,14 @@
-﻿<strong>@VendorBusinessName</strong>
-<strong>@DoorNumber</strong>
-<strong>@CityLocation</strong>
-<strong>@Country</strong>
-<strong>@VendorEmail</strong>
-<strong>@VendorPhoneNumber</strong>
+﻿@using Me_MoApp
+
+
+<p><strong>@DVendor.BusinessName</strong></p>
+<p><strong>@DVendor.Address.Door</strong></p>
+<p><strong>@DVendor.Address.City</strong></p>
+<p><strong>@DVendor.Address.Country</strong></p>
+<p><strong>@DVendor.Address.Email</strong></p>
+<p><strong>@DVendor.Phone.PhoneNumber</strong></p>
 
 @code {
     [Parameter]
-    public string? VendorBusinessName { get; set; }
-
-    [Parameter]
-    public int? DoorNumber { get; set; }
-
-    [Parameter]
-    public string? CityLocation { get; set; }
-
-    [Parameter]
-    public string? Country { get; set; }
-
-    [Parameter]
-    public string? VendorEmail { get; set; }
-
-    [Parameter]
-    public string? VendorPhoneNumber { get; set; }
-
+    public Vendor DVendor { get; set; }
 }
