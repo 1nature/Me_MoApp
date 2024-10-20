@@ -7,10 +7,21 @@
 <p><strong>@DPost.Categorization</strong></p>
 <p><strong>@DPost.TotalVotes</strong></p>
 <p><strong>@DPost.TimeStamp</strong></p>
-<p> <strong>@DPost.</strong> </p>
 
+@foreach(var comment in DPost.TheComments)
+{
+   <CommentDisplay Dcomment="comment"></CommentDisplay>
+}
 
 @code {
     [Parameter]
     public Post DPost { get; set; }
 }
+
+create comment display component
+create user input components
+create user edit page
+
+What is an edit page?
+Check my input page
+Does the input replace the dataservice?

@@ -1,0 +1,19 @@
+﻿@page "/commentinterface"
+@using Me_MoApp
+@inject Data.PostDataService cInfo
+<PageTitle>CommentInterface</PageTitle>
+
+<h3>CommentInterface</h3>
+
+<p>
+    @foreach (Comment comment in cInfo.GetTestComments())
+    {
+        <p>@comment.Text</p>
+        <p>@comment.TimeStamp</p>
+
+    }
+</p>
+
+@code {
+
+}

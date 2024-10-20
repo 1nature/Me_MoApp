@@ -9,30 +9,13 @@
 
 
 <p>
-    @foreach (Post post in pInfo.GetTestPosts())
+    @foreach (Post post in pInfo.Posts)
     {
-    <p> <strong>User's First Name</strong> @post.User.FirstName </p>
-    <p> <strong>User's Last Name</strong> @post.User.LastName </p>
-    <p><strong>User's Picture</strong> <img style="width: 100px" src="images/Ayo_Peks.png" /></p>
-    <p> <strong>Post Description</strong> @post.Description </p>
-    <p> <strong>Post Category</strong> @post.Categorization </p>
-    <p> <strong>Votes </strong> @post.TotalVotes </p>
-    <p> <strong>Time </strong> @post.TimeStamp </p>
-
-
-    <h5>Comments under the post</h5>
-    @foreach(var c in post.TheComments)
-        {
-            <p>@c.Text</p>
-            @* <CommentDisplay @comment ="c"></CommentDisplay> *@
-        }
-        <br />
+        <PostDisplay DPost="post"></PostDisplay>
     }
-
-
 </p>
 
 @code {
-    
+
 }
 

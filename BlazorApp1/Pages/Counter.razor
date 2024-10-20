@@ -4,8 +4,7 @@
 @inject Data.AddressDataService aInfo
 @inject Data.PostDataService pInfo
 @inject Data.VendorDataService vInfo
-
-
+@inject Data.PostDataService cInfo
 
 
 <PageTitle>Counter</PageTitle>
@@ -21,6 +20,10 @@
 
 <h5>Post Details</h5>
 <p> <PostDisplay DPost="pInfo.GetTestPosts()[0]"></PostDisplay> </p>
+<br />
+
+<h5>Comments</h5>
+<p> <CommentDisplay Dcomment="cInfo.GetTestComments()[1]"></CommentDisplay> </p>
 <br />
 
 

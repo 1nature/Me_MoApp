@@ -1,0 +1,11 @@
+﻿@using Me_MoApp
+
+<p>@Dcomment.Text by @Dcomment.User.FirstName</p>
+<p>@Dcomment.TimeStamp</p>
+
+
+@code {
+    [Parameter]
+    public Comment Dcomment { get; set; }
+}
+

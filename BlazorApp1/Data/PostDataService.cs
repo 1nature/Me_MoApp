@@ -1,16 +1,31 @@
-﻿namespace BlazorApp1.Data
+﻿using Me_MoApp;
+
+namespace BlazorApp1.Data
 {
     public class PostDataService
     {
-        public List<Me_MoApp.Post> GetTestPosts()
+
+        public PostDataService() 
         {
-            var posts = Me_MoApp.TestData.MakePosts();
+            Posts = GetTestPosts();
+            Comments = GetTestComments();
+        }
+
+        public List<Post> Posts { get; set; }
+
+        public List<Post> GetTestPosts()
+        {
+            var posts = TestData.MakePosts();
             return posts;
         }
 
-        public List<Me_MoApp.Comment> GetTestComments()
+
+
+        public List<Comment> Comments { get; set; }
+
+        public List<Comment> GetTestComments()
         {
-            var comments = Me_MoApp.TestData.MakeComments();
+            var comments = TestData.MakeComments();
             return comments;
         }
 
