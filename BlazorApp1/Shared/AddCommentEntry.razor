@@ -1,0 +1,33 @@
+﻿@using BlazorApp1.Data
+@using Me_MoApp
+@inject UserDataService uds
+@* @inject PostDataService pds *@
+
+
+ <EditForm Model="Comment" OnSubmit="SubmitComment">
+    <div class="col-md-4">
+        <label for="comment" class="form-label">comment</label>
+        <InputText @bind-Value="Comment.Text"></InputText>
+    </div>
+    <button type="submit">Send</button>
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public Post Post { get; set; }
+
+    public Comment Comment { get; set; } = new();
+
+
+    void SubmitComment()
+    {
+        Comment.TimeStamp = DateTime.Now;   
+        Comment.User = uds.GetUsers()[0]; //stand in for the currently logged in user
+
+        //pds.Comments.Add(Comment);
+
+         Post.TheComments.Add(Comment);
+    }
+
+}

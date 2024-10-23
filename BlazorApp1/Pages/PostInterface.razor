@@ -3,7 +3,6 @@
 @inject Data.PostDataService pInfo
 <PageTitle>PostInterface</PageTitle>
 
-@* <SurveyPrompt Title="Heyyyooooooo bro"></SurveyPrompt> *@
 
 <h3>Post Interface</h3>
 
@@ -12,6 +11,15 @@
     @foreach (Post post in pInfo.Posts)
     {
         <PostDisplay DPost="post"></PostDisplay>
+    }
+</p>
+
+
+<p>
+    @foreach (Comment c in pInfo.Comments)
+    {
+        @* <CommentDisplay Dcomment="c"></CommentDisplay> *@
+        @* <AddCommentEntry>Comment="comment"</AddCommentEntry> *@
     }
 </p>
 

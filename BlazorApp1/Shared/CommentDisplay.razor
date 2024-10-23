@@ -1,8 +1,11 @@
 ﻿@using Me_MoApp
 
-<p>@Dcomment.Text by @Dcomment.User.FirstName</p>
-<p>@Dcomment.TimeStamp</p>
-
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <p>@Dcomment.Text</p>
+            <small>by @Dcomment.User.FirstName on @Dcomment.TimeStamp</small>
+    </div>
+</div>
 
 @code {
     [Parameter]

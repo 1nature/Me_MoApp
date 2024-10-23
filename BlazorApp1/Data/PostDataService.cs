@@ -4,7 +4,6 @@ namespace BlazorApp1.Data
 {
     public class PostDataService
     {
-
         public PostDataService() 
         {
             Posts = GetTestPosts();
@@ -18,7 +17,6 @@ namespace BlazorApp1.Data
             var posts = TestData.MakePosts();
             return posts;
         }
-
 
 
         public List<Comment> Comments { get; set; }

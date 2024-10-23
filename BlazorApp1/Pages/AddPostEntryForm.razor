@@ -24,7 +24,7 @@
 
 </EditForm>
 
-<EditForm Model="Comment" OnSubmit="SubmitComment">
+@* <EditForm Model="Comment" OnSubmit="SubmitComment">
     <div class="col-md-4">
         <label for="comment" class="form-label">comment</label>
         <InputText @bind-Value="Comment.Text"></InputText>
@@ -32,7 +32,7 @@
     <button type="submit">Send</button>
 
 </EditForm>
-
+ *@
 
 
 @code {
@@ -41,21 +41,24 @@
     void OnSubmit()
     {
         Post.TimeStamp = DateTime.Now;
-        Post.User = uds.GetUsers()[0];
+        Post.User = uds.GetUsers()[0]; //to stand in for the logged user
 
         pds.Posts.Add(Post);
     }
 
-    public Comment Comment { get; set; } = new();
+    // public Comment Comment { get; set; } = new();
 
-    void SubmitComment()
-    {
-        Comment.TimeStamp = DateTime.Now;
-        Comment.Text = pds.ToString(); //is this ALRIGHT?
+    // void SubmitComment()
+    // {
+    //     Comment.TimeStamp = DateTime.Now;
+    //     Comment.Text = pds.ToString(); //is this ALRIGHT?
 
-        pds.Comments.Add(Comment);
-    }
+    //     pds.Comments.Add(Comment);
+    // }
 }
 
-come back here to see what works
-create post and comment entry page that goes into either data service
+@* check my post and comment entry form
+why can't I display all posts?
+what next? *@
+
+@* comment not showing on web *@
