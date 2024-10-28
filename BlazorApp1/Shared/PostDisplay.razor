@@ -1,15 +1,14 @@
 ﻿@using Me_MoApp
-<div class="card">
+<div class="card mx-auto" style="width: 40rem;">
     <div class="card-body">
-        <p><strong>@DPost.User.FirstName</strong></p>
-        <p><strong>@DPost.User.LastName</strong></p>
+        <p><strong>@DPost.User.FirstName @DPost.User.LastName</strong></p>
         <p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p>
         <p><strong>@DPost.Description</strong></p>
         <p><strong>@DPost.Categorization</strong></p>
         <p><strong>@DPost.TotalVotes</strong></p>
         <p><strong>@DPost.TimeStamp</strong></p>
-
-        <AddCommentEntry Post="DPost"></AddCommentEntry>
+        <hr />
+        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry>
 
 
         @foreach (var comment in DPost.TheComments)
@@ -25,11 +24,5 @@
     public Post DPost { get; set; }
 }
 
-@* create comment display component
-create user input components
-create user edit page
-
-What is an edit page?
-Check my input page
-Does the input replace the dataservice?
- *@
+@*  why do I need postInterface, postDisplay and postDataservice.
+ Seems like a long reach? *@
