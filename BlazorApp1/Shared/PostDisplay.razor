@@ -8,8 +8,8 @@
         <p><strong>@DPost.TotalVotes</strong></p>
         <p><strong>@DPost.TimeStamp</strong></p>
         <hr />
-        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry>
 
+        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry>
 
         @foreach (var comment in DPost.TheComments)
         {

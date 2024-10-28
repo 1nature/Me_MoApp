@@ -2,12 +2,16 @@
 @using Me_MoApp
 @inject UserDataService uds
 
- <EditForm Model="Comment" OnSubmit="UpdatePostValue">
+<EditForm Model="Comment" OnSubmit="UpdatePostValue">
     <div class="col-md-4">
-        <label for="comment" class="form-label">comment</label>
+
+        <label for="comment" class="form-label">Make a comment</label>
+        @* <InputText @bind-Value="Comment.Text" class="form-control"></InputText> *@
         <InputText @bind-Value="Comment.Text"></InputText>
+
+        <button type="submit">Send</button>
     </div>
-    <button type="submit">Send</button>
+    @* <button type="submit">Send</button> *@
 
 </EditForm>
 
@@ -23,21 +27,12 @@
     async Task UpdatePostValue()
     {
         Comment.TimeStamp = DateTime.Now;
-        Comment.User = uds.GetUsers()[0]; 
+        Comment.User = uds.GetUsers()[0];
 
         Post.TheComments.Add(Comment);
         await PostChanged.InvokeAsync(Post);
     }
 
-    // void SubmitComment()
-    // {
-    //     Comment.TimeStamp = DateTime.Now;   
-    //     Comment.User = uds.GetUsers()[0]; //stand in for the currently logged in user
-
-    //     //pds.Comments.Add(Comment);
-
-    //      Post.TheComments.Add(Comment);
-    // }
 
 }
 
