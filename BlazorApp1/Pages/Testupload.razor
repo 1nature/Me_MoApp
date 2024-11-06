@@ -1,39 +1,8 @@
-﻿@page "/postentryform"
-@using BlazorApp1.Data
-@using Me_MoApp
-@inject UserDataService uds
-@inject PostDataService pds
-
+﻿@page "/testupload"
 @using System
 @using System.IO
 @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment Environment
-
-<PageTitle>PostInputInterface</PageTitle>
-
-<h3>Post Entry Form</h3>
-
-    <EditForm Model="Post" OnSubmit="OnSubmit">
-    <div class="card mx-auto" style="width: 40rem;">
-            <div class="col-md-4">
-                <label for="picture" class="form-label">Picture</label>
-                <InputFile @bind-Value="Post.Path"></InputFile>
-                <InputFile OnChange="LoadFiles" />
-            </div>
-
-        <div class="col-md-4">
-            <label for="description" class="form-label">Description</label>
-            <InputText @bind-Value="Post.Description"></InputText>
-        </div>
-
-
-       @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
-        @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
-        <br />
-        <button type="submit" class="col-md-2 md-start">Send</button>
-
-    </div>
-    </EditForm>
 
 <PageTitle>File Upload 1</PageTitle>
 
@@ -81,23 +50,11 @@ else
     </ul>
 }
 
-
-
 @code {
     private List<IBrowserFile> loadedFiles = new();
     private long maxFileSize = 1024 * 15000;
     private int maxAllowedFiles = 3;
     private bool isLoading;
-
-    public Post Post { get; set; } = new();
-
-    void OnSubmit()
-    {
-        Post.TimeStamp = DateTime.Now;
-        Post.User = uds.GetUsers()[0]; //to stand in for the logged user
-
-        pds.Posts.Add(Post);
-    }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
@@ -127,17 +84,3 @@ else
         isLoading = false;
     }
 }
-
-@* check my post and comment entry form
-why can't I display all posts?
-what next? *@
-
-@* comment not showing on web *@
-
-@* comment input keeps updating new comments
-time not sticking. keeps changing
-comments delete after rebuild
-button not prepended. button & input should be on the same line
-time not sticking. keeps changing
-file upload incompleted
-categorization stuff *@

@@ -9,9 +9,10 @@
         @* <InputText @bind-Value="Comment.Text" class="form-control"></InputText> *@
         <InputText @bind-Value="Comment.Text"></InputText>
 
-        <button type="submit">Send</button>
+        @* <button type="submit">Send</button> *@
     </div>
-    @* <button type="submit">Send</button> *@
+    <button type="submit">Send</button>
+    <hr />
 
 </EditForm>
 
@@ -31,6 +32,7 @@
 
         Post.TheComments.Add(Comment);
         await PostChanged.InvokeAsync(Post);
+        Comment = new();
     }
 
 
