@@ -13,13 +13,12 @@
 
 <h3>Post Entry Form</h3>
 
-    <EditForm Model="Post" OnSubmit="OnSubmit">
+<EditForm Model="Post" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
-            <div class="col-md-4">
-                <label for="picture" class="form-label">Picture</label>
-                <InputFile @bind-Value="Post.Path"></InputFile>
-                <InputFile OnChange="LoadFiles" />
-            </div>
+        <div class="col-md-4">
+            <label for="picture" class="form-label">Picture</label>
+            <InputFile OnChange="LoadFiles" />
+        </div>
 
         <div class="col-md-4">
             <label for="description" class="form-label">Description</label>
@@ -27,15 +26,15 @@
         </div>
 
 
-       @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
+        @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
 
     </div>
-    </EditForm>
+</EditForm>
 
-<PageTitle>File Upload 1</PageTitle>
+@* <PageTitle>File Upload 1</PageTitle>
 
 <h1>File Upload Example 1</h1>
 
@@ -44,23 +43,23 @@
         Max file size:
         <input type="number" @bind="maxFileSize" />
     </label>
-</p>
+</p> *@
 
-<p>
+@* <p>
     <label>
         Max allowed files:
         <input type="number" @bind="maxAllowedFiles" />
     </label>
-</p>
+</p> *@
 
-<p>
+@* <p>
     <label>
         Upload up to @maxAllowedFiles of up to @maxFileSize bytes:
         <InputFile OnChange="LoadFiles" multiple />
     </label>
-</p>
+</p> *@
 
-@if (isLoading)
+@* @if (isLoading)
 {
     <p>Uploading...</p>
 }
@@ -79,7 +78,7 @@ else
             </li>
         }
     </ul>
-}
+} *@
 
 
 
@@ -108,14 +107,21 @@ else
         {
             try
             {
-                var trustedFileName = Path.GetRandomFileName();
-                var path = Path.Combine(Environment.ContentRootPath,
-                    trustedFileName);
+                var trustedFileName = Path.GetRandomFileName() + "." + Path.GetExtension(file.Name); //TODO: probalby generate random name but keep original file extension
+                var rootPath = Environment.ContentRootPath;
+                var imageFolderPath = "wwwroot\\images";
+                var path = Path.Combine(rootPath, imageFolderPath);
+                path = Path.Combine(path, trustedFileName);
 
                 await using FileStream fs = new(path, FileMode.Create);
                 await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
 
                 loadedFiles.Add(file);
+
+                if (Post.Path == null)
+                {
+                    Post.Path = path;
+                }
 
             }
             catch (Exception ex)
@@ -128,16 +134,5 @@ else
     }
 }
 
-@* check my post and comment entry form
-why can't I display all posts?
-what next? *@
-
-@* comment not showing on web *@
-
-@* comment input keeps updating new comments
-time not sticking. keeps changing
-comments delete after rebuild
-button not prepended. button & input should be on the same line
-time not sticking. keeps changing
-file upload incompleted
-categorization stuff *@
+@* need to refix the file upload *@
+@* at what point do I serialize *@

@@ -2,7 +2,11 @@
 <div class="card mx-auto" style="width: 40rem;">
     <div class="card-body">
         <p><strong>@DPost.User.FirstName @DPost.User.LastName</strong></p>
-        <p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p>
+
+        @* <p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p> *@
+
+        <p><p><img style="width: 100px" src="@DPost.Path"/></p></p>
+
         <p><strong>@DPost.Description</strong></p>
         <p><strong>@DPost.Categorization</strong></p>
         <p><strong>@DPost.TotalVotes</strong></p>
