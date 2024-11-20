@@ -1,4 +1,6 @@
 ﻿using Me_MoApp;
+using Microsoft.Extensions.Hosting;
+using System.Xml.Linq;
 
 namespace BlazorApp1.Data
 {
@@ -26,6 +28,14 @@ namespace BlazorApp1.Data
             var comments = TestData.MakeComments();
             return comments;
         }
+
+        public UserDataService()
+        {
+            Users = GetUsers();
+            //Comments = GetTestComments();
+        }
+
+        public List<User> Users { get; set; }
 
         //public User CurrentUser => Me_MoApp.TestData.GetUsers().First();
     }

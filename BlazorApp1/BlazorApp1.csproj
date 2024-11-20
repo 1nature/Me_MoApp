@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Me_MoApp\Me_MoApp.csproj" />
   </ItemGroup>
 

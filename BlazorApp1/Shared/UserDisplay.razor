@@ -1,11 +1,26 @@
 ﻿@using Me_MoApp
+<div class="card mx-auto" style="width: 40rem;">
+    <div class="card-body">
+        <p><strong>@DUser.ID</strong></p>
+        <p><strong>@DUser.FirstName @DUser.LastName</strong></p>
+        <p><img style="width: 100px" src="@DUser.Picture" /></p>
+        <p><strong>@DUser.Sex</strong></p>
+        <p><strong>@DUser.Phone.PhoneNumber</strong></p>
+    </div>
+</div>
 
-<p><strong>@DUser.ID</strong></p>
+
+
+
+
+
+
+@* <p><strong>@DUser.ID</strong></p>
 <p><strong>@DUser.FirstName</strong></p>
 <p><strong>@DUser.LastName</strong></p>
 <p><img style="width: 100px" src="@DUser.Picture" /></p>
 <p><strong>@DUser.Sex</strong></p>
-<p><strong>@DUser.Phone.PhoneNumber</strong></p>
+<p><strong>@DUser.Phone.PhoneNumber</strong></p> *@
 
 
 @code {

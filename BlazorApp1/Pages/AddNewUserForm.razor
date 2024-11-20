@@ -1,41 +1,64 @@
-﻿@page "/postentryform"
+﻿@page "/userentryform"
 @using BlazorApp1.Data
 @using Me_MoApp
-@inject UserDataService uds
-@inject PostDataService pds
-
+@inject UserDataService udx
 
 @using System
 @using System.IO
 @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment Environment
 
-<PageTitle>PostInputInterface</PageTitle>
+<h3>New User Entry Form</h3>
 
-<h3>Post Entry Form</h3>
-
-<EditForm Model="Post" OnSubmit="OnSubmit">
+<EditForm Model="User" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
+        <div class="col-md-4">
+            <label for="user ID" class="form-label">User ID</label>
+            <InputNumber @bind-Value="User.ID"></InputNumber>
+        </div>
+
         <div class="col-md-4">
             <label for="picture" class="form-label">Picture</label>
             <InputFile OnChange="LoadFiles" />
         </div>
 
         <div class="col-md-4">
-            <label for="description" class="form-label">Description</label>
-            <InputText @bind-Value="Post.Description"></InputText>
+            <label for="first name" class="form-label">First Name</label>
+            <InputText @bind-Value="User.FirstName"></InputText>
         </div>
 
+        <div class="col-md-4">
+            <label for="last name" class="form-label">Last Name</label>
+            <InputText @bind-Value="User.LastName"></InputText>
+        </div>
+        <p></p>
+        <div class="col-md-4">
+            <label for="sex" class="form-label">Sex</label>
+            <InputSelect @bind-Value="User.Sex">
+               <option value="">
+                   Choose sex
+               </option>
+                <option checked="@(User.Sex == "Male")"
+                        value="Male">
+                    Male
+                </option>
+                <option checked="@(User.Sex == "Female")"
+                        value="Female">
+                    Female
+                </option>
+            </InputSelect>
 
-        @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
-        @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
+            <div class="col-md-4">
+                <label for="phone number" class="form-label">Phonenumber</label>
+                <InputText @bind-Value="User.Phone.PhoneNumber"></InputText>
+            </div>
+
+        </div>
+
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
-
     </div>
 </EditForm>
-
-
 
 @code {
     private List<IBrowserFile> loadedFiles = new();
@@ -43,14 +66,11 @@
     private int maxAllowedFiles = 3;
     private bool isLoading;
 
-    public Post Post { get; set; } = new();
+    public User User { get; set; } = new();
 
     void OnSubmit()
     {
-        Post.TimeStamp = DateTime.Now;
-        Post.User = uds.GetUsers()[0]; //to stand in for the logged user
-
-        pds.Posts.Add(Post);
+        udx.Users.Add(User);
     }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
@@ -88,7 +108,5 @@
 
         isLoading = false;
     }
-}
 
-@* need to refix the file upload *@
-@* at what point do I serialize *@
+}

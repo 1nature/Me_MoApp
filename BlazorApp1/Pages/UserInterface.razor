@@ -3,10 +3,20 @@
 @inject Data.UserDataService uInfo
 <PageTitle>UserInterface</PageTitle>
 
-<h3>User Information</h3>
+@* <h3>User Information</h3> *@
+<h3 class="text-center">User Interface</h3>
+
+<p>
+    @foreach(User user in uInfo.Users)
+    {
+        <UserDisplay DUser="user"></UserDisplay>
+    }
+</p>
 
 
-@foreach (User u in uInfo.GetUsers())
+
+
+@* @foreach (User u in uInfo.GetUsers())
 {
     <p>
     <p> <strong>User ID:</strong> @u.ID</p>
@@ -17,7 +27,7 @@
     <p> <strong>Phone Number:</strong> @u.Phone.PhoneNumber</p>
     <br />
     </p>
-}
+} *@
 
 
 
