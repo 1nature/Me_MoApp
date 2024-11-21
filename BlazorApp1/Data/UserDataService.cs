@@ -35,6 +35,11 @@ namespace BlazorApp1.Data
             //Comments = GetTestComments();
         }
 
+        public void Save()
+        {
+            //TODO: serialize user list
+        }
+
         public List<User> Users { get; set; }
 
         //public User CurrentUser => Me_MoApp.TestData.GetUsers().First();

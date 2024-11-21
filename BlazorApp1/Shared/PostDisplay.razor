@@ -4,8 +4,10 @@
         <p><strong>@DPost.User.FirstName @DPost.User.LastName</strong></p>
 
         @* <p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p> *@
-
-        <p><p><img style="width: 100px" src="@DPost.Path"/></p></p>
+        @foreach (var path in DPost.Path) //make paths a list
+        {
+            <p><p><img style="width: 100px" src="/images/@path" /></p></p>
+        }
 
         <p><strong>@DPost.Description</strong></p>
         <p><strong>@DPost.Categorization</strong></p>
@@ -37,3 +39,4 @@
 @* create somewhere users can edit their account *@
  @* upload multiple pictures *@
  @* create condition for uploading picture *@
+ @* parameter *@
