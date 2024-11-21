@@ -12,12 +12,12 @@
 
         public int ID { get; set; }
 
-        private List<Post> _path;
 
-        public List<Post> Path
+        private List<string> _paths = new();
+        public List<string> Paths
         {
-            get { return _path; }
-            set { _path = value; }
+            get { return _paths; }
+            set { _paths = value; }
         }
 
         //private List<string> Pathe = new List<string>();

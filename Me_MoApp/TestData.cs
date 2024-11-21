@@ -155,11 +155,19 @@
         {
             var rng = new Random();
             var thePostsList = new List<Post>();
+            List<string> imageLinks = new List<string>
+            {
+                @"/images/_SLK9321.jpg",
+                @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg",
+                @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"
+            };
 
             Post post1 = new();
             post1.User = GetUsers().First();
             post1.Address = GetUserAddress()[0];
-            post1.Path = @"/images/_SLK9321.jpg"; //what if 2 or more posts?
+          
+            post1.Paths = imageLinks;
+            //post1.Paths = @"/images/_SLK9321.jpg"; //what if 2 or more posts?
             post1.User.Vendor = GetVendors().First();  
             PostCategory post1Category = PostCategory.Party;
             post1.Categorization = post1Category;
@@ -187,7 +195,8 @@
             Post post2 = new();
             post2.User = GetUsers()[1];
             post2.Address = GetUserAddress()[1];
-            post2.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
+            post2.Paths = imageLinks;
+            //post2.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
             post2.User.Vendor = GetVendors()[1];
             PostCategory post2Category = PostCategory.Wedding;
             post2.Categorization = post2Category;
@@ -216,7 +225,8 @@
             Post post3 = new();
             post3.User = GetUsers()[2];
             post3.Address = GetUserAddress()[2];
-            post3.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
+            post3.Paths = imageLinks;
+            //post3.Path = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg"; //what if 2 or more posts?
             post3.User.Vendor = GetVendors()[2];
             PostCategory post3Category = PostCategory.Office;
             post3.Categorization = post3Category;
