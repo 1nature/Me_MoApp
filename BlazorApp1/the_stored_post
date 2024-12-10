@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPost xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths>
+      <string>jumyuw2b.3bo..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Young John</Description>
+    <TheComments />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Vendor>
+      <Address />
+      <Phone />
+    </Vendor>
+    <TimeStamp>2024-11-28T12:47:54.9285455+00:00</TimeStamp>
+    <Votes />
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths>
+      <string>bswgg1oz.2ll..jpg</string>
+      <string>buqy0bed.a5g..jpeg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Trying things</Description>
+    <TheComments />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Vendor>
+      <Address />
+      <Phone />
+    </Vendor>
+    <TimeStamp>2024-11-28T13:26:22.534107+00:00</TimeStamp>
+    <Votes />
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths>
+      <string>ckeaku2j.k1c..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Painting trial</Description>
+    <TheComments />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Vendor>
+      <Address />
+      <Phone />
+    </Vendor>
+    <TimeStamp>2024-11-28T16:28:20.8435781+00:00</TimeStamp>
+    <Votes />
+  </Post>
+</ArrayOfPost>

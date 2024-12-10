@@ -6,11 +6,17 @@ namespace BlazorApp1.Data
     {
         public PostDataService() 
         {
-            Posts = GetTestPosts();
+            //   Posts = GetTestPosts(); //post has data
+            //  LogicMethod.SaveDataToDisk(Posts); //post is empty, what am I missing?
+
+            Posts = LogicMethod.LoadDataFromDisk(); //TODO: implement DE-serialisation
+            //put a condition to check if file exist like the quiz maker
+            //like a method exist
+
             Comments = GetTestComments();
         }
 
-        public List<Post> Posts { get; set; }
+        public List<Post> Posts { get; set; } = new();
 
         public List<Post> GetTestPosts()
         {
@@ -26,7 +32,5 @@ namespace BlazorApp1.Data
             var comments = TestData.MakeComments();
             return comments;
         }
-
-
     }
 }

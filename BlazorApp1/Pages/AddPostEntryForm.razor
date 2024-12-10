@@ -51,6 +51,7 @@
         Post.User = uds.GetUsers()[0]; //to stand in for the logged user
 
         pds.Posts.Add(Post);
+        LogicMethod.SaveDataToDisk(pds.Posts);
     }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)

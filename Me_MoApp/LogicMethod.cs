@@ -1,4 +1,7 @@
-﻿namespace Me_MoApp
+﻿using System.Reflection.Metadata;
+using System.Xml.Serialization;
+
+namespace Me_MoApp
 {
     public static class LogicMethod
     {
@@ -14,6 +17,31 @@
                 }
             }
             return total;
+        }
+
+        public static void SaveDataToDisk(List<Post> savePost) //serialisation
+        {
+            XmlSerializer writer = new(typeof(List<Post>));
+
+            using (FileStream file = File.Create(Constants.savedPostPath))
+            {
+                writer.Serialize(file, savePost);
+            }
+        }
+
+        public static List<Post> LoadDataFromDisk()
+        {
+            XmlSerializer xmlSerializer = new(typeof(List<Post>));
+            List<Post> storedPosts = null;
+
+            if (File.Exists(Constants.savedPostPath))
+            {
+                using (FileStream file = File.OpenRead(Constants.savedPostPath))
+                {
+                    storedPosts = xmlSerializer.Deserialize(file) as List<Post>;
+                }
+            }
+            return storedPosts;
         }
 
         public static int GetAllVotesForUser(User user, List<Post> allPosts)

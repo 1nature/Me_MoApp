@@ -1,0 +1,37 @@
+﻿@page "/editpostform"
+@using BlazorApp1.Data
+@using Me_MoApp
+@inject UserDataService userdatasx
+@inject PostDataService postdatasx
+
+<h3>EditPostForm</h3>
+
+<EditForm Model="Post" OnSubmit="OnEdit">
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">
+            First Name
+        </label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="Post.User.FirstName"></InputText>
+            @* <InputText @bind-Value="Post.Description"></InputText> *@
+
+        </div>
+    </div>
+
+    <button class="btn-dark" type="submit">Submit</button>
+</EditForm>
+
+@code {
+    public Post Post { get; set; } = new();
+
+    void OnEdit()
+    {
+            Post.TimeStamp = DateTime.Now;
+            Post.User = userdatasx.GetUsers()[0]; //to stand in for the logged user
+
+            postdatasx.Posts.Add(Post);
+            LogicMethod.SaveDataToDisk(postdatasx.Posts);
+    }
+
+    // how to edit a page
+}
