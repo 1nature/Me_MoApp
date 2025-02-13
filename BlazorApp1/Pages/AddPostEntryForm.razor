@@ -50,6 +50,15 @@
         Post.TimeStamp = DateTime.Now;
         Post.User = uds.GetUsers()[0]; //to stand in for the logged user
 
+        //example!
+        // int maxID = 0;
+        // foreach(var post in pds.Posts)
+        // {
+        //     if (post.ID > maxID)
+        //         maxID = post.ID;
+        // }
+
+        Post.ID = pds.Posts.Max(p => p.ID) + 1;
         pds.Posts.Add(Post);
         LogicMethod.SaveDataToDisk(pds.Posts);
     }

@@ -15,12 +15,21 @@
         <p><strong>@DPost.TimeStamp</strong></p>
         <hr />
 
-        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry>
+        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry> 
+        
 
         @foreach (var comment in DPost.TheComments)
         {
             <CommentDisplay Dcomment="comment"></CommentDisplay>
         }
+
+        <AddVendorEntry @bind-Post="DPost"></AddVendorEntry>
+
+        @foreach (var vendor in DPost.Vendor) 
+        {
+            <VendorDisplay DVendor="vendor"></VendorDisplay>
+        }
+        @* vendors not showing *@
 
     </div>
 </div>

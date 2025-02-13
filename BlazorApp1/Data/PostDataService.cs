@@ -25,12 +25,20 @@ namespace BlazorApp1.Data
         }
 
 
-        public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; } = new();
 
         public List<Comment> GetTestComments()
         {
             var comments = TestData.MakeComments();
             return comments;
+        }
+
+        public List<Vendor> Vendors { get; set; } = new();
+
+        public List<Vendor> GetTheVendors()
+        {
+            var vendors = TestData.GetVendors();
+            return vendors;
         }
     }
 }

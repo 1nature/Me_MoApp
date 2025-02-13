@@ -56,7 +56,8 @@
             get { return _vendor; }
             set { _vendor = value; }
         }
-
+        //TODO Vendor class be attached to the Post?
+        //TODO Vendors in a list?
         //private Comment _comment = new();
 
         //public Comment Comment

@@ -35,15 +35,15 @@
         <div class="col-md-4">
             <label for="sex" class="form-label">Sex</label>
             <InputSelect @bind-Value="User.Sex">
-               <option value="">
-                   Choose sex
-               </option>
+                <option value="">
+                    Choose sex
+                </option>
                 <option checked="@(User.Sex == "Male")"
-                        value="Male">
+                value="Male">
                     Male
                 </option>
                 <option checked="@(User.Sex == "Female")"
-                        value="Female">
+                value="Female">
                     Female
                 </option>
             </InputSelect>
@@ -71,6 +71,8 @@
     void OnSubmit()
     {
         udx.Save();
+        udx.Users.Add(User);
+
     }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
@@ -92,6 +94,8 @@
                 await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
 
                 loadedFiles.Add(file);
+
+                User.Picture = trustedFileName;
 
                 //condition added for now
                 // if (Post.Path == null)

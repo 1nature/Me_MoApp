@@ -1,11 +1,27 @@
 ﻿@page "/vendorinterface"
 @using Me_MoApp
-@inject Data.VendorDataService vInfo
+@inject Data.PostDataService vInfo
 <PageTitle>VendorInterface</PageTitle>
 
 
+
 <h3>Vendor Interface</h3>
+
 <p>
+    @foreach (Vendor vendor in vInfo.GetTheVendors())
+    {
+    <p>@vendor.BusinessName</p>
+    <p>@vendor.Address.Door</p>
+    <p>@vendor.Address.Street</p>
+    <p>@vendor.Address.City</p>
+    <p>@vendor.Address.Country</p>
+
+
+    }
+
+</p>
+
+@* <p>
     @foreach (Vendor v in vInfo.GetVendors())
     {
     <p> <strong>Business Name:</strong> @v.BusinessName</p>
@@ -17,7 +33,7 @@
     <br />
     }
 
-</p>
+</p> *@
 
 @code {
 

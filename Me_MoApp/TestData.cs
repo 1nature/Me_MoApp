@@ -10,7 +10,7 @@
             Phone phone1 = new Phone();
             user1.FirstName = "Ayokunle";
             user1.LastName = "Olanipekun";
-            user1.Picture = @"/images/Ayo_Peks.jpg";
+            user1.Picture = @"Ayo_Peks.jpg";
             user1.Sex = "Male";
             user1.Phone = phone1;
             user1.Phone.PhoneNumber = "07340264066";
@@ -20,7 +20,7 @@
             Phone phone2 = new Phone();
             user2.FirstName = "John";
             user2.LastName = "Briggs";
-            user2.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
+            user2.Picture = @"h5komlrb.2v2..png";
             user2.Sex = "Male";
             user2.Phone = phone2;
             user2.Phone.PhoneNumber = "07366264996";
@@ -31,7 +31,7 @@
             Phone phone3 = new Phone();
             user3.FirstName = "Sharon";
             user3.LastName = "Stone";
-            user3.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
+            user3.Picture = @"2x0k5d4i.svc..jpg";
             user3.Sex = "Female";
             user3.Phone = phone3;
             user3.Phone.PhoneNumber = "07356784066";
@@ -41,7 +41,7 @@
             Phone phone4 = new Phone(); //no need for this here. Should be elsewhere
             user4.FirstName = "Doga";
             user4.LastName = "Golizade";
-            user4.Picture = @"C:\Users\User\OneDrive\Pictures\_SLK9321.jpg";
+            user4.Picture = @"mqwiu1uo.4jg..jpeg";
             user4.Sex = "Female";
             user4.Phone = phone4;
             user4.Phone.PhoneNumber = "07399884066";

@@ -53,6 +53,12 @@
             set { _thecoments = value; }
         }
 
+        private List<Vendor> _vendor = new();
+        public List<Vendor> Vendor
+        {
+            get { return _vendor; }
+            set { _vendor = value; }
+        }
 
         private Address _address = new();
         public Address Address
@@ -68,12 +74,7 @@
             set { _user = value; }
         }
 
-        private Vendor _vendor = new();
-        public Vendor Vendor
-        {
-            get { return _vendor; }
-            set { _vendor = value; }
-        }
+      
 
         private DateTime _timeStamp = new();
         public DateTime TimeStamp

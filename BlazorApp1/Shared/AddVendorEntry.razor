@@ -1,0 +1,40 @@
+﻿@using BlazorApp1.Data
+@using Me_MoApp
+@inject UserDataService uVen
+@inject PostDataService pVen
+
+<h3>AddVendorEntry</h3>
+
+<EditForm Model="Vendor" OnSubmit="UpdatePostValue">
+    <div class="col-md-4">
+
+        <label for="vendor_name" class="form-label">Add your vendor</label>
+        <InputText @bind-Value="Vendor.BusinessName"></InputText>
+
+        @* <button type="submit">Send</button> *@
+    </div>
+    <button type="submit">Send</button>
+    <hr />
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public Post Post { get; set; }
+
+    public Vendor Vendor { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Post> PostChanged { get; set; }
+
+    async Task UpdatePostValue()
+    {
+        //Comment.TimeStamp = DateTime.Now;
+        //Comment.User = uds.GetUsers()[0]; //what if this one is not here?
+
+        Post.Vendor.Add(Vendor);
+        await PostChanged.InvokeAsync(Post); // what is this?
+        Vendor = new();
+
+    }
+}

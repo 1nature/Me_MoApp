@@ -1,6 +1,4 @@
 ﻿using Me_MoApp;
-using Microsoft.Extensions.Hosting;
-using System.Xml.Linq;
 
 namespace BlazorApp1.Data
 {
