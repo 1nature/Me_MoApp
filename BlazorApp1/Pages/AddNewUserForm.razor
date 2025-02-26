@@ -1,4 +1,4 @@
-﻿@page "/userentryform"
+﻿@page "/userentryform/{UserID:int}"
 @using BlazorApp1.Data
 @using Me_MoApp
 @inject UserDataService udx
@@ -8,7 +8,14 @@
 @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment Environment
 
-<h3>New User Entry Form</h3>
+@if(UserID == 0)
+{
+    <h3>New User Entry Form</h3>
+}
+else
+{
+    <h3>Edit User Form</h3>
+}
 
 <EditForm Model="User" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
@@ -39,14 +46,15 @@
                     Choose sex
                 </option>
                 <option checked="@(User.Sex == "Male")"
-                value="Male">
+                        value="Male">
                     Male
                 </option>
                 <option checked="@(User.Sex == "Female")"
-                value="Female">
+                        value="Female">
                     Female
                 </option>
             </InputSelect>
+
 
             <div class="col-md-4">
                 <label for="phone number" class="form-label">Phonenumber</label>
@@ -66,12 +74,27 @@
     private int maxAllowedFiles = 3;
     private bool isLoading;
 
-    public User User { get; set; } = new();
+    [Parameter]
+    public int UserID { get; set; } = 0;
+
+    public User User { get; set; } = new(); //find a specific user
+
+    protected override void OnParametersSet()
+    {
+        if (UserID != 0)
+        {
+            User = udx.Users.Where(u => u.ID == UserID).First();
+        }
+        base.OnParametersSet();
+    }
 
     void OnSubmit()
     {
         udx.Save();
-        udx.Users.Add(User);
+        if (UserID == 0) //adding new user
+        {
+            udx.Users.Add(User);
+        }
 
     }
 

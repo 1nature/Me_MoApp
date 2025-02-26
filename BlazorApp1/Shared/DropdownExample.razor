@@ -1,0 +1,22 @@
+﻿@using BlazorApp1.Data
+@using Me_MoApp
+@inject PostDataService pds;
+<h3>DropdownExample</h3>
+
+<InputSelect Value="selectedVendor">
+    @foreach(var vendor in pds.Vendors)
+    {
+        <option> @vendor.BusinessName</option>
+
+       
+
+    }
+</InputSelect>
+
+@code {
+    //what does it mean to have a code 
+    // like the one below inside this block?
+    //So that the code would not render?
+    Vendor selectedVendor { get; set; }
+
+}

@@ -3,7 +3,6 @@
     <div class="card-body">
         <p><strong>@DPost.User.FirstName @DPost.User.LastName</strong></p>
 
-        @* <p><p><img style="width: 100px" src="@DPost.User.Picture" /></p></p> *@
         @foreach (var path in DPost.Paths) //make paths a list
         {
             <p><p><img style="width: 100px" src="/images/@path" /></p></p>
@@ -22,14 +21,12 @@
         {
             <CommentDisplay Dcomment="comment"></CommentDisplay>
         }
-
-        <AddVendorEntry @bind-Post="DPost"></AddVendorEntry>
+        
 
         @foreach (var vendor in DPost.Vendor) 
         {
             <VendorDisplay DVendor="vendor"></VendorDisplay>
         }
-        @* vendors not showing *@
 
     </div>
 </div>

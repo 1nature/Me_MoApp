@@ -30,8 +30,11 @@
         @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
+
         <button type="submit" class="col-md-2 md-start">Send</button>
 
+        <hr />
+        <AddVendorEntry @bind-Post="DPost"></AddVendorEntry>
     </div>
 </EditForm>
 
@@ -44,6 +47,9 @@
     private bool isLoading;
 
     public Post Post { get; set; } = new();
+
+    [Parameter]
+    public Post DPost { get; set; } = new();
 
     void OnSubmit()
     {

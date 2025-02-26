@@ -12,7 +12,16 @@
 
 <PageTitle>PostInputInterface</PageTitle>
 
-<h3>Post Entry Form</h3>
+@if (PostID == 0)
+{
+    <h3>New Post Entry Form</h3>
+}
+else
+{
+    <h3>Edit Post Form</h3>
+}
+
+@* <h3>Edit Post Form</h3> *@
 
 <EditForm Model="Post" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
@@ -48,20 +57,43 @@
     [Parameter]
     public int PostID { get; set; }
 
-    void OnSubmit()
-    {
-        Post.TimeStamp = DateTime.Now;
-        Post.User = uds.GetUsers()[0]; //to stand in for the logged user
-
-        
-        LogicMethod.SaveDataToDisk(pds.Posts);
-    }
-
     protected override void OnParametersSet()
     {
-        Post = pds.Posts.Where(p => p.ID == PostID).First();
+        if (PostID != 0)
+        {
+            Post = pds.Posts.Where(p => p.ID == PostID).First();
+        }
         base.OnParametersSet();
     }
+
+    // void OnSubmit()
+    // {
+    //     udx.Save();
+    //     if (UserID == 0) //adding new user
+    //     {
+    //         udx.Users.Add(User);
+    //     }
+
+    // }
+
+    void OnSubmit()
+    {
+        // Post.TimeStamp = DateTime.Now;
+        // Post.User = uds.GetUsers()[0]; //to stand in for the logged user
+        LogicMethod.SaveDataToDisk(pds.Posts);
+
+        if (PostID == 0) {
+            pds.Posts.Add(Post);
+            Post.TimeStamp = DateTime.Now;
+            //LogicMethod.SaveDataToDisk(pds.Posts);
+        }
+    }
+
+    // protected override void OnParametersSet()
+    // {
+    //     Post = pds.Posts.Where(p => p.ID == PostID).First();
+    //     base.OnParametersSet();
+    // }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
