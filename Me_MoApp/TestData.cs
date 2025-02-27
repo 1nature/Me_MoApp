@@ -266,5 +266,8 @@
        //Get user name, address, vendor info from a post
        //What if a user has mulitiple uploads/paths
         
+        //Two post entry pages
+        //Vendor not rendering
+        //How to debug on webpage
     }
 }
