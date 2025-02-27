@@ -1,15 +1,16 @@
-﻿@using BlazorApp1.Data
+﻿@page "/dropdown"
+@using BlazorApp1.Data
 @using Me_MoApp
-@inject PostDataService pds;
+@inject VendorDataService vendorDataService;
 <h3>DropdownExample</h3>
 
-<InputSelect Value="selectedVendor">
-    @foreach(var vendor in pds.Vendors)
+<InputSelect @bind-Value ="selectedVendor">
+    @foreach (var vendor in vendorDataService.GetVendors())
     {
         <option> @vendor.BusinessName</option>
 
-       
 
+        //Dropdown menu
     }
 </InputSelect>
 
@@ -17,6 +18,6 @@
     //what does it mean to have a code 
     // like the one below inside this block?
     //So that the code would not render?
-    Vendor selectedVendor { get; set; }
+    Vendor selectedVendor { get; set; } 
 
 }

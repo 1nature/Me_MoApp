@@ -33,12 +33,5 @@ namespace BlazorApp1.Data
             return comments;
         }
 
-        public List<Vendor> Vendors { get; set; } = new();
-
-        public List<Vendor> GetTheVendors()
-        {
-            var vendors = TestData.GetVendors();
-            return vendors;
-        }
     }
 }
