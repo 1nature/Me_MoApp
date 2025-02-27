@@ -12,8 +12,9 @@
         <InputText @bind-Value="Vendor.Address.Door" placeholder="Door number" ></InputText>
 
     </div>
+    <br />
     <button type="submit">Send</button>
-    <hr />
+    @* <hr /> *@
 
 </EditForm>
 
@@ -21,7 +22,7 @@
     [Parameter]
     public Post Post { get; set; }
 
-    public Vendor Vendor { get; set; } 
+    public Vendor Vendor { get; set; } = new();
 
     [Parameter]
     public EventCallback<Post> PostChanged { get; set; } // what does this do?

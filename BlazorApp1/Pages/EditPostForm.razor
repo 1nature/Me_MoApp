@@ -40,7 +40,7 @@ else
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
-
+        <AddVendorEntry @bind-Post="Post"></AddVendorEntry>
     </div>
 </EditForm>
 
@@ -66,15 +66,6 @@ else
         base.OnParametersSet();
     }
 
-    // void OnSubmit()
-    // {
-    //     udx.Save();
-    //     if (UserID == 0) //adding new user
-    //     {
-    //         udx.Users.Add(User);
-    //     }
-
-    // }
 
     void OnSubmit()
     {
