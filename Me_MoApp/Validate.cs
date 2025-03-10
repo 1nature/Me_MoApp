@@ -93,30 +93,5 @@
             get { return _eachuservote; }
             set { _eachuservote = value; }
         }
-
-
-        //public bool IsValidated
-        //{
-        //    get { return IsValidated; }
-        //}
-
-
-        //private bool _isValidated;
-        //public bool IsValidated
-        //{
-        //    get { return _isValidated; }
-        //    set { _isValidated = value; }
-        //}
-
-        ////member variables
-        //public string UserName; //bring UserName class instead?
-        ////image/picture post
-        ////timestamp
-        //public int OnlinePostRanker; //bring Voting class instead?
-
-
-        //Thinking this class should be a method somewhere else
     }
-    //name private variables with underscore
-    //get - is a read only, cannot write to it. 
 }
