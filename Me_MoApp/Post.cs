@@ -20,23 +20,12 @@
             set { _paths = value; }
         }
 
-        //private List<string> Pathe = new List<string>();
-
-        //private string _path;
-        //public string Path
-        //{
-        //    get { return _path; }
-        //    set { _path = value; }
-        //}
-
         private PostCategory _categorization = new();
         public PostCategory Categorization
         {
             get { return _categorization; }
             set { _categorization = value; }
         }
-
-        //Create enum for validation category
 
         private string _description;
         public string Description
