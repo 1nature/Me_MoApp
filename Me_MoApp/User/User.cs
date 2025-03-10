@@ -5,13 +5,6 @@
 
         public int ID { get; set; } 
 
-        //private string _businessName;
-        //public string BusinessName
-        //{
-        //    get { return _businessName; }
-        //    set { _businessName = value; }
-        //}
-
         private string _firstName;
         public string FirstName
         {
@@ -56,16 +49,6 @@
             get { return _vendor; }
             set { _vendor = value; }
         }
-        //TODO Vendor class be attached to the Post?
-        //TODO Vendors in a list?
-        //private Comment _comment = new();
-
-        //public Comment Comment
-        //{
-        //    get { return _comment = new(); }
-        //    set { _comment = value; }
-        //}
-
 
         private Phone _phone = new();
         public Phone Phone

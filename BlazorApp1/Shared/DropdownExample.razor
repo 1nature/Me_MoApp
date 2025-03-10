@@ -8,6 +8,7 @@
     @foreach (var vendor in vendorDataService.GetVendors())
     {
         <option> @vendor.BusinessName</option>
+        <option> @vendor.Address.City</option> //this is causing error
 
 
         //Dropdown menu
