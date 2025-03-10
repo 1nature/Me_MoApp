@@ -23,8 +23,5 @@
             get { return _user; }
             set { _user = value; }
         }
-
-
-        //Methods to reply, delete & share?
     }
 }
