@@ -10,13 +10,6 @@
             set { _businessName = value; }
         }
 
-        //private User _user;
-        //public User User
-        //{
-        //    get { return _user; }
-        //    set { _user = value; }
-        //}
-
         private Address _address = new();
         public Address Address
         {
