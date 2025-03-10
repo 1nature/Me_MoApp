@@ -5,7 +5,7 @@
 
 <EditForm Model="Vendor" OnSubmit="UpdatePostValue">
     <div class="col-md-4">
-
+        <hr />
         <label for="vendor_name" class="form-label">Add your vendor</label>
         <InputText @bind-Value="Vendor.BusinessName"></InputText>
         <label for="vendor_door_number" class="form-label">Add your door number</label>
@@ -14,8 +14,6 @@
     </div>
     <br />
     <button type="submit">Send</button>
-    @* <hr /> *@
-
 </EditForm>
 
 @code {
