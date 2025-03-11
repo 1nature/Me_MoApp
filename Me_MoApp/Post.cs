@@ -11,8 +11,7 @@
         }
 
         public int ID { get; set; }
-
-
+        
         private List<string> _paths = new();
         public List<string> Paths
         {

@@ -4,14 +4,18 @@
 @inject VendorDataService vendorDataService;
 <h3>DropdownExample</h3>
 
-<InputSelect @bind-Value ="selectedVendor">
+<InputSelect @bind-Value ="selectedVendor.BusinessName">
     @foreach (var vendor in vendorDataService.GetVendors())
     {
-        <option> @vendor.BusinessName</option>
-        <option> @vendor.Address.City</option> //this is causing error
+        <option> @vendor.BusinessName, @vendor.Address.City </option>
+        //<option> @vendor.Address.City</option> //this is causing error
 
 
         //Dropdown menu
+        //Steps to vendor dropdown
+        //Know where vendors are saved or create one
+        //If already saved, select from dropdown
+        //If not, add new ones
     }
 </InputSelect>
 
@@ -19,6 +23,6 @@
     //what does it mean to have a code 
     // like the one below inside this block?
     //So that the code would not render?
-    Vendor selectedVendor { get; set; } 
+    Vendor selectedVendor { get; set; } = new();
 
 }

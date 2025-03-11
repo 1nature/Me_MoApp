@@ -1,4 +1,6 @@
-﻿namespace Me_MoApp
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Me_MoApp
 {
     public class Vendor
     {
@@ -9,6 +11,31 @@
             get { return _businessName; }
             set { _businessName = value; }
         }
+
+        //public List<string> BusinessNameList { get; set; } = new List<string>();
+        //private List<string> _businessNameList;
+        //public List<string> BusinessNameList;
+        //{
+        //    get { return _businessNameList.Add(_businessName); }
+        //}
+
+
+        //private bool _thevalidate;
+        //public bool TheValidate
+        //{
+        //    get { return Validatte.ValidationScore > 90; }
+        //}
+
+
+
+        //private List<string> _businessName = new();
+        //public List<string> BusinessName
+        //{
+        //    get { return _businessName; }
+        //    set { _businessName = value; }
+        //}
+
+
 
         private Address _address = new();
         public Address Address
