@@ -39,6 +39,7 @@ else
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
+        <DropdownExample @bind-Post="Post"></DropdownExample>
         <AddVendorEntry @bind-Post="Post"></AddVendorEntry>
     </div>
 </EditForm>
@@ -75,7 +76,6 @@ else
         if (PostID == 0) {
             pds.Posts.Add(Post);
             Post.TimeStamp = DateTime.Now;
-            //LogicMethod.SaveDataToDisk(pds.Posts);
         }
     }
 
@@ -106,15 +106,6 @@ else
                 loadedFiles.Add(file);
 
                 Post.Paths.Add(trustedFileName);
-
-
-
-                //condition added for now
-                // if (Post.Path == null)
-                // {
-                //     Post.Path = path;
-                // }
-
             }
             catch (Exception ex)
             {

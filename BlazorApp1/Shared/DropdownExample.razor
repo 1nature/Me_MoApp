@@ -2,27 +2,43 @@
 @using BlazorApp1.Data
 @using Me_MoApp
 @inject VendorDataService vendorDataService;
-<h3>DropdownExample</h3>
+@* <h3>DropdownExample</h3> *@
 
-<InputSelect @bind-Value ="selectedVendor.BusinessName">
-    @foreach (var vendor in vendorDataService.GetVendors())
-    {
-        <option> @vendor.BusinessName, @vendor.Address.City </option>
-        //<option> @vendor.Address.City</option> //this is causing error
+<div class="col-md-4">
+    <br />
+    <label for="vendor_name" class="form-label">Choose from vendor list </label>
+
+    <InputSelect @bind-Value="selectedVendor.BusinessName">
+
+        @foreach (var vendor in vendorDataService.GetVendors())
+        {
+            <option> @vendor.BusinessName, @vendor.Address.City </option>
+            //<option> @vendor.Address.City</option> //this is causing error
 
 
-        //Dropdown menu
-        //Steps to vendor dropdown
-        //Know where vendors are saved or create one
-        //If already saved, select from dropdown
-        //If not, add new ones
-    }
-</InputSelect>
+            //Dropdown menu
+            //Steps to vendor dropdown
+            //Know where vendors are saved or create one
+            //If already saved, select from dropdown
+            //If not, add new ones
+        }
+
+    </InputSelect>
+</div>
 
 @code {
-    //what does it mean to have a code 
-    // like the one below inside this block?
-    //So that the code would not render?
-    Vendor selectedVendor { get; set; } = new();
+    Vendor selectedVendor { get; set; } = new(); //why does this not have an accessor b4 it?
 
+    [Parameter]
+    public Post Post { get; set; }
+
+    [Parameter]
+    public EventCallback<Post> PostChanged { get; set; } // what does this do?
+
+    async Task UpdatePostValue()
+    {
+        Post.Vendor.Add(selectedVendor);
+        await PostChanged.InvokeAsync(Post); // what is this?
+                                             //Vendor = new();
+    }
 }
