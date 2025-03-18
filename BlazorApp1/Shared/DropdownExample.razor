@@ -7,27 +7,40 @@
 <div class="col-md-4">
     <br />
     <label for="vendor_name" class="form-label">Choose from vendor list </label>
+    <input class="form-control" list="vendors" id="vendorID" placeholder="Type to search">
+    <datalist>
 
-    <InputSelect @bind-Value="selectedVendor.BusinessName">
+        <InputText @bind-Value="selectedVendor.BusinessName">
 
-        @foreach (var vendor in vendorDataService.GetVendors())
-        {
-            <option> @vendor.BusinessName, @vendor.Address.City </option>
-            //<option> @vendor.Address.City</option> //this is causing error
+            @foreach (var vendor in vendorDataService.GetVendors())
+            {
+                <option> @vendor.BusinessName, @vendor.Address.City </option>
+
+                @* <option> @vendor.Address.City</option> //this is causing error *@
+
+                //Dropdown menu
+                //Steps to vendor dropdown
+                //Know where vendors are saved or create one
+                //If already saved, select from dropdown
+                //If not, add new ones
+
+                //create a dropdown condition
+                //Dropdown suggestions
+                //1. Separate <option>
+                //2. Datalist
+                //3. Add a button by the side of dropdown
+            }
+            <option>Add new Vendor</option>
+            @* </datalist> *@
 
 
-            //Dropdown menu
-            //Steps to vendor dropdown
-            //Know where vendors are saved or create one
-            //If already saved, select from dropdown
-            //If not, add new ones
-        }
+        </InputText>
+    </datalist>
 
-    </InputSelect>
 </div>
 
 @code {
-    Vendor selectedVendor { get; set; } = new(); //why does this not have an accessor b4 it?
+    private Vendor selectedVendor { get; set; } = new(); //why does this not have an accessor b4 it?
 
     [Parameter]
     public Post Post { get; set; }
