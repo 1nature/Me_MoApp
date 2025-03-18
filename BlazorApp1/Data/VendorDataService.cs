@@ -9,5 +9,10 @@ namespace BlazorApp1.Data
             var vendors = TestData.GetVendors();
             return vendors;
         }
+
+        public Vendor GetVendorByName(string vendorName)
+        {
+            return GetVendors().Where(v => v.BusinessName == vendorName).FirstOrDefault();
+        }
     }
 }
