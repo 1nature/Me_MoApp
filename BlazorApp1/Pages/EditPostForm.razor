@@ -39,7 +39,7 @@ else
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
-        <DropdownExample @bind-Post="Post"></DropdownExample>
+        <DropdownExample @bind-Post="Post"></DropdownExample> 
         <AddVendorEntry @bind-Post="Post"></AddVendorEntry>
     </div>
 </EditForm>
@@ -69,8 +69,6 @@ else
 
     void OnSubmit()
     {
-        // Post.TimeStamp = DateTime.Now;
-        // Post.User = uds.GetUsers()[0]; //to stand in for the logged user
         LogicMethod.SaveDataToDisk(pds.Posts);
 
         if (PostID == 0) {
