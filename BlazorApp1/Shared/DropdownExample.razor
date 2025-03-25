@@ -17,6 +17,7 @@
     @if (vendorDataService.GetVendorByName(_selectedVendorString) == null)
     {
         <button >Add New Vendor</button>
+        <AddVendorEntry @bind-Post="Post"></AddVendorEntry>
     }
     else
     {
