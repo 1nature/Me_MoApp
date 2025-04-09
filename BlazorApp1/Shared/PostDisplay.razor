@@ -16,14 +16,15 @@
 
         <p><strong>@DPost.Description</strong></p>
 
-        <select asp-for="PostCategory" class="control-label">
-            <option value="0">Select Category</option>
-            @foreach (var category in Enum.GetValues(typeof(PostCategory)))
-            {
-                <option value="@category">@category</option>
-            }
-
-        </select>
+        <div class="col-xl-4">
+            <select asp-for="PostCategory" class="form-control">
+                <option value="0">Select Category</option>
+                @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+                {
+                    <option value="@category">@category</option>
+                }
+            </select>
+        </div>
 
         <p><strong>@DPost.TotalVotes</strong></p>
         <p><strong>@DPost.TimeStamp</strong></p>
@@ -50,6 +51,6 @@
     [Parameter]
     public Post DPost { get; set; }
 
-  
+
 }
 
