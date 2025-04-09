@@ -1,5 +1,10 @@
 ﻿@using Me_MoApp
 <div class="card mx-auto" style="width: 40rem;">
+
+    <div class="mt-2 text-end me-2">
+        <a class="btn btn-primary" role="button" href="/editpostinterface">New Post</a>
+    </div>
+
     <div class="card-body">
         <p><strong>@DPost.User.FirstName @DPost.User.LastName</strong></p>
 
@@ -7,7 +12,7 @@
         {
             <p><p><img style="width: 100px" src="/images/@path" /></p></p>
         }
-
+              
         <p><strong>@DPost.Description</strong></p>
         <p><strong>@DPost.Categorization</strong></p>
         <p><strong>@DPost.TotalVotes</strong></p>
@@ -36,13 +41,3 @@
     public Post DPost { get; set; }
 }
 
-@*  why do I need postInterface, postDisplay and postDataservice.
- Seems like a long reach? *@
- @* post entry is still using name from my test data *@
- @* interface to add a new user? *@
- @* but description changes *@
-@* post entry still using pictures from my test data *@
-@* create somewhere users can edit their account *@
- @* upload multiple pictures *@
- @* create condition for uploading picture *@
- @* parameter *@

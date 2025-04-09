@@ -5,15 +5,6 @@ namespace BlazorApp1.Data
     public class UserDataService
     {
 
-        private string _theString = "Hella Verona";
-
-        public String GetString()
-        {
-            return _theString;
-        }
-
-
-
         public List<Me_MoApp.User> GetUsers()
         {
             var users = Me_MoApp.TestData.GetUsers();

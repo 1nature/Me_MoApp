@@ -2,7 +2,6 @@
 @using BlazorApp1.Data
 @using Me_MoApp
 @inject VendorDataService vendorDataService;
-@* <h3>DropdownExample</h3> *@
 
 <div class="col-md-4">
     <br />
@@ -13,6 +12,7 @@
         {
             <option value="@vendor.BusinessName" />
         }
+        
     </datalist>
     @if (vendorDataService.GetVendorByName(_selectedVendorString) == null)
     {
@@ -42,8 +42,7 @@
         selectedVendor = vendorDataService.GetVendorByName(_selectedVendorString);
 
         Post.Vendor.Add(selectedVendor);
-        await PostChanged.InvokeAsync(Post); // what is this?
-                                             //Vendor = new();
+        await PostChanged.InvokeAsync(Post); 
     }
 
 
