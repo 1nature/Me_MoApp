@@ -7,13 +7,14 @@ namespace Me_MoApp
         public static int GetAllVotes(List<Post> allPosts)
         {
             int total = 0;
-
+            // These codes were commented because of errors
+            // They have errors because I moved some codes from Post class to Vote class
             foreach (Post p in allPosts)
             {
-                foreach (Vote v in p.Votes)
-                {
-                    total = total + v.Amount;
-                }
+                //foreach (Vote v in p.Votes)
+                //{
+                //    total = total + v.TotalVote;
+                //}
             }
             return total;
         }
@@ -48,13 +49,13 @@ namespace Me_MoApp
             int totalUserVote = 0;
             foreach (Post p in allPosts)
             {
-                foreach (Vote v in p.Votes)
-                {
-                    if (v.User.ID == user.ID) //use ID because of value types VS reference type
-                    {
-                        totalUserVote += v.Amount;
-                    }
-                }
+                //foreach (Vote v in p.Votes)
+                //{
+                //    if (v.User.ID == user.ID) //use ID because of value types VS reference type
+                //    {
+                //        totalUserVote += v.TotalVote;
+                //    }
+                //}
             }
             return totalUserVote;
         }
@@ -73,21 +74,21 @@ namespace Me_MoApp
 
             foreach (Post p in thePosts)
             {
-                foreach (Vote v in p.Votes)
-                {
-                    total += v.Amount;
-                }
+                //foreach (Vote v in p.Votes)
+                //{
+                //    total += v.TotalVote;
+                //}
             }
 
             foreach (Post p in thePosts)
             {
-                foreach (Vote v in p.Votes)
-                {
-                    if (v.User.ID == u.ID)
-                    {
-                        totalUserVote += v.Amount; //result of totaluservote is unclear
-                    }
-                }
+                //foreach (Vote v in p.Votes)
+                //{
+                //    if (v.User.ID == u.ID)
+                //    {
+                //        totalUserVote += v.TotalVote; //result of totaluservote is unclear
+                //    }
+                //}
             }
             double remainder = total - totalUserVote;
 
@@ -108,7 +109,7 @@ namespace Me_MoApp
             {
                 if (x.ID == p.ID)
                 {
-                    count = x.TotalVotes;
+                    //count = x.TotalVotes;
                 }
             }
             

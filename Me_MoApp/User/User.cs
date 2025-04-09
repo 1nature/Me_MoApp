@@ -64,9 +64,7 @@
             set { _validateusers = value; }
         }
 
-        // what does user do?
-        // user likes a post
-        // user adds a message to a post
+    
         public void ValidateUser(User u, double score) //Need a method that loops through all to show validation status
         {
             Validate v = new();
