@@ -1,4 +1,5 @@
 ﻿@using Me_MoApp
+
 <div class="card mx-auto" style="width: 40rem;">
 
     <div class="mt-2 text-end me-2">
@@ -12,23 +13,32 @@
         {
             <p><p><img style="width: 100px" src="/images/@path" /></p></p>
         }
-              
+
         <p><strong>@DPost.Description</strong></p>
-        <p><strong>@DPost.Categorization</strong></p>
+
+        <select asp-for="PostCategory" class="control-label">
+            <option value="0">Select Category</option>
+            @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+            {
+                <option value="@category">@category</option>
+            }
+
+        </select>
+
         <p><strong>@DPost.TotalVotes</strong></p>
         <p><strong>@DPost.TimeStamp</strong></p>
         <hr />
 
-        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry> 
-        
+        <AddCommentEntry @bind-Post="DPost"></AddCommentEntry>
+
 
         @foreach (var comment in DPost.TheComments)
         {
             <CommentDisplay Dcomment="comment"></CommentDisplay>
         }
-        
 
-        @foreach (var vendor in DPost.Vendor) 
+
+        @foreach (var vendor in DPost.Vendor)
         {
             <VendorDisplay DVendor="vendor"></VendorDisplay>
         }
@@ -39,5 +49,7 @@
 @code {
     [Parameter]
     public Post DPost { get; set; }
+
+  
 }
 

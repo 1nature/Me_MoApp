@@ -11,7 +11,5 @@
         Mosque,
         School,
         Diaspora
-
-
     }
 }

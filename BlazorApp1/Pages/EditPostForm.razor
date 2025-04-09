@@ -40,7 +40,7 @@ else
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
 
-        <DropdownExample @bind-Post="Post"></DropdownExample> 
+        @* <DropdownExample @bind-Post="Post"></DropdownExample>  *@
         @* <AddVendorEntry @bind-Post="Post"></AddVendorEntry> *@
     </div>
 </EditForm>
@@ -78,11 +78,6 @@ else
         }
     }
 
-    // protected override void OnParametersSet()
-    // {
-    //     Post = pds.Posts.Where(p => p.ID == PostID).First();
-    //     base.OnParametersSet();
-    // }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
@@ -116,12 +111,4 @@ else
     }
 }
 
-@* Issues
-Edit post not working
-Status 
-Resolved
-Tasks
-Edit picture (could be deletion of file path)
-IDs to comment, user and others
-How to delete post & user? *@
 
