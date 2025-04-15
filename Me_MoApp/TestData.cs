@@ -175,7 +175,7 @@
 
             for (int i = 0; i < 70; i++)
             {
-                post1.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);//randomness to change the users randomly
+                //post1.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);//randomness to change the users randomly
             }
 
             //for (int i = 0; i < 5; i++)
@@ -204,7 +204,7 @@
 
             for (int i = 0; i < 5; i++)
             {
-                post2.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
+                //post2.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
             }
 
             //for (int i = 0; i < 4; i++)
@@ -234,7 +234,7 @@
             
             for(int i = 0; i < 10; i++)
             {
-                post3.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
+                //post3.Vote(1, GetUsers()[rng.Next(GetUsers().Count)]);
             }
 
             //for (int i = 0; i < 5; i++)

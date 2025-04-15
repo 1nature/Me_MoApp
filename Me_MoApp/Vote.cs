@@ -1,6 +1,6 @@
 ﻿namespace Me_MoApp
 {
-    public class Vote
+    public class Vote_old
     {
         private DateTime _timeStamp;
         public DateTime TimeStamp
@@ -52,6 +52,8 @@
             set { _votes = value; }
         }
 
+        //How to record all votes?
+
         //public int TotalVotes
         //{
         //    get
@@ -92,5 +94,12 @@
             get { return _user; }
             set { _user = value; }
         }
+    }
+
+    public class Vote
+    {
+        public int Value { get; set; } //either +1 or -1
+        public DateTime TimeStamp { get; set; }
+        public User User { get; set; } //User who voted
     }
 }

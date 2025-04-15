@@ -62,11 +62,11 @@
             set { _user = value; }
         }
 
-        private Vote _vote = new();
-        public Vote Vote
+        private List<Vote> _votes = new();
+        public List<Vote> Votes
         {
-            get { return _vote; }
-            set { _vote = value; }
+            get { return _votes; }
+            set { _votes = value; }
         }
 
         private DateTime _timeStamp = new();
@@ -74,6 +74,19 @@
         {
             get { return _timeStamp; }
             set { _timeStamp = value; }
+        }
+
+        public int TotalVotes
+        {
+            get
+            {
+                int totalVotes = 0;
+                foreach (Vote v in Votes)
+                {
+                    totalVotes += v.Value;
+                }
+                return totalVotes;
+            }
         }
 
 
@@ -117,5 +130,26 @@
             return $"{User.FirstName} {User.LastName} - {Description}";
         }
 
+
+        public void UpVote()
+        {
+            var vote = new Vote();
+            vote.Value = 1;
+            vote.User = User;
+
+            //check if user has already voted
+            foreach (var v in Votes)
+            {
+                if (v.User == User)
+                {
+                    //user has already voted
+                    return;
+                }
+            }
+            Votes.Add(vote);
+        }
+
+        //Render these
+        //Think about user changing their vote
     }
 }

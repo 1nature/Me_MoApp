@@ -4,7 +4,7 @@ namespace BlazorApp1.Data
 {
     public class PostDataService
     {
-        public PostDataService() 
+        public PostDataService()
         {
             //   Posts = GetTestPosts(); //post has data
             //  LogicMethod.SaveDataToDisk(Posts); //post is empty, what am I missing?
@@ -31,6 +31,17 @@ namespace BlazorApp1.Data
         {
             var comments = TestData.MakeComments();
             return comments;
+        }
+
+        public int TotalAmountOfVotes()
+        {
+            int total = 0;
+            foreach (Post p in Posts)
+            {
+                total += p.TotalVotes;
+            }
+            return total;
+
         }
 
     }
