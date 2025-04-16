@@ -89,42 +89,6 @@
             }
         }
 
-
-        // Not sure if the codes below are supposed to be here
-        // I think they should be in the Vote class
-
-        //private List<Vote> _votes = new List<Vote>(); //this list stores all votes
-        //public List<Vote> Votes //User is not known when their vote is added to the list
-        //{
-        //    get { return _votes; }
-        //    set { _votes = value; }
-        //}
-
-        //public int TotalVotes
-        //{
-        //    get
-        //    {
-        //        int totalvotes = 0;
-        //        foreach (Vote vo in _votes)
-        //        {
-        //            totalvotes += vo.TotalVote;
-        //        }
-
-        //        return totalvotes;
-        //    }
-        //}
-
-        //public void Vote(int points, User u)
-        //{
-        //    Vote userVote = new();
-        //    userVote.TimeStamp = DateTime.Now;
-        //    userVote.User = u;
-        //    userVote.TotalVote = points;
-
-        //    _votes.Add(userVote);
-        //}
-        //need a way to save a post
-
         public override string ToString()
         {
             return $"{User.FirstName} {User.LastName} - {Description}";
@@ -135,6 +99,24 @@
         {
             var vote = new Vote();
             vote.Value = 1;
+            vote.User = User;
+
+            //check if user has already voted
+            foreach (var v in Votes)
+            {
+                if (v.User == User)
+                {
+                    //user has already voted
+                    return;
+                }
+            }
+            Votes.Add(vote);
+        }
+
+        public void DownVote()
+        {
+            var vote = new Vote();
+            vote.Value = -1;
             vote.User = User;
 
             //check if user has already voted

@@ -1,0 +1,29 @@
+﻿@page "/votedisplay"
+@using Me_MoApp
+
+<h3>Vote Display</h3>
+
+<div class="card-body">
+    <h5 class="card-title">@this.Text</h5>
+    <p class="card-text">Some quick example text to build upon.</p>
+
+    <div class="card-footer text-muted">
+        <button class="btn btn-outline-primary" @onclick="OnLikeClicked">
+            Like
+        </button>
+        <button class="btn btn-outline-danger" @onclick="OnDislikeClicked">
+            Dislike
+        </button>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] 
+    public EventCallback OnLikeClicked { get; set; }
+    [Parameter] 
+    public EventCallback OnDislikeClicked { get; set; }
+
+    [Parameter] 
+    public string Text { get; set; } = "No Text";
+}
