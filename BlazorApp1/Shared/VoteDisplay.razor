@@ -3,27 +3,47 @@
 
 <h3>Vote Display</h3>
 
-<div class="card-body">
-    <h5 class="card-title">@this.Text</h5>
-    <p class="card-text">Some quick example text to build upon.</p>
-
+<div class="card-body mt-2" style="width: 13rem;">
+    <h5 class="card-title">Rate the Picture</h5>
     <div class="card-footer text-muted">
-        <button class="btn btn-outline-primary" @onclick="OnLikeClicked">
+            @* <button class="btn btn-outline-primary" @onclick="OnLikeVote"> *@
+            <button class="btn btn-outline-primary" @onclick="UpdateVoteValue">
             Like
         </button>
-        <button class="btn btn-outline-danger" @onclick="OnDislikeClicked">
+
+        <button class="btn btn-outline-danger" @onclick="DownVoteValue">
             Dislike
         </button>
     </div>
+
+    <p class="text-capitalize">@Post.TotalVotes</p>
 </div>
 
 
+
 @code {
-    [Parameter] 
-    public EventCallback OnLikeClicked { get; set; }
-    [Parameter] 
+    [Parameter]
+    public Post Post { get; set; } = new();
+
+      [Parameter]
     public EventCallback OnDislikeClicked { get; set; }
 
-    [Parameter] 
+    [Parameter]
+    public EventCallback<Post> PostChanged { get; set; }
+
+    [Parameter]
     public string Text { get; set; } = "No Text";
+
+
+    async Task UpdateVoteValue()
+    {   
+        Post.UpVote();
+        await PostChanged.InvokeAsync(Post);
+    }
+
+    async Task DownVoteValue()
+    {
+        Post.DownVote();
+        await PostChanged.InvokeAsync(Post);
+    }
 }
