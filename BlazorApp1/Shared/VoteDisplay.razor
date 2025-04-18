@@ -1,7 +1,6 @@
 ﻿@page "/votedisplay"
 @using Me_MoApp
 
-<h3>Vote Display</h3>
 
 <div class="card-body mt-2" style="width: 13rem;">
     <h5 class="card-title">Rate the Picture</h5>
@@ -25,8 +24,6 @@
     [Parameter]
     public Post Post { get; set; } = new();
 
-      [Parameter]
-    public EventCallback OnDislikeClicked { get; set; }
 
     [Parameter]
     public EventCallback<Post> PostChanged { get; set; }
@@ -46,4 +43,7 @@
         Post.DownVote();
         await PostChanged.InvokeAsync(Post);
     }
+
+    //Next task is to get vendors to show on the post interface
+    //If 1 is done, try to upload multiple images
 }
