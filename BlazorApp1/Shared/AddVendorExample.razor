@@ -1,7 +1,6 @@
 ﻿@using BlazorApp1.Data
 @using Me_MoApp
-@inject UserDataService userDataService
-@inject PostDataService postDataService
+@inject VendorDataService vendorDataService;
 
 <EditForm Model="Vendor" OnSubmit="UpdatePostValue">
     <div class="col-md-6">
@@ -11,27 +10,30 @@
         <label for="vendor_name" class="form-label">Add your vendor</label>
         <InputText @bind-Value="Vendor.BusinessName"></InputText>
         <label for="vendor_door_number" class="form-label">Add your door number</label>
-        <InputText @bind-Value="Vendor.Address.Door" placeholder="Door number" ></InputText>
+        <InputText @bind-Value="Vendor.Address.Door" placeholder="Door number"></InputText>
 
     </div>
     <br />
-    <button type="submit">Send</button>
+    <button type="submit">Add new Vendor</button>
 
 </EditForm>
 
-@code {
-    [Parameter]
-    public Post Post { get; set; }
 
+
+@code {
+    //     [Parameter]
+    //     public Post Post { get; set; }
+    [Parameter]
     public Vendor Vendor { get; set; } = new();
 
     [Parameter]
-    public EventCallback<Post> PostChanged { get; set; } 
+    public EventCallback<Vendor> VendorChanged { get; set; }
 
     async Task UpdatePostValue()
     {
-        Post.Vendor.Add(Vendor);
-        await PostChanged.InvokeAsync(Post); 
+        vendorDataService.AddVendor(Vendor);
+        // Post.Vendor.Add(Vendor);
+        await VendorChanged.InvokeAsync(Vendor);
         Vendor = new();
     }
 }
