@@ -20,12 +20,14 @@ namespace BlazorApp1.Data
 
         public UserDataService()
         {
-            Users = GetUsers();
+            //Users = GetUsers();
+            Users = LogicMethod.LoadUserDataFromDisk(); //TODO: implement DE-serialisation
             //Comments = GetTestComments();
         }
 
         public void Save()
         {
+            //Users = LogicMethod.SaveUserDataToDisk();
             //TODO: serialize user list
         }
 

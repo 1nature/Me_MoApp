@@ -19,6 +19,25 @@ namespace Me_MoApp
             return total;
         }
 
+        public static void SaveUserDataToDisk(List<User> saveUser) //serialisation
+        {
+            XmlSerializer writer = new(typeof(List<User>));
+            using FileStream file = File.Create(Constants.savedUserPath);
+            writer.Serialize(file, saveUser);
+        }
+
+        public static List<User> LoadUserDataFromDisk()
+        {
+            XmlSerializer xmlSerializer = new(typeof(List<User>));
+            List<User> storedUsers = null;
+            if (File.Exists(Constants.savedUserPath))
+            {
+                using FileStream file = File.OpenRead(Constants.savedUserPath);
+                storedUsers = xmlSerializer.Deserialize(file) as List<User>;
+            }
+            return storedUsers;
+        }
+
         public static void SavePostDataToDisk(List<Post> savePost) //serialisation
         {
             XmlSerializer writer = new(typeof(List<Post>));
@@ -29,6 +48,8 @@ namespace Me_MoApp
             }
         }
 
+
+
         public static List<Post> LoadPostDataFromDisk()
         {
             XmlSerializer xmlSerializer = new(typeof(List<Post>));
@@ -36,10 +57,8 @@ namespace Me_MoApp
 
             if (File.Exists(Constants.savedPostPath))
             {
-                using (FileStream file = File.OpenRead(Constants.savedPostPath))
-                {
-                    storedPosts = xmlSerializer.Deserialize(file) as List<Post>;
-                }
+                using FileStream file = File.OpenRead(Constants.savedPostPath);
+                storedPosts = xmlSerializer.Deserialize(file) as List<Post>;
             }
             return storedPosts;
         }
