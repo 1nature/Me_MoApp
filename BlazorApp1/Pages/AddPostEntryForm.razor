@@ -66,7 +66,7 @@
 
         Post.ID = pds.Posts.Max(p => p.ID) + 1;
         pds.Posts.Add(Post);
-        LogicMethod.SaveDataToDisk(pds.Posts);
+        LogicMethod.SavePostDataToDisk(pds.Posts);
     }
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
@@ -112,3 +112,7 @@
 
 @* need to refix the file upload *@
 @* at what point do I serialize *@
+@* store new users so that they do not go away *@
+@* calculate total votes of all posts *@
+@* do user validation *@
+@* GET RID OF USING TEST DATA *@

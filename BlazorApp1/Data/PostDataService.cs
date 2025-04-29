@@ -9,7 +9,7 @@ namespace BlazorApp1.Data
             //   Posts = GetTestPosts(); //post has data
             //  LogicMethod.SaveDataToDisk(Posts); //post is empty, what am I missing?
 
-            Posts = LogicMethod.LoadDataFromDisk(); //TODO: implement DE-serialisation
+            Posts = LogicMethod.LoadPostDataFromDisk(); //TODO: implement DE-serialisation
             //put a condition to check if file exist like the quiz maker
             //like a method exist
 

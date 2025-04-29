@@ -1,6 +1,7 @@
 ﻿@page "/userinterface"
 @using Me_MoApp
 @inject Data.UserDataService uInfo
+
 <PageTitle>UserInterface</PageTitle>
 
 <h3 class="text-center">User Interface</h3>
@@ -14,19 +15,6 @@
 
 
 
-
-@* @foreach (User u in uInfo.GetUsers())
-{
-    <p>
-    <p> <strong>User ID:</strong> @u.ID</p>
-    <p> <strong>First Name:</strong> @u.FirstName</p>
-    <p> <strong>Last Name:</strong> @u.LastName</p>
-    <p> <strong>User Picture:</strong> <img style="width: 100px" src="images/Ayo_Peks.png" /> </p>
-    <p> <strong>Sex:</strong> @u.Sex</p>
-    <p> <strong>Phone Number:</strong> @u.Phone.PhoneNumber</p>
-    <br />
-    </p>
-} *@
 
 
 

@@ -19,7 +19,7 @@ namespace Me_MoApp
             return total;
         }
 
-        public static void SaveDataToDisk(List<Post> savePost) //serialisation
+        public static void SavePostDataToDisk(List<Post> savePost) //serialisation
         {
             XmlSerializer writer = new(typeof(List<Post>));
 
@@ -29,7 +29,7 @@ namespace Me_MoApp
             }
         }
 
-        public static List<Post> LoadDataFromDisk()
+        public static List<Post> LoadPostDataFromDisk()
         {
             XmlSerializer xmlSerializer = new(typeof(List<Post>));
             List<Post> storedPosts = null;
