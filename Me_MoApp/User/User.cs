@@ -74,6 +74,8 @@
             //user.HasValidated = validationStatus;
 
             _validateusers.Add(v);
+
+            
         }
 
         public override string ToString()

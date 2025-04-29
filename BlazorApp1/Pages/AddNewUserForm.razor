@@ -46,11 +46,11 @@ else
                     Choose sex
                 </option>
                 <option checked="@(User.Sex == "Male")"
-                        value="Male">
+                value="Male">
                     Male
                 </option>
                 <option checked="@(User.Sex == "Female")"
-                        value="Female">
+                value="Female">
                     Female
                 </option>
             </InputSelect>
@@ -81,28 +81,24 @@ else
 
     protected override void OnParametersSet()
     {
-        if (UserID != 0 && UserID > 0)
+        if (UserID != 0)
         {
-            User = LogicMethod.LoadUserDataFromDisk().Where(u => u.ID == UserID).First();
-            //The list is still null but why?
-            //User = udx.Users.Where(u => u.ID == UserID).First();
+         
+            User = udx.Users.Where(u => u.ID == UserID).First();
 
-            //Getting this  error System.ArgumentNullException: Value cannot be null. (Parameter 'source')
-            //when I try to update the users
         }
         base.OnParametersSet();
     }
 
     void OnSubmit()
     {
-        //udx.Save();
-        LogicMethod.SaveUserDataToDisk(udx.Users);
+    
         if (UserID == 0) //adding new user
         {
             udx.Users.Add(User);
-            //User.TimeStamp = DateTime.Now;
-
         }
+
+        udx.Save();
 
     }
 

@@ -18,6 +18,8 @@ namespace BlazorApp1.Data
             return comments;
         }
 
+        public List<User> Users { get; set; } 
+
         public UserDataService()
         {
             //Users = GetUsers();
@@ -27,12 +29,10 @@ namespace BlazorApp1.Data
 
         public void Save()
         {
-            //Users = LogicMethod.SaveUserDataToDisk();
-            //TODO: serialize user list
+            LogicMethod.SaveUserDataToDisk(Users); 
+
         }
 
-        public List<User> Users { get; set; }
 
-        //public User CurrentUser => Me_MoApp.TestData.GetUsers().First();
     }
 }
