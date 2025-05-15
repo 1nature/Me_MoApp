@@ -29,7 +29,7 @@ namespace Me_MoApp
         public static List<User> LoadUserDataFromDisk()
         {
             XmlSerializer xmlSerializer = new(typeof(List<User>));
-            List<User> storedUsers = null;
+            List<User> storedUsers = new();
             if (File.Exists(Constants.savedUserPath))
             {
                 using FileStream file = File.OpenRead(Constants.savedUserPath);

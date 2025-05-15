@@ -18,7 +18,7 @@ namespace BlazorApp1.Data
             return comments;
         }
 
-        public List<User> Users { get; set; } 
+        public List<User> Users { get; set; } = new();
 
         public UserDataService()
         {
