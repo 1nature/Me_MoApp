@@ -1,0 +1,37 @@
+﻿@using BlazorApp2.Data
+@using Me_MoApp
+@inject UserDataService userDataService
+@inject PostDataService postDataService
+
+<EditForm Model="Vendor" OnSubmit="UpdatePostValue">
+    <div class="col-md-6">
+        <br />
+        <br />
+
+        <label for="vendor_name" class="form-label">Add your vendor</label>
+        <InputText @bind-Value="Vendor.BusinessName"></InputText>
+        <label for="vendor_door_number" class="form-label">Add your door number</label>
+        <InputText @bind-Value="Vendor.Address.Door" placeholder="Door number" ></InputText>
+
+    </div>
+    <br />
+    <button type="submit">Send</button>
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public Post Post { get; set; }
+
+    public Vendor Vendor { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Post> PostChanged { get; set; } 
+
+    async Task UpdatePostValue()
+    {
+        Post.Vendor.Add(Vendor);
+        await PostChanged.InvokeAsync(Post); 
+        Vendor = new();
+    }
+}
