@@ -1,0 +1,22 @@
+﻿@page "/addressinterface"
+@using Me_MoApp
+@inject Data.AddressDataService aInfo
+<PageTitle>Address Interface</PageTitle>
+
+<h3>Address Interface</h3>
+
+<p>
+    @foreach(Address address in aInfo.GetAddresses())
+    {
+    <p> <strong>Door Number:</strong> @address.Door</p>
+    <p> <strong>Street Name:</strong> @address.Street</p>
+    <p> <strong>City:</strong> @address.City</p>
+    <p> <strong>Country:</strong> @address.Country</p>
+    <p> <strong>Email Address:</strong> @address.Email</p>
+    <br />
+    }
+</p>
+
+@code {
+
+}

@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPost xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths>
+      <string>jumyuw2b.3bo..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Young John</Description>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Josh</BusinessName>
+        <Address>
+          <Door>13</Door>
+        </Address>
+        <Phone />
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2024-11-28T12:47:54.9285455+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>1</ID>
+    <Paths>
+      <string>bswgg1oz.2ll..jpg</string>
+      <string>buqy0bed.a5g..jpeg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Trying thingsssssss</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-26T14:06:04.5015656+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>2</ID>
+    <Paths>
+      <string>ckeaku2j.k1c..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Painting trial ITS MAGIC!</Description>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Josh 2 Fun Designs</BusinessName>
+        <Address>
+          <Door>29</Door>
+          <City>Border Avenue Crossing</City>
+          <Country>United Kingdom</Country>
+          <Email>lanlap@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07555673459</PhoneNumber>
+        </Phone>
+      </Vendor>
+      <Vendor>
+        <BusinessName>Streams Fashion House</BusinessName>
+        <Address>
+          <Door>9</Door>
+          <City>Briggs Lane</City>
+          <Country>United Kingdom</Country>
+          <Email>yayo109@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07775673459</PhoneNumber>
+        </Phone>
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2024-12-10T13:44:57.2633105+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>3</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>test_________</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-26T11:58:39.997172+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>4</ID>
+    <Paths>
+      <string>2x0jcje2.ks0..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>hiya</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-07T19:09:24.3785091+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>5</ID>
+    <Paths>
+      <string>a4kdcmj2.dpx..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>testing&gt;&gt;&gt;&gt;&gt;&gt;testing</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>/images/Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-11T11:50:06.7137838+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>6</ID>
+    <Paths>
+      <string>liswt0vh.yjx..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>Big______head</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-12T16:20:39.9270581+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>7</ID>
+    <Paths>
+      <string>4xxzll1g.dr0..jpg</string>
+    </Paths>
+    <Categorization>Office</Categorization>
+    <Description>another testing</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-26T11:39:32.9887806+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>8</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>confused.com</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-26T12:35:22.3831711+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>9</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Oyelese</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-26T13:07:40.7849573+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>eleyele xxxxxxxxxxx</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>0001-01-01T00:00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Fofungebemu</Description>
+    <TheComments>
+      <Comment>
+        <Text>joffff</Text>
+        <TimeStamp>2025-02-27T10:17:40.0031967+00:00</TimeStamp>
+        <User>
+          <ID>1</ID>
+          <FirstName>Ayokunle</FirstName>
+          <LastName>Olanipekun</LastName>
+          <Picture>Ayo_Peks.jpg</Picture>
+          <Sex>Male</Sex>
+          <Vendor>
+            <Address />
+            <Phone />
+          </Vendor>
+          <Phone>
+            <PhoneNumber>07340264066</PhoneNumber>
+          </Phone>
+          <ValidatedUsers />
+        </User>
+      </Comment>
+    </TheComments>
+    <Vendor>
+      <Vendor>
+        <BusinessName>ababababa</BusinessName>
+        <Address>
+          <Door>23</Door>
+        </Address>
+        <Phone />
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-27T10:08:20.3202073+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>10</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>wexxxxxxxxxx</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-02-27T10:18:23.2394622+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>11</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Portsmouth location</Description>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Streams Fashion House</BusinessName>
+        <Address>
+          <Door>9</Door>
+          <City>Briggs Lane</City>
+          <Country>United Kingdom</Country>
+          <Email>yayo109@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07775673459</PhoneNumber>
+        </Phone>
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>1</ID>
+      <FirstName>Ayokunle</FirstName>
+      <LastName>Olanipekun</LastName>
+      <Picture>Ayo_Peks.jpg</Picture>
+      <Sex>Male</Sex>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone>
+        <PhoneNumber>07340264066</PhoneNumber>
+      </Phone>
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-10T16:32:37.9017733+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>XYZ Ventures</BusinessName>
+        <Address>
+          <Door>9</Door>
+          <City>Lagos</City>
+          <Country>Nigeria</Country>
+          <Email>xyz99@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07775678800</PhoneNumber>
+        </Phone>
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:05:19.8167508+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Ogede dark</Description>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Streams Fashion House</BusinessName>
+        <Address>
+          <Door>9</Door>
+          <City>Briggs Lane</City>
+          <Country>United Kingdom</Country>
+          <Email>yayo109@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07775673459</PhoneNumber>
+        </Phone>
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:06:02.34193+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Ogede dark</Description>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Streams Fashion House</BusinessName>
+        <Address>
+          <Door>9</Door>
+          <City>Briggs Lane</City>
+          <Country>United Kingdom</Country>
+          <Email>yayo109@yahoo.com</Email>
+        </Address>
+        <Phone>
+          <PhoneNumber>07775673459</PhoneNumber>
+        </Phone>
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:06:02.34193+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Adabanija</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:19:56.0313494+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Adabanija</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:19:56.0313494+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Adabanija</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:19:56.0313494+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Adabanija</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:19:56.0313494+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <TheComments />
+    <Vendor>
+      <Vendor>
+        <BusinessName>Ja rule</BusinessName>
+        <Address>
+          <Door>11</Door>
+        </Address>
+        <Phone />
+      </Vendor>
+    </Vendor>
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:23:34.8938664+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:01.4824604+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:01.4824604+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+  <Post>
+    <Status>A_list</Status>
+    <ID>0</ID>
+    <Paths />
+    <Categorization>Office</Categorization>
+    <Description>Malaika</Description>
+    <TheComments />
+    <Vendor />
+    <Address />
+    <User>
+      <ID>0</ID>
+      <Vendor>
+        <Address />
+        <Phone />
+      </Vendor>
+      <Phone />
+      <ValidatedUsers />
+    </User>
+    <Votes />
+    <TimeStamp>2025-03-24T21:47:34.3427154+00:00</TimeStamp>
+  </Post>
+</ArrayOfPost>

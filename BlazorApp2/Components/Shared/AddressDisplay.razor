@@ -1,0 +1,12 @@
+﻿@using Me_MoApp
+
+<p><strong>@DAddress.Door</strong></p>
+<p><strong>@DAddress.Street</strong></p>
+<p><strong>@DAddress.City</strong></p>
+<p><strong>@DAddress.Country</strong></p>
+<p><strong>@DAddress.Email</strong></p>
+
+@code {
+    [Parameter]
+    public Address DAddress { get; set; }
+}

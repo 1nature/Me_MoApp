@@ -1,0 +1,28 @@
+﻿@page "/vendorinterface"
+@using Me_MoApp
+@inject Data.VendorDataService vendorDataService
+<PageTitle>VendorInterface</PageTitle>
+
+
+
+<h3>Vendor Interface</h3>
+
+<p>
+    @foreach (Vendor vendor in vendorDataService.GetVendors())
+    {
+    <p>@vendor.BusinessName</p>
+    <p>@vendor.Address.Door</p>
+    <p>@vendor.Address.Street</p>
+    <p>@vendor.Address.City</p>
+    <p>@vendor.Address.Country</p>
+    }
+
+</p>
+
+
+
+@code {
+   
+}
+
+

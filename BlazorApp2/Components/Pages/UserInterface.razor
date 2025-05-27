@@ -1,0 +1,22 @@
+﻿@page "/userinterface"
+@using Me_MoApp
+@inject Data.UserDataService uInfo
+
+<PageTitle>UserInterface</PageTitle>
+
+<h3 class="text-center">User Interface</h3>
+
+    <p>
+        @foreach (User user in uInfo.Users)
+        {
+            <UserDisplay DUser="user"></UserDisplay>
+        }
+    </p>
+
+
+
+
+
+@code {
+
+}

@@ -1,6 +1,6 @@
 ﻿using Me_MoApp;
 
-namespace BlazorApp1.Data
+namespace BlazorApp2.Data
 {
     public class UserDataService
     {

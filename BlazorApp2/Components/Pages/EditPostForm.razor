@@ -1,0 +1,114 @@
+﻿@page "/editpostform/{PostID:int}"
+@using BlazorApp2.Data
+@using Me_MoApp
+@inject UserDataService uds
+@inject PostDataService pds
+
+
+@using System
+@using System.IO
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment Environment
+
+<PageTitle>PostInputInterface</PageTitle>
+
+@if (PostID == 0)
+{
+    <h3>New Post Entry Form</h3>
+}
+else
+{
+    <h3>Edit Post Form</h3>
+}
+
+
+<EditForm Model="Post" OnSubmit="OnSubmit">
+    <div class="card mx-auto" style="width: 40rem;">
+        <div class="col-md-4">
+            <label for="picture" class="form-label">Picture</label>
+            <InputFile OnChange="LoadFiles" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="description" class="form-label">Description</label>
+            <InputText @bind-Value="Post.Description"></InputText>
+        </div>
+
+
+        @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
+        @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
+        <br />
+        <button type="submit" class="col-md-2 md-start">Send</button>
+
+        @* <DropdownExample @bind-Post="Post"></DropdownExample>  *@
+        @* <AddVendorEntry @bind-Post="Post"></AddVendorEntry> *@
+    </div>
+</EditForm>
+
+
+
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 1024 * 15000;
+    private int maxAllowedFiles = 3;
+    private bool isLoading;
+
+    public Post Post { get; set; } = new();
+
+    [Parameter]
+    public int PostID { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (PostID != 0)
+        {
+            Post = pds.Posts.Where(p => p.ID == PostID).First();
+        }
+        base.OnParametersSet();
+    }
+
+
+    void OnSubmit()
+    {
+        LogicMethod.SavePostDataToDisk(pds.Posts);
+
+        if (PostID == 0) {
+            pds.Posts.Add(Post);
+            Post.TimeStamp = DateTime.Now;
+        }
+    }
+
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        loadedFiles.Clear();
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            try
+            {
+                var trustedFileName = Path.GetRandomFileName() + "." + Path.GetExtension(file.Name); //TODO: probalby generate random name but keep original file extension
+                var rootPath = Environment.ContentRootPath;
+                var imageFolderPath = "wwwroot\\images";
+                var path = Path.Combine(rootPath, imageFolderPath);
+                path = Path.Combine(path, trustedFileName);
+
+                await using FileStream fs = new(path, FileMode.Create);
+                await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
+
+                loadedFiles.Add(file);
+
+                Post.Paths.Add(trustedFileName);
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+
+        isLoading = false;
+    }
+}
+
+

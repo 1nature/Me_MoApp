@@ -24,6 +24,7 @@ namespace BlazorApp2
             builder.Services.AddSingleton<PostDataService>();
             builder.Services.AddSingleton<VendorDataService>();
             builder.Services.AddSingleton<AddressDataService>();
+            builder.Services.AddSingleton<UserDataService>();
 
             builder.Services.AddAuthentication(options =>
                 {

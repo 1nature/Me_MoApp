@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <ID>0</ID>
+    <FirstName>eqwe</FirstName>
+    <LastName>qwewqe</LastName>
+    <Sex>Male</Sex>
+    <Vendor>
+      <Address />
+      <Phone />
+    </Vendor>
+    <Phone>
+      <PhoneNumber>12341</PhoneNumber>
+    </Phone>
+    <ValidatedUsers />
+  </User>
+</ArrayOfUser>
