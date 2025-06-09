@@ -1,13 +1,46 @@
 ﻿@page "/auth"
-
+@using BlazorApp2.Data
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-@attribute [Authorize]
 
+
+@* @attribute [Authorize] *@
 <PageTitle>Auth</PageTitle>
 
-<h1>You are authenticated</h1>
+<h1>@* You are authenticate *@</h1>
+<h1>Are you authorized?</h1>
 
 <AuthorizeView>
-    Hello @context.User.Identity?.Name!
+    <Authorized>
+        <p>Yes: Hello @context.User.Identity?.Name!</p>
+        @* <button class="btn btn-primary" @onclick="Test">Test</button> *@
+    </Authorized>
+    <NotAuthorized>
+        <p>No: You are not authorized</p>
+    </NotAuthorized>
 </AuthorizeView>
+
+<button class="btn btn-primary" @onclick="IncrementCount"></button>
+
+@code{
+
+    private async void IncrementCount()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var claims = authState.User;
+        var currentUser = await UserManager.GetUserAsync(claims);
+
+        currentUser.FavouriteColor = "Red";
+        await UserManager.UpdateAsync(currentUser);
+
+        // var userWithData = context.Users.Include(u => u.UserData).FirstOrDefault(u => u.Id == currentUser.Id):
+
+        //commented code above have error
+        //Am I extending my user object? How?
+
+    }
+}

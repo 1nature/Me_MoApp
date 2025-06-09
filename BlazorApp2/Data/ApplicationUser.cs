@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Me_MoApp;
 
 namespace BlazorApp2.Data
 {
@@ -7,6 +8,8 @@ namespace BlazorApp2.Data
     {
         public string? FavouriteColor { get; set; }
         public DateTime BirthDate { get; set; }
+
+        public User UserData { get; set; }
 
     }
 
