@@ -2,6 +2,7 @@
 {
     public class Comment
     {
+        public int ID { get; set; }
         private string _text;
         public string Text
         {

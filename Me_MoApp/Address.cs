@@ -2,6 +2,8 @@
 {
     public class Address
     {
+        public int ID { get; set; }
+
         private string _door;
         public string Door
         {

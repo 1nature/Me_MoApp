@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250528174400_change_user")]
-    partial class change_user
+    [Migration("20250610124239_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,9 @@ namespace BlazorApp2.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<int>("UserDataID")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -93,7 +96,161 @@ namespace BlazorApp2.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("UserDataID");
+
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Me_MoApp.Address", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Door")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("Me_MoApp.Phone", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Phone");
+                });
+
+            modelBuilder.Entity("Me_MoApp.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PhoneID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sex")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ValidateID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VendorID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("PhoneID");
+
+                    b.HasIndex("ValidateID");
+
+                    b.HasIndex("VendorID");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("Me_MoApp.Validate", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("AllUserVotes")
+                        .HasColumnType("float");
+
+                    b.Property<double>("EachUserVote")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("HasValidated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsValidated")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ValidationScore")
+                        .HasColumnType("float");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Validate");
+                });
+
+            modelBuilder.Entity("Me_MoApp.Vendor", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("AddressID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BusinessName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PhoneID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AddressID");
+
+                    b.HasIndex("PhoneID");
+
+                    b.ToTable("Vendor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -229,6 +386,60 @@ namespace BlazorApp2.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BlazorApp2.Data.ApplicationUser", b =>
+                {
+                    b.HasOne("Me_MoApp.User", "UserData")
+                        .WithMany()
+                        .HasForeignKey("UserDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserData");
+                });
+
+            modelBuilder.Entity("Me_MoApp.User", b =>
+                {
+                    b.HasOne("Me_MoApp.Phone", "Phone")
+                        .WithMany()
+                        .HasForeignKey("PhoneID");
+
+                    b.HasOne("Me_MoApp.Validate", "Validate")
+                        .WithMany()
+                        .HasForeignKey("ValidateID");
+
+                    b.HasOne("Me_MoApp.Vendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorID");
+
+                    b.Navigation("Phone");
+
+                    b.Navigation("Validate");
+
+                    b.Navigation("Vendor");
+                });
+
+            modelBuilder.Entity("Me_MoApp.Validate", b =>
+                {
+                    b.HasOne("Me_MoApp.User", null)
+                        .WithMany("ValidatedUsers")
+                        .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("Me_MoApp.Vendor", b =>
+                {
+                    b.HasOne("Me_MoApp.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressID");
+
+                    b.HasOne("Me_MoApp.Phone", "Phone")
+                        .WithMany()
+                        .HasForeignKey("PhoneID");
+
+                    b.Navigation("Address");
+
+                    b.Navigation("Phone");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -278,6 +489,11 @@ namespace BlazorApp2.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Me_MoApp.User", b =>
+                {
+                    b.Navigation("ValidatedUsers");
                 });
 #pragma warning restore 612, 618
         }

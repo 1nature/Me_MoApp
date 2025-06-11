@@ -69,11 +69,12 @@
         {
             Validate v = new();
             v.TimeStamp = DateTime.Now;
-            v.User = u;
+           
             v.Total = score;
             //user.HasValidated = validationStatus;
 
-            _validateusers.Add(v);
+            u.Validate = v;
+          //  _validateusers.Add(v);
 
             
         }

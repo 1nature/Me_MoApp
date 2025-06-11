@@ -2,18 +2,12 @@
 {
     public class Validate
     {
+        public int ID { get; set; }
         private DateTime _timeStamp;
         public DateTime TimeStamp
         {
             get { return _timeStamp; }
             set { _timeStamp = value; }
-        }
-
-        private User _user;
-        public User User
-        {
-            get { return _user; }
-            set { _user = value; }
         }
 
         private double _total;
@@ -30,26 +24,11 @@
             set { _status = value; }
         }
 
-        private Post _post;
-        public Post Post
-        {
-            get { return _post; }
-            set { _post = value; }
-        }
-
-
         private double _validationScore;
         public double ValidationScore
         {
             get { return _validationScore; }
             set { _validationScore = value; }
-        }
-
-        private Validate _validate;
-        public Validate Validatte
-        {
-            get { return _validate; }
-            set { _validate = value; }
         }
 
         private bool _isValidated;
@@ -58,7 +37,7 @@
             get { return _isValidated; }
             set
             {
-                if (Validatte.ValidationScore > 90)
+                if (ValidationScore > 90)
                 {
                     _isValidated = true;
                 }
@@ -68,7 +47,7 @@
         private bool _thevalidate;
         public bool TheValidate
         {
-            get { return Validatte.ValidationScore > 90; }
+            get { return ValidationScore > 90; }
         }
 
         private bool _hasvalidated = new();

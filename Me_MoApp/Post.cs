@@ -2,6 +2,8 @@
 {
     public class Post
     {
+        public int ID { get; set; }
+
         private StatusCategory _status = new();
         public StatusCategory Status
         {
@@ -10,8 +12,7 @@
 
         }
 
-        public int ID { get; set; }
-        
+
         private List<string> _paths = new();
         public List<string> Paths
         {

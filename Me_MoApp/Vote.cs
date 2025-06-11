@@ -2,6 +2,7 @@
 {
     public class Vote
     {
+        public int ID { get; set; }
         public int Value { get; set; } //either +1 or -1
         public DateTime TimeStamp { get; set; }
         public User User { get; set; } //User who voted

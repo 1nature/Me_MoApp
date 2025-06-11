@@ -4,7 +4,7 @@ namespace Me_MoApp
 {
     public class Vendor
     {
-
+        public int ID { get; set; }
         private string _businessName;
         public string BusinessName
         {
