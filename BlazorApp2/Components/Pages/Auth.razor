@@ -24,16 +24,20 @@
     </NotAuthorized>
 </AuthorizeView>
 
-<button class="btn btn-primary" @onclick="IncrementCount"></button>
+<button class="btn btn-primary" @onclick="IncrementCount">Increment</button>
 
-@code{
-
+@code {
+    private int currentCount = 0;
+    //method to check whether a user is logged in
     private async void IncrementCount()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var claims = authState.User;
         var currentUser = await UserManager.GetUserAsync(claims);
+        //todo null check
 
+        if (currentUser == null)
+            return;
         currentUser.FavouriteColor = "Red";
         await UserManager.UpdateAsync(currentUser);
 
@@ -41,6 +45,6 @@
 
         //commented code above have error
         //Am I extending my user object? How?
-
+        currentCount++;
     }
 }

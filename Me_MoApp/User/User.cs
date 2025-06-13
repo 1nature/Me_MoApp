@@ -57,28 +57,7 @@
             set { _phone = value; }
         }
 
-        private List<Validate> _validateusers = new(); //this list stores all validated users
-        public List<Validate> ValidatedUsers
-        {
-            get { return _validateusers; }
-            set { _validateusers = value; }
-        }
-
-    
-        public void ValidateUser(User u, double score) //Need a method that loops through all to show validation status
-        {
-            Validate v = new();
-            v.TimeStamp = DateTime.Now;
-           
-            v.Total = score;
-            //user.HasValidated = validationStatus;
-
-            u.Validate = v;
-          //  _validateusers.Add(v);
-
-            
-        }
-
+        
         public override string ToString()
         {
             return $"{FirstName} {LastName}";
