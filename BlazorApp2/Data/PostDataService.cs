@@ -33,12 +33,20 @@ namespace BlazorApp2.Data
             return comments;
         }
 
+
+
         public int TotalAmountOfVotes()
         {
             int total = 0;
             foreach (Post p in Posts)
             {
-                total += p.TotalVotesOnEachPost;
+                foreach (Vote v in p.Votes)
+                {
+                    {
+                        total += v.Value; //assuming Value is the property in Vote class that holds the vote value
+                        //total += p.TotalVotesOnEachPost;
+                    }
+                }
             }
             return total;
 

@@ -20,6 +20,9 @@
 
         public void GetAllPosts()
         {
+
+            // This is just an example, you may want to modify it based on your requirements
+
             var post = new Post();
             foreach (var p in _posts)
             {
@@ -34,7 +37,8 @@
                 var sumOfAllVotes = 0;
                 foreach (var p in _posts)
                 {
-                    sumOfAllVotes += p.TotalVotesOnEachPost; 
+                    int x = p.TotalVotesOnEachPost; //assuming TotalVotesOnEachPost is an int property in Post class
+                    sumOfAllVotes += x; 
                 }
                 return sumOfAllVotes;
             }

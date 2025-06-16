@@ -1,5 +1,6 @@
 ﻿@page "/votedisplay"  
 @using Me_MoApp  
+@using BlazorApp2.Data
 
 <div class="card-body mt-2" style="width: 13rem;">  
     <h5 class="card-title">Rate the Picture</h5>  
@@ -14,26 +15,34 @@
     </div>  
 
     <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>  
-    <p class="text-capitalize">@Validate.SumTheTotalVotesInAllPosts</p>
+    <p class="text-capitalize">@PostData.TotalAmountOfVotes()</p>
 
 
 </div>  
 
-@code {  
+@code {
     [Parameter]  
     public Post Post { get; set; } = new();  
 
     [Parameter]  
     public Validate Validate { get; set; } = new();  
 
+    [Parameter]
+    public PostDataService PostData { get; set; } = new();
+
+
     [Parameter]  
     public EventCallback<Post> PostChanged { get; set; }  
+
 
     [Parameter]
     public EventCallback<Validate> ValidateChanged { get; set; }
 
-    [Parameter]  
-    public string Text { get; set; } = "No Text";  
+    [Parameter]
+    public EventCallback<PostDataService> PostDataChanged { get; set; }
+
+    // [Parameter]  
+    // public string Text { get; set; } = "No Text";  
 
     async Task UpdateVoteValue()  
     {     
@@ -48,9 +57,9 @@
     }  
 
     async Task ValidateTotalVote()  
-    {  
+    {
         // Fixed the issue by ensuring the correct type is passed to PostChanged.  
-        var totalVotes = Validate.SumTheTotalVotesInAllPosts;  
-        await ValidateChanged.InvokeAsync(Validate);  
+        PostData.TotalAmountOfVotes();
+        await PostDataChanged.InvokeAsync(PostData);
     }  
 }
