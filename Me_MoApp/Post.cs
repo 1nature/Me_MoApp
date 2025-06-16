@@ -63,13 +63,6 @@
             set { _user = value; }
         }
 
-        private List<Vote> _votes = new();
-        public List<Vote> Votes
-        {
-            get { return _votes; }
-            set { _votes = value; }
-        }
-
         private DateTime _timeStamp = new();
         public DateTime TimeStamp
         {
@@ -77,26 +70,16 @@
             set { _timeStamp = value; }
         }
 
-        public int TotalVotes
+        //this part downwards should be in the vote class.
+        //adjust the program to reflect that especially in the blazor components
+        private List<Vote> _votes = new();
+        public List<Vote> Votes
         {
-            get
-            {
-                int totalVotes = 0;
-                foreach (Vote v in Votes)
-                {
-                    totalVotes += v.Value;
-                }
-                return totalVotes;
-            }
+            get { return _votes; }
+            set { _votes = value; }
         }
 
-        public override string ToString()
-        {
-            return $"{User.FirstName} {User.LastName} - {Description}";
-        }
-
-
-        public void UpVote()
+        public void UpVoteOnPost()
         {
             var vote = new Vote();
             vote.Value = 1;
@@ -114,7 +97,7 @@
             Votes.Add(vote);
         }
 
-        public void DownVote()
+        public void DownVoteOnPost()
         {
             var vote = new Vote();
             vote.Value = -1;
@@ -131,6 +114,28 @@
             }
             Votes.Add(vote);
         }
+
+        public int TotalVotesOnEachPost
+        {
+            get
+            {
+                int totalVotes = 0;
+                foreach (Vote v in Votes)
+                {
+                    totalVotes += v.Value;
+                }
+                return totalVotes;
+            }
+        }
+
+
+
+
+        public override string ToString()
+        {
+            return $"{User.FirstName} {User.LastName} - {Description}";
+        }
+
 
         //Render these
         //Think about user changing their vote

@@ -10,12 +10,41 @@
             set { _timeStamp = value; }
         }
 
-        private double _total;
-        public double Total
+        // to get all posts
+        private List<Post> _posts = new();
+        public List<Post> Posts
         {
-            get { return _total; }
-            set { _total = value; }
+            get { return _posts; }
+            set { _posts = value; }
         }
+
+        public void GetAllPosts()
+        {
+            var post = new Post();
+            foreach (var p in _posts)
+            {
+                Posts.Add(post);
+            }
+        }
+
+        public int SumTheTotalVotesInAllPosts
+        {
+            get
+            {
+                var sumOfAllVotes = 0;
+                foreach (var p in _posts)
+                {
+                    sumOfAllVotes += p.TotalVotesOnEachPost; 
+                }
+                return sumOfAllVotes;
+            }
+        }
+        //private double _total;
+        //public double Total
+        //{
+        //    get { return _total; }
+        //    set { _total = value; }
+        //}
 
         private StatusCategory _status;
         public StatusCategory Status
@@ -31,46 +60,51 @@
             set { _validationScore = value; }
         }
 
-        private bool _isValidated;
-        public bool IsValidated
-        {
-            get { return _isValidated; }
-            set
-            {
-                if (ValidationScore > 90)
-                {
-                    _isValidated = true;
-                }
-            }
-        }
 
-        private bool _thevalidate;
-        public bool TheValidate
-        {
-            get { return ValidationScore > 90; }
-        }
 
-        private bool _hasvalidated = new();
-        public bool HasValidated
-        {
-            get { return _hasvalidated; }
-            set { _hasvalidated = value; }
-        }
 
-        private double _alluservotes;
+        //private bool _isValidated;
+        //public bool IsValidated
+        //{
+        //    get { return _isValidated; }
+        //    set
+        //    {
+        //        if (ValidationScore > 90)
+        //        {
+        //            _isValidated = true;
+        //        }
+        //    }
+        //}
 
-        public double AllUserVotes
-        {
-            get { return _alluservotes; }
-            set { _alluservotes = value; }
-        }
 
-        private double _eachuservote;
 
-        public double EachUserVote
-        {
-            get { return _eachuservote; }
-            set { _eachuservote = value; }
-        }
+        //private bool _thevalidate;
+        //public bool TheValidate
+        //{
+        //    get { return ValidationScore > 90; }
+        //}
+
+        //private bool _hasvalidated = new();
+        //public bool HasValidated
+        //{
+        //    get { return _hasvalidated; }
+        //    set { _hasvalidated = value; }
+        //}
+
+        //private double _alluservotes;
+
+        //public double AllUserVotes
+        //{
+        //    get { return _alluservotes; }
+        //    set { _alluservotes = value; }
+        //}
+
+        //private double _eachuservote;
+
+        //public double EachUserVote
+        //{
+        //    get { return _eachuservote; }
+        //    set { _eachuservote = value; }
+        //}
     }
 }

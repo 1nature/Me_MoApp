@@ -86,41 +86,42 @@ namespace Me_MoApp
             return result;
         }
 
-        public static bool IsUserValidated(User u, List<Post> thePosts)
-        {
-            int totalUserVote = 0;
-            int total = 0;
+        //public static bool IsUserValidated(User u, List<Post> thePosts)
+        //{
+        //    int totalUserVote = 0;
+        //    int total = 0;
 
-            foreach (Post p in thePosts)
-            {
-                //foreach (Vote v in p.Votes)
-                //{
-                //    total += v.TotalVote;
-                //}
-            }
+        //    foreach (Post p in thePosts)
+        //    {
+        //        //foreach (Vote v in p.Votes)
+        //        //{
+        //        //    total += v.TotalVote;
+        //        //}
+        //    }
 
-            foreach (Post p in thePosts)
-            {
-                //foreach (Vote v in p.Votes)
-                //{
-                //    if (v.User.ID == u.ID)
-                //    {
-                //        totalUserVote += v.TotalVote; //result of totaluservote is unclear
-                //    }
-                //}
-            }
-            double remainder = total - totalUserVote;
+        //    foreach (Post p in thePosts)
+        //    {
+        //        //foreach (Vote v in p.Votes)
+        //        //{
+        //        //    if (v.User.ID == u.ID)
+        //        //    {
+        //        //        totalUserVote += v.TotalVote; //result of totaluservote is unclear
+        //        //    }
+        //        //}
+        //    }
+        //    double remainder = total - totalUserVote;
 
-            double result = (totalUserVote / remainder) * 100; //this math is tricky
-            Math.Round(result);
+        //    double result = (totalUserVote / remainder) * 100; //this math is tricky
+        //    Math.Round(result);
 
-            if (result > 90)
-            {
-                u.Validate.HasValidated = true;
-            }
-            return u.Validate.HasValidated;
-        }
-        
+        //    if (result > 90)
+        //    {
+        //        u.Validate.HasValidated = true;
+        //    }
+        //    return u.Validate.HasValidated;
+        //}
+
+        //need to fix ranking and voting system
         public static StatusCategory GetPostStatus(Post x, List<Post> allPosts)
         {
             int count = 0;

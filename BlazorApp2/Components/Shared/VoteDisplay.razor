@@ -1,49 +1,56 @@
-﻿@page "/votedisplay"
-@using Me_MoApp
+﻿@page "/votedisplay"  
+@using Me_MoApp  
+
+<div class="card-body mt-2" style="width: 13rem;">  
+    <h5 class="card-title">Rate the Picture</h5>  
+    <div class="card-footer text-muted">  
+        <button class="btn btn-outline-primary" @onclick="UpdateVoteValue">  
+            Like  
+        </button>  
+
+        <button class="btn btn-outline-danger" @onclick="DownVoteValue">  
+            Dislike  
+        </button>  
+    </div>  
+
+    <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>  
+    <p class="text-capitalize">@Validate.SumTheTotalVotesInAllPosts</p>
 
 
-<div class="card-body mt-2" style="width: 13rem;">
-    <h5 class="card-title">Rate the Picture</h5>
-    <div class="card-footer text-muted">
-            @* <button class="btn btn-outline-primary" @onclick="OnLikeVote"> *@
-            <button class="btn btn-outline-primary" @onclick="UpdateVoteValue">
-            Like
-        </button>
+</div>  
 
-        <button class="btn btn-outline-danger" @onclick="DownVoteValue">
-            Dislike
-        </button>
-    </div>
+@code {  
+    [Parameter]  
+    public Post Post { get; set; } = new();  
 
-    <p class="text-capitalize">@Post.TotalVotes</p>
-</div>
+    [Parameter]  
+    public Validate Validate { get; set; } = new();  
 
+    [Parameter]  
+    public EventCallback<Post> PostChanged { get; set; }  
 
-
-@code {
     [Parameter]
-    public Post Post { get; set; } = new();
+    public EventCallback<Validate> ValidateChanged { get; set; }
 
+    [Parameter]  
+    public string Text { get; set; } = "No Text";  
 
-    [Parameter]
-    public EventCallback<Post> PostChanged { get; set; }
+    async Task UpdateVoteValue()  
+    {     
+        Post.UpVoteOnPost();  
+        await PostChanged.InvokeAsync(Post);  
+    }  
 
-    [Parameter]
-    public string Text { get; set; } = "No Text";
+    async Task DownVoteValue()  
+    {  
+        Post.DownVoteOnPost();  
+        await PostChanged.InvokeAsync(Post);  
+    }  
 
-
-    async Task UpdateVoteValue()
-    {   
-        Post.UpVote();
-        await PostChanged.InvokeAsync(Post);
-    }
-
-    async Task DownVoteValue()
-    {
-        Post.DownVote();
-        await PostChanged.InvokeAsync(Post);
-    }
-
-    //Next task is to get vendors to show on the post interface
-    //If 1 is done, try to upload multiple images
+    async Task ValidateTotalVote()  
+    {  
+        // Fixed the issue by ensuring the correct type is passed to PostChanged.  
+        var totalVotes = Validate.SumTheTotalVotesInAllPosts;  
+        await ValidateChanged.InvokeAsync(Validate);  
+    }  
 }

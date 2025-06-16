@@ -38,7 +38,7 @@ namespace BlazorApp2.Data
             int total = 0;
             foreach (Post p in Posts)
             {
-                total += p.TotalVotes;
+                total += p.TotalVotesOnEachPost;
             }
             return total;
 

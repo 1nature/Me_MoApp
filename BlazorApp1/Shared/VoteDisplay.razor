@@ -15,7 +15,7 @@
         </button>
     </div>
 
-    <p class="text-capitalize">@Post.TotalVotes</p>
+    <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>
 </div>
 
 
@@ -34,13 +34,13 @@
 
     async Task UpdateVoteValue()
     {   
-        Post.UpVote();
+        Post.UpVoteOnPost();
         await PostChanged.InvokeAsync(Post);
     }
 
     async Task DownVoteValue()
     {
-        Post.DownVote();
+        Post.DownVoteOnPost();
         await PostChanged.InvokeAsync(Post);
     }
 
