@@ -15,7 +15,9 @@
     </div>  
 
     <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>  
-    <p class="text-capitalize">@PostData.TotalAmountOfVotes()</p>
+    @* <p class="text-capitalize">@PostData.TotalAmountOfVotes()</p> *@
+    @* <p class="text-capitalize">@Validate.ValidationScore</p> *@
+
 
 
 </div>  
@@ -29,7 +31,6 @@
 
     [Parameter]
     public PostDataService PostData { get; set; } = new();
-
 
     [Parameter]  
     public EventCallback<Post> PostChanged { get; set; }  
@@ -58,8 +59,11 @@
 
     async Task ValidateTotalVote()  
     {
+        double x = Validate.ValidationScore;
+        await ValidateChanged.InvokeAsync(Validate);
+
         // Fixed the issue by ensuring the correct type is passed to PostChanged.  
-        PostData.TotalAmountOfVotes();
-        await PostDataChanged.InvokeAsync(PostData);
+        //PostData.TotalAmountOfVotes();
+        //await PostDataChanged.InvokeAsync(PostData);
     }  
 }

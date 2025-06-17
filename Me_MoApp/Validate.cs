@@ -20,9 +20,7 @@
 
         public void GetAllPosts()
         {
-
             // This is just an example, you may want to modify it based on your requirements
-
             var post = new Post();
             foreach (var p in _posts)
             {
@@ -77,22 +75,7 @@
             }
         }
 
-        //public static int SumTheVotesGeneratedByEachUser(User user, List<Post> allPosts)
-        //{
-        //    int totalUserVote = 0;
-        //    foreach (Post p in allPosts)
-        //    {
-        //        foreach (Vote v in p.Votes)
-        //        {
-        //            if (v.User.ID == user.ID) //use ID because of value types VS reference type
-        //            {
-        //                totalUserVote += v.Value; //assuming Value is the property in Vote class that holds the vote value
-        //            }
-        //        }
-        //    }
-        //    return totalUserVote;
-        //}
-
+        
         public int TotalVotesGeneratedFromUserPosts
         {
             get
