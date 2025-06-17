@@ -43,8 +43,9 @@ namespace BlazorApp2.Data
                 foreach (Vote v in p.Votes)
                 {
                     {
-                        total += v.Value; //assuming Value is the property in Vote class that holds the vote value
+                        total += v.Value; 
                         //total += p.TotalVotesOnEachPost;
+                        //need to bring in user?
                     }
                 }
             }

@@ -68,13 +68,13 @@ namespace Me_MoApp
             int totalUserVote = 0;
             foreach (Post p in allPosts)
             {
-                //foreach (Vote v in p.Votes)
-                //{
-                //    if (v.User.ID == user.ID) //use ID because of value types VS reference type
-                //    {
-                //        totalUserVote += v.TotalVote;
-                //    }
-                //}
+                foreach (Vote v in p.Votes)
+                {
+                    if (v.User.ID == user.ID) //use ID because of value types VS reference type
+                    {
+                        totalUserVote += v.Value; //assuming Value is the property in Vote class that holds the vote value
+                    }
+                }
             }
             return totalUserVote;
         }
