@@ -72,6 +72,31 @@
           </Phone>
         </User>
       </Vote>
+      <Vote>
+        <ID>0</ID>
+        <Value>1</Value>
+        <TimeStamp>0001-01-01T00:00:00</TimeStamp>
+        <User>
+          <ID>1</ID>
+          <FirstName>Ayokunle</FirstName>
+          <LastName>Olanipekun</LastName>
+          <Picture>/images/Ayo_Peks.jpg</Picture>
+          <Sex>Male</Sex>
+          <Vendor>
+            <ID>0</ID>
+            <Address>
+              <ID>0</ID>
+            </Address>
+            <Phone>
+              <ID>0</ID>
+            </Phone>
+          </Vendor>
+          <Phone>
+            <ID>0</ID>
+            <PhoneNumber>07340264066</PhoneNumber>
+          </Phone>
+        </User>
+      </Vote>
     </Votes>
   </Post>
   <Post>

@@ -100,7 +100,6 @@
         public void DownVoteOnPost()
         {
             var vote = new Vote();
-            vote.Value = -1;
             vote.User = User;
 
             //check if user has already voted
@@ -124,6 +123,12 @@
                 {
                     totalVotes += v.Value;
                 }
+
+                if (totalVotes < 0)
+                {
+                    return 0; // No votes yet
+                }
+
                 return totalVotes;
             }
         }
