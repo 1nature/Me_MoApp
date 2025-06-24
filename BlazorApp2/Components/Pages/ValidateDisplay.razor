@@ -1,0 +1,16 @@
+﻿@page "/validatedisplay"
+@using Me_MoApp
+
+<h3>ValidateDisplay</h3>
+<p class="text-capitalize">@Validate.IsValidated</p>
+
+
+@code {
+
+    public Validate Validate { get; set; } = new();
+
+    void test()
+    {
+        
+    }
+}

@@ -6,12 +6,36 @@
     <LastName>qwewqe</LastName>
     <Sex>Male</Sex>
     <Vendor>
-      <Address />
-      <Phone />
+      <ID>0</ID>
+      <Address>
+        <ID>0</ID>
+      </Address>
+      <Phone>
+        <ID>0</ID>
+      </Phone>
     </Vendor>
     <Phone>
+      <ID>0</ID>
       <PhoneNumber>12341</PhoneNumber>
     </Phone>
-    <ValidatedUsers />
+  </User>
+  <User>
+    <ID>0</ID>
+    <FirstName>Richard</FirstName>
+    <LastName>Wise</LastName>
+    <Sex>Male</Sex>
+    <Vendor>
+      <ID>0</ID>
+      <Address>
+        <ID>0</ID>
+      </Address>
+      <Phone>
+        <ID>0</ID>
+      </Phone>
+    </Vendor>
+    <Phone>
+      <ID>0</ID>
+      <PhoneNumber>07340264066</PhoneNumber>
+    </Phone>
   </User>
 </ArrayOfUser>

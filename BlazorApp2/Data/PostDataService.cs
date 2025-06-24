@@ -33,7 +33,22 @@ namespace BlazorApp2.Data
             return comments;
         }
 
-
+        public int TotalVotesForUser(User u)
+        {
+            int totalVotes = 0;
+          
+            foreach (Post p in Posts)
+            {
+                foreach (Vote v in p.Votes)
+                {
+                    if (v.User.ID != u.ID) // Check if User is not null to avoid NullReferenceException
+                    {
+                        totalVotes += v.Value; // Assuming Value is the property in Vote class that holds the vote value
+                    }
+                }
+            }
+            return totalVotes;
+        }
 
         public int TotalAmountOfVotes()
         {
@@ -50,6 +65,17 @@ namespace BlazorApp2.Data
                 }
             }
             return total;
+
+        }
+
+        public Validate GetValidation(User u)
+        {
+            var v = new Validate();
+
+            v.SumTheTotalVotesInAllPosts = TotalAmountOfVotes();
+            v.TotalVotesGeneratedFromUserPosts = TotalVotesForUser(u);
+
+            return v;
 
         }
 
