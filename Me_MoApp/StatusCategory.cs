@@ -9,12 +9,14 @@
         Unranked_UR
     }
 
-    //In the logic class, create a dictionary method
-    //user is the key, vote is the value
-    //Do sorting
-    //Do boolean for the top 90% and others
+    // Create database for user data?
+    // Fix the Status Category of users
+    // More bootstrap styling of the UI
+
+    // New Posts not rendering in the UI
+
 }
 
 
-    
+
 

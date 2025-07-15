@@ -1,14 +1,17 @@
 ﻿@page "/editpostform/{PostID:int}"
-@page "/editpostform/"
+@* @page "/editpostform/" *@
 @using BlazorApp2.Data
 @using Me_MoApp
 @inject UserDataService uds
 @inject PostDataService pds
+@inject AuthenticationStateProvider AuthStateProvider
+@inject UserManager<ApplicationUser> UserManager
 
 
 @using System
 @using System.IO
 @using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Identity
 @inject IWebHostEnvironment Environment
 
 <PageTitle>PostInputInterface</PageTitle>
@@ -17,7 +20,7 @@
 {
     <h3>New Post Entry Form</h3>
 }
-else 
+else
 {
     <h3>Edit Post Form</h3>
 }
@@ -68,16 +71,37 @@ else
     }
 
 
-    void OnSubmit()
+    async Task OnSubmit()
     {
         LogicMethod.SavePostDataToDisk(pds.Posts);
 
-        if (PostID == 0) {
+        if (PostID == 0)
+        {
+
+            var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+            var claims = authState.User;
+            var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
+            //additional code to  pull all user data but how?
+            if(currentlyLoggedInUser == null) // nobody logged in
+            {
+                return;
+            }
+
             pds.Posts.Add(Post);
             Post.TimeStamp = DateTime.Now;
-        //TODO    Post.User = //set to currently logged in user see course content
+            Post.User = currentlyLoggedInUser.User; //TODO: replace with currently logged in user
+
+
+            var user = uds.Users.FirstOrDefault(u => u.FirstName == "testuser"); //TODO: replace with currently logged in user
+            Post.User = user;
+
+            //Setting to currently logged in user not clear
+            //Coming with rendering error following the above
+            //set to currently logged in user see course content
+            //TODO    Post.User = //set to currently logged in user see course content
         }
     }
+
 
 
     private async Task LoadFiles(InputFileChangeEventArgs e)

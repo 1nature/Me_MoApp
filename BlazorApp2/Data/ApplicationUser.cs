@@ -8,7 +8,7 @@ namespace BlazorApp2.Data
     {
         public string? FavouriteColor { get; set; }
         public DateTime BirthDate { get; set; }
-        public User? UserData { get; set; } 
+        public User? User { get; set; } 
 
     }
 

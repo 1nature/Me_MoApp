@@ -258,16 +258,6 @@
             return thePostsList;
         }
 
-        //USE LINQ
-       //Get the name of users that make posts
-       //Get the comment from post
-       //Get comment from one post
-       //Get user address & comment from post/posts
-       //Get user name, address, vendor info from a post
-       //What if a user has mulitiple uploads/paths
-        
-        //Two post entry pages
-        //Vendor not rendering
-        //How to debug on webpage
+      
     }
 }

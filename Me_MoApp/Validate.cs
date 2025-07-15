@@ -40,11 +40,7 @@
             get; set;
         }
 
-        //My posts are mostly one user
-        //Validation score calculation is troubling
-        //User objects should be validated or not.
-        //Edit post form is landing on 404
-        //Commits not landing on Github
+
         private bool _isValidated;
         public bool IsValidated
         {
