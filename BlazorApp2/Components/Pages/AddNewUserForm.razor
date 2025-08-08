@@ -1,7 +1,9 @@
 ﻿@page "/userentryform/{UserID:int}"
+@page "/userentryform/"
 @using BlazorApp2.Data
 @using Me_MoApp
-@inject UserDataService udx
+@* @inject UserDataService udx *@
+@inject Data.ApplicationDbContext dbContext;
 
 @using System
 @using System.IO
@@ -19,11 +21,11 @@ else
 
 <EditForm Model="User" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
-        <div class="col-md-4">
+        @* <div class="col-md-4">
             <label for="user ID" class="form-label">User ID</label>
             <InputNumber @bind-Value="User.ID"></InputNumber>
         </div>
-
+ *@
         <div class="col-md-4">
             <label for="picture" class="form-label">Picture</label>
             <InputFile OnChange="LoadFiles" />
@@ -75,7 +77,7 @@ else
     private bool isLoading;
 
     [Parameter]
-    public int UserID { get; set; } = 0;
+    public int UserID { get; set; } 
 
     public User User { get; set; } = new(); //find a specific user
 
@@ -83,8 +85,8 @@ else
     {
         if (UserID != 0)
         {
-         
-            User = udx.Users.Where(u => u.ID == UserID).First();
+            //User = udx.Users.Where(u => u.ID == UserID).First();
+            User = dbContext.Users.Where(u => u.ID == UserID).First();
 
         }
         base.OnParametersSet();
@@ -92,13 +94,21 @@ else
 
     void OnSubmit()
     {
-    
+
         if (UserID == 0) //adding new user
         {
-            udx.Users.Add(User);
-        }
+            // UserID = 0;
+            // dbContext.Users.Add(User);
 
-        udx.Save();
+            //udx.Users.Add(User);
+            UserID = 0;
+            if (User.Phone != null) User.Phone.ID = 0;
+            if (User.Validate != null) User.Validate.ID = 0;
+            if (User.Vendor != null) User.Vendor.ID = 0;
+            dbContext.Users.Add(User);
+        }
+        dbContext.SaveChanges();
+        //udx.Save();
 
     }
 

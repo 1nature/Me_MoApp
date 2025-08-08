@@ -9,10 +9,12 @@
 
 
 <p>
-    @foreach (Post post in pInfo.Posts)
+    @if (pInfo.Posts != null)
     {
-        <PostDisplay DPost="post"></PostDisplay>
-
+        foreach (Post post in pInfo.Posts)
+        {
+            <PostDisplay DPost="post"></PostDisplay>
+        }
     }
 </p>
 

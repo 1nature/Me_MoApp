@@ -2,27 +2,8 @@
 <ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <User>
     <ID>0</ID>
-    <FirstName>eqwe</FirstName>
-    <LastName>qwewqe</LastName>
-    <Sex>Male</Sex>
-    <Vendor>
-      <ID>0</ID>
-      <Address>
-        <ID>0</ID>
-      </Address>
-      <Phone>
-        <ID>0</ID>
-      </Phone>
-    </Vendor>
-    <Phone>
-      <ID>0</ID>
-      <PhoneNumber>12341</PhoneNumber>
-    </Phone>
-  </User>
-  <User>
-    <ID>0</ID>
-    <FirstName>Richard</FirstName>
-    <LastName>Wise</LastName>
+    <FirstName>Ayokunle</FirstName>
+    <LastName>Olanipekun</LastName>
     <Sex>Male</Sex>
     <Vendor>
       <ID>0</ID>
@@ -39,29 +20,9 @@
     </Phone>
   </User>
   <User>
-    <ID>0</ID>
-    <FirstName>pHAKUM kimnana</FirstName>
+    <ID>1</ID>
+    <FirstName>pHAKUM</FirstName>
     <LastName>Adagun</LastName>
-    <Sex>Male</Sex>
-    <Vendor>
-      <ID>0</ID>
-      <Address>
-        <ID>0</ID>
-      </Address>
-      <Phone>
-        <ID>0</ID>
-      </Phone>
-    </Vendor>
-    <Phone>
-      <ID>0</ID>
-      <PhoneNumber>08167</PhoneNumber>
-    </Phone>
-  </User>
-  <User>
-    <ID>0</ID>
-    <FirstName>Mark</FirstName>
-    <LastName>Amoako</LastName>
-    <Picture>3ctrkriw.hpi..jpg</Picture>
     <Sex>Female</Sex>
     <Vendor>
       <ID>0</ID>
@@ -74,7 +35,7 @@
     </Vendor>
     <Phone>
       <ID>0</ID>
-      <PhoneNumber>12341</PhoneNumber>
+      <PhoneNumber>08167</PhoneNumber>
     </Phone>
   </User>
 </ArrayOfUser>
