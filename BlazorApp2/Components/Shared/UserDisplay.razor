@@ -1,4 +1,5 @@
 ﻿@using Me_MoApp
+@* @inject Data.ApplicationDbContext dbContext *@
 <div class="card mx-auto" style="width: 40rem;">
 
 
@@ -6,7 +7,10 @@
         <a class="btn btn-primary" role="button" href="/userentryform">New User</a>
     </div>
 
+
+
     <div class="card-body">
+
         <p><strong>@DUser.ID</strong></p>
         <p><strong>@DUser.FirstName @DUser.LastName</strong></p>
         <p><img style="width: 100px" src="/images/@DUser.Picture" /></p>
@@ -20,4 +24,6 @@
 @code {
     [Parameter]
     public User DUser { get; set; } 
+
+    //public Data.ApplicationDbContext? dbContext { get; set; }
 }

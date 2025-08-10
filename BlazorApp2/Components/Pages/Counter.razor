@@ -1,18 +1,52 @@
 ﻿@page "/counter"
+@inject Data.ApplicationDbContext dbContext;
+@using Me_MoApp
 
-<PageTitle>Counter</PageTitle>
+@* <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+<button class="btn btn-primary" @onclick="DoSomething">Click me</button>
+
+@* <p>@pageM.Title</p>
+<p>@pageM.Description</p> *@
+
+@foreach (var pagee in dbContext.Pages)
+{
+    <p>@pagee.Title - @pagee.Description</p>
+}
+
 
 @code {
-    private int currentCount = 0;
+    //Page pageM = new(); //why can't this be inside the async method like that of Florian?
 
-    private void IncrementCount()
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await DoSomething();
+
+    // }
+    async Task DoSomething()
     {
-        currentCount++;
+        Page pageM = new();
+        pageM.Title = "Counter Page";
+        pageM.Description = "This is the counter page content.";
+
+        dbContext.Pages.Add(pageM);
+        await dbContext.SaveChangesAsync();
+        // This method is called when the component is initialized
+        // You can perform any necessary initialization here
+        // For example, you can load data from the database
+        //var users = await dbContext.Users.ToListAsync();
+        // Do something with the users if needed
     }
+
+    // private int currentCount = 0;
+
+    // private void IncrementCount()
+    // {
+    //     currentCount++;
+    // }
 }

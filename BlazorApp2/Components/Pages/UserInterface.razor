@@ -1,21 +1,45 @@
 ﻿@page "/userinterface"
 @using BlazorApp2.Components.Shared
 @using Me_MoApp
-@inject Data.UserDataService uInfo
+@* @inject Data.UserDataService uInfo *@
+@inject Data.ApplicationDbContext dbContext
 
 <PageTitle>UserInterface</PageTitle>
 
 <h3 class="text-center">User Interface</h3>
 
-    <p>
+   @*  <p>
         @foreach (User user in uInfo.Users)
         {
             <UserDisplay DUser="user"></UserDisplay>
         }
-    </p>
+    </p> *@
 
 
+    @* I used this code to obtain users from the database *@
 
+<p>
+    @if(dbContext.Users == null || !dbContext.Users.Any())
+    {
+        <p>No users found.</p>
+    }
+    else
+    {
+            @foreach (User user in dbContext.Users)
+        {
+        <UserDisplay DUser="user"></UserDisplay>
+        }
+    }
+)
+
+    
+)
+
+    @* @foreach (User user in uInfo.Users)
+    {
+        <UserDisplay DUser="user"></UserDisplay>
+    } *@
+</p>
 
 
 @code {
