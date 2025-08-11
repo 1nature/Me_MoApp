@@ -19,7 +19,6 @@ else
     <h3>Edit User Form</h3>
 }
 
-@* <EditForm Model="User" OnSubmit="OnSubmit"> *@
 <EditForm Model="User" OnSubmit="OnSubmit">
 
     <div class="card mx-auto" style="width: 40rem;">
@@ -35,29 +34,24 @@ else
 
         <div class="col-md-4">
             <label for="first name" class="form-label">First Name</label>
-            @* <InputText @bind-Value="User.FirstName"></InputText> *@
             <InputText @bind-Value="User.FirstName"></InputText>
         </div>
 
         <div class="col-md-4">
             <label for="last name" class="form-label">Last Name</label>
             <InputText @bind-Value="User.LastName"></InputText>
-            @* <InputText @bind-Value="User.LastName"></InputText> *@
         </div>
         <p></p>
         <div class="col-md-4">
             <label for="sex" class="form-label">Sex</label>
-            @* <InputSelect @bind-Value="User.Sex"> *@
                     <InputSelect @bind-Value="User.Sex">
                 <option value="">
                     Choose sex
                 </option>
-                @* <option checked="@(User.Sex == "Male")" *@
                 <option checked="@(User.Sex == "Male")"
                 value="Male">
                     Male
                 </option>
-                @* <option checked="@(User.Sex == "Female")" *@
                 <option checked="@(User.Sex == "Female")"
                 value="Female">
                     Female
@@ -67,7 +61,6 @@ else
 
             <div class="col-md-4">
                 <label for="phone number" class="form-label">Phonenumber</label>
-                @* <InputText @bind-Value="User.Phone.PhoneNumber"></InputText> *@
                     <InputText @bind-Value="User.Phone.PhoneNumber"></InputText>
             </div>
 
@@ -89,7 +82,6 @@ else
     public int UserID { get; set; }
 
     public User User { get; set; } = new(); //find a specific user
-    //public ApplicationDbContext? UserContext { get; set; } 
 
     protected override void OnParametersSet()
     {
@@ -120,7 +112,7 @@ else
             dbContext.Users.Add(User);
         }
         dbContext.SaveChanges();
-        User = new User();
+        //User = new User();
         //udx.Save();
 
     }
