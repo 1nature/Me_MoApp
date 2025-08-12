@@ -6,6 +6,7 @@
 @inject PostDataService pds
 @inject AuthenticationStateProvider AuthStateProvider
 @inject UserManager<ApplicationUser> UserManager
+@inject Data.ApplicationDbContext dbContext;
 
 
 @using System
@@ -38,6 +39,18 @@ else
         </div>
 
 
+       @*  <div class="col-xl-4">
+            <select asp-for="PostCategory" class="form-control">
+                <option value="0">Select Category</option>
+                @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+                {
+                    <option value="@category">@category</option>
+                }
+            </select>
+        </div> *@
+
+
+
         @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
         @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
         <br />
@@ -65,7 +78,9 @@ else
     {
         if (PostID != 0)
         {
-            Post = pds.Posts.Where(p => p.ID == PostID).First();
+            // Load the post data from the service based on PostID
+            Post = dbContext.Posts.Where(p => p.ID == PostID).First(); 
+
         }
         base.OnParametersSet();
     }
@@ -73,7 +88,7 @@ else
 
     async Task OnSubmit()
     {
-        LogicMethod.SavePostDataToDisk(pds.Posts);
+        //LogicMethod.SavePostDataToDisk(pds.Posts);
 
         if (PostID == 0)
         {
@@ -87,19 +102,22 @@ else
                 return;
             }
 
-            pds.Posts.Add(Post);
+            dbContext.Posts.Add(Post);
+        
+            // pds.Posts.Add(Post);
             Post.TimeStamp = DateTime.Now;
             Post.User = currentlyLoggedInUser.User; //TODO: replace with currently logged in user
 
 
-            var user = uds.Users.FirstOrDefault(u => u.FirstName == "testuser"); //TODO: replace with currently logged in user
-            Post.User = user;
+            // var user = uds.Users.FirstOrDefault(u => u.FirstName == "testuser"); //TODO: replace with currently logged in user
+            // Post.User = user;
 
             //Setting to currently logged in user not clear
             //Coming with rendering error following the above
             //set to currently logged in user see course content
             //TODO    Post.User = //set to currently logged in user see course content
         }
+        dbContext.SaveChanges(); // Save changes to the database
     }
 
 

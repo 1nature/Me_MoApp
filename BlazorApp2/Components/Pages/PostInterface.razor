@@ -2,6 +2,7 @@
 @using BlazorApp2.Components.Shared
 @using Me_MoApp
 @inject Data.PostDataService pInfo
+@inject Data.ApplicationDbContext dbContext
 <PageTitle>PostInterface</PageTitle>
 
 
@@ -9,13 +10,28 @@
 
 
 <p>
-    @if (pInfo.Posts != null)
+
+    @if (dbContext.Posts == null || !dbContext.Posts.Any())
+    {
+        <p>No posts found.</p>
+    }
+    else
+    {
+        @foreach (Post post in dbContext.Posts)
+        {
+            <PostDisplay DPost="post"></PostDisplay>
+        }
+    }
+
+
+
+    @* @if (pInfo.Posts != null)
     {
         foreach (Post post in pInfo.Posts)
         {
             <PostDisplay DPost="post"></PostDisplay>
         }
-    }
+    } *@
 </p>
 
 
