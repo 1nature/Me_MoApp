@@ -1,0 +1,44 @@
+﻿@using Me_MoApp
+
+<p><strong>@DPost.Categorization</strong></p>
+
+
+<div class="col-xl-4">
+    <select class="form-control" @bind="DPost.Categorization">
+        <option value="0">Select Category</option>
+        @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+</div>
+
+
+@* <div class="col-xl-4">
+    <select class="form-control" @bind="DPost.Categorization">
+        <option value="0">Select Category</option>
+        @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+</div>
+ *@
+
+@code {
+    [Parameter]
+    public Post? DPost { get; set; }
+
+    // [Parameter]
+    // public EventCallback<Post> CategoryChanged { get; set; }
+
+    // async Task UpdateCategoryValue()
+    // {
+    //     DPost.Categorization = (PostCategory)Enum.Parse(typeof(PostCategory), DPost.Categorization.ToString());
+    //     await CategoryChanged.InvokeAsync(DPost);
+    // }
+    // // public PostCategory DPostCategory { get; set; }
+
+
+    //This page is causing error!
+}

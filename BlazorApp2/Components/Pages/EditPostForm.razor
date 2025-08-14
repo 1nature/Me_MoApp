@@ -38,21 +38,19 @@ else
             <InputText @bind-Value="Post.Description"></InputText>
         </div>
 
-
-       @*  <div class="col-xl-4">
-            <select asp-for="PostCategory" class="form-control">
+        @if (DPost != null) {
+        <div class="col-xl-4">
+            <select class="form-control" @bind="DPost.Categorization">
                 <option value="0">Select Category</option>
                 @foreach (var category in Enum.GetValues(typeof(PostCategory)))
                 {
                     <option value="@category">@category</option>
                 }
             </select>
-        </div> *@
+        </div>
+        }
 
-
-
-        @*   <InputNumber @bind-Value="Post.Categorization"></InputNumber>  *@
-        @* <InputNumber @bind-Value="Post.Votes"></InputNumber> *@
+       
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
 
@@ -70,6 +68,9 @@ else
     private bool isLoading;
 
     public Post Post { get; set; } = new();
+
+    [Parameter]
+    public Post? DPost { get; set; } = new Post();// This is the post being edited or created
 
     [Parameter]
     public int PostID { get; set; }

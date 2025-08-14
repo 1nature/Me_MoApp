@@ -30,7 +30,7 @@
 
         Post.TheComments.Add(Comment);
         await PostChanged.InvokeAsync(Post);
-        Comment = new();
+        Comment = new(); // This clears the form or prepares for the next comment.
 
         //Edit user not clear
         //vendors showing as a dropdown list or stored in place?
