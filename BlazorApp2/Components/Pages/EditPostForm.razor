@@ -28,34 +28,44 @@ else
 
 <EditForm Model="Post" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
+        @*  <div class="col-md-4">
+            <label for="firstname" class="form-label">First Name</label>
+            <InputText @bind-Value="Post.User.FirstName"></InputText>
+        </div>
+
+        <div class="col-md-4">
+            <label for="lastname" class="form-label">Last Name</label>
+            <InputText @bind-Value="Post.User.LastName"></InputText>           
+        </div> *@
+
         <div class="col-md-4">
             <label for="picture" class="form-label">Picture</label>
             <InputFile OnChange="LoadFiles" />
         </div>
-
+        <br />
         <div class="col-md-4">
             <label for="description" class="form-label">Description</label>
             <InputText @bind-Value="Post.Description"></InputText>
         </div>
+        <br />
 
-        @if (DPost != null) {
-        <div class="col-xl-4">
-            <select class="form-control" @bind="DPost.Categorization">
-                <option value="0">Select Category</option>
-                @foreach (var category in Enum.GetValues(typeof(PostCategory)))
-                {
-                    <option value="@category">@category</option>
-                }
-            </select>
-        </div>
+        @if (Post != null)
+        {
+            <div class="col-xl-4">
+                <select class="form-control" @bind="Post.Categorization">
+                    <option value="">Select Category</option>
+                    @foreach (var category in Enum.GetValues(typeof(PostCategory)))
+                    {
+                        <option value="@category">@category</option>
+                    }
+                </select>
+            </div>
         }
 
-       
+        
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
 
-        @* <DropdownExample @bind-Post="Post"></DropdownExample>  *@
-        @* <AddVendorEntry @bind-Post="Post"></AddVendorEntry> *@
     </div>
 </EditForm>
 
@@ -67,22 +77,30 @@ else
     private int maxAllowedFiles = 3;
     private bool isLoading;
 
-    public Post Post { get; set; } = new();
+    public Post Post { get; set; } = new(); // Does this need a parameter?
 
-    [Parameter]
-    public Post? DPost { get; set; } = new Post();// This is the post being edited or created
+    // [Parameter]
+    // public Post? DPost { get; set; } = new(); // This is the post being edited or created
 
     [Parameter]
     public int PostID { get; set; }
+
 
     protected override void OnParametersSet()
     {
         if (PostID != 0)
         {
             // Load the post data from the service based on PostID
-            Post = dbContext.Posts.Where(p => p.ID == PostID).First(); 
+            Post = dbContext.Posts.Where(p => p.ID == PostID).First();
 
         }
+
+        // Ensure User is not null
+        // if (Post.User == null)
+        // {
+        //     Post.User = new User();
+        // }
+
         base.OnParametersSet();
     }
 
@@ -98,27 +116,26 @@ else
             var claims = authState.User;
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
-            if(currentlyLoggedInUser == null) // nobody logged in
+            if (currentlyLoggedInUser == null) // nobody logged in
             {
                 return;
             }
 
             dbContext.Posts.Add(Post);
-        
-            // pds.Posts.Add(Post);
+
             Post.TimeStamp = DateTime.Now;
-            Post.User = currentlyLoggedInUser.User; //TODO: replace with currently logged in user
+            Post.User = new User //TODO: replace with currently logged in user
+            {
+                FirstName = currentlyLoggedInUser.User?.FirstName,
+                LastName = currentlyLoggedInUser.User?.LastName,
+                // Picture = currentlyLoggedInUser.User.Picture, // Assuming Picture is a string or path to the image
+                // Sex = currentlyLoggedInUser.User.Sex
+            };
 
-
-            // var user = uds.Users.FirstOrDefault(u => u.FirstName == "testuser"); //TODO: replace with currently logged in user
-            // Post.User = user;
-
-            //Setting to currently logged in user not clear
-            //Coming with rendering error following the above
-            //set to currently logged in user see course content
-            //TODO    Post.User = //set to currently logged in user see course content
+            // dbContext.Posts.Add(Post);
         }
         dbContext.SaveChanges(); // Save changes to the database
+
     }
 
 
@@ -147,6 +164,9 @@ else
             }
             catch (Exception ex)
             {
+                //Console.Error.WriteLine($"Error uploading file '{file.Name}': {ex.Message}");
+
+
                 ;
             }
         }
@@ -154,5 +174,11 @@ else
         isLoading = false;
     }
 }
+
+
+
+
+
+
 
 
