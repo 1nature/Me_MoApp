@@ -79,59 +79,127 @@
             set { _votes = value; }
         }
 
+        //public void UpVoteOnPost()
+        //{
+        //    Votes.Add(new Vote { Value = 1 });
+        //}
+
+        //public void DownVoteOnPost()
+        //{
+        //    Votes.Add(new Vote { Value = -1 });
+        //}
+
         public void UpVoteOnPost()
         {
-            var vote = new Vote();
-            vote.Value = 1;
-            vote.User = User;
-
-            //check if user has already voted
-            foreach (var v in Votes)
+            var existingVote = Votes.FirstOrDefault(v => v.User == User);
+            if (existingVote != null)
             {
-                if (v.User == User)
-                {
-                    //user has already voted
-                    return;
-                }
+                existingVote.Value = 1;
             }
-            Votes.Add(vote);
+            else
+            {
+                Votes.Add(new Vote { Value = 1, User = User });
+            }
         }
 
         public void DownVoteOnPost()
         {
-            var vote = new Vote();
-            vote.User = User;
+            //var existingVote = Votes.FirstOrDefault(v => v.User == User);
+            Vote existingVote = null;
 
-            //check if user has already voted
             foreach (var v in Votes)
             {
                 if (v.User == User)
                 {
-                    //user has already voted
-                    return;
+                    existingVote = v;
+                    break;
                 }
             }
-            Votes.Add(vote);
+
+
+            if (existingVote != null)
+            {
+                existingVote.Value = -1;
+            }
+            else
+            {
+                Votes.Add(new Vote { Value = -1, User = User });
+            }
         }
 
         public int TotalVotesOnEachPost
         {
             get
             {
-                int totalVotes = 0;
-                foreach (Vote v in Votes)
-                {
-                    totalVotes += v.Value;
-                }
-
-                if (totalVotes < 0)
-                {
-                    return 0; // No votes yet
-                }
-
-                return totalVotes;
+                return Votes.Sum(v => v.Value);
             }
         }
+
+        //public void UpVoteOnPost()
+        //{
+        //    var vote = new Vote();
+        //    vote.Value = 1;
+        //    vote.User = User;
+
+        //    //check if user has already voted
+        //    foreach (var v in Votes)
+        //    {
+        //        if (v.User == User)
+        //        {
+        //            //user has already voted
+        //            return;
+        //        }
+        //    }
+        //    Votes.Add(vote);
+        //}
+
+        //public void DownVoteOnPost()
+        //{
+        //    var vote = new Vote();
+        //   vote.Value = -1;
+        //    vote.User = User;
+
+        //    //check if user has already voted
+        //    foreach (var v in Votes)
+        //    {
+        //        if (v.User == User)
+        //        {
+        //            Votes.Add(vote);
+
+        //            //break;
+        //            //user has already voted
+        //            return;
+        //        }
+        //    }
+        //    //Votes.Add(vote);
+        //    //Because user has already voted, it becomes a problem?
+        //}
+
+        //public int TotalVotesOnEachPost
+        //{
+        //    get
+        //    {
+        //        int totalVotes = 0;
+        //        foreach (Vote v in Votes)
+        //        {
+        //            totalVotes += v.Value;
+        //        }
+
+        //        //if (totalVotes != null)
+        //        //{
+        //        //    return 0; // No votes yet
+        //        //}
+
+
+        //        //if (totalVotes < 0)
+        //        //{
+        //        //    return 0; // No votes yet
+        //        //}
+
+        //        return totalVotes;
+        //    }
+        //}
+
 
 
 
@@ -143,5 +211,5 @@
 
         //Render these
         //Think about user changing their vote
-    }
+    } 
 }
