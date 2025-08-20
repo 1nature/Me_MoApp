@@ -123,7 +123,12 @@
             }
             else
             {
-                Votes.Add(new Vote { Value = -1, User = User });
+                //Votes.Add(new Vote { Value = -1, User = User });
+                Vote newVote = new Vote();
+                newVote.Value = - 1;
+                newVote.User = User;
+                Votes.Add(newVote);
+
             }
         }
 
