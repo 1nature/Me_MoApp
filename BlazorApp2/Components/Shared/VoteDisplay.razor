@@ -2,33 +2,7 @@
 @using Me_MoApp  
 @using BlazorApp2.Data
 
-@* <div class="card-body mt-2" style="width: 13rem;">  
-    <h5 class="card-title">Rate the Picture</h5>  
-    <div class="card-footer text-muted">  
-        <button class="btn btn-outline-primary" @onclick="UpdateVoteValue">  
-            Like  
-        </button>  
 
-        <button class="btn btn-outline-danger" @onclick="DownVoteValue">  
-            Dislike  
-        </button>  
-    </div>  
-
-    <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>  
-    
-</div> *@  
-
-
-
-@* <div class="card-body mt-2" style="width: 13rem;">
-    <h5 class="card-title">Rate the Picture</h5>
-    <div class="card-footer text-muted">
-        <button class="btn btn-outline-primary" @onclick="HandleVote">
-            @(isFirstClick ? "Like" : "Dislike")
-        </button>
-    </div>
-    <p class="text-capitalize">@Post.TotalVotesOnEachPost</p>
-</div> *@
 
 <div class="card-body mt-2" style="width: 13rem;">
     <h5 class="card-title">Rate the Picture</h5>
@@ -54,52 +28,13 @@
     public EventCallback<Post> PostChanged { get; set; }  
 
 
-    [Parameter]
-    public EventCallback<Validate> ValidateChanged { get; set; }
+    // [Parameter]
+    // public EventCallback<Validate> ValidateChanged { get; set; }
 
     [Parameter]
     public EventCallback<PostDataService> PostDataChanged { get; set; }
 
-    // [Parameter]  
-    // public string Text { get; set; } = "No Text";  
-
-    // private bool isFirstClick = true;
-
-    // private async Task HandleVote()
-    // {
-    //     if (isFirstClick)
-    //     {
-    //         Post.UpVoteOnPost();
-    //         isFirstClick = false;
-    //     }
-    //     else
-    //     {
-    //         Post.DownVoteOnPost();
-    //     }
-    //     await PostChanged.InvokeAsync(Post);
-    // }
-
-    // async Task UpdateVoteValue()  
-    // {     
-    //     Post.UpVoteOnPost();  
-    //     await PostChanged.InvokeAsync(Post);  
-    // }  
-
-    // async Task DownVoteValue()  
-    // {  
-    //     Post.DownVoteOnPost();  
-    //     await PostChanged.InvokeAsync(Post);  
-    // }  
-
-    // async Task ValidateTotalVote()  
-    // {
-    //     double x = Validate.ValidationScore;
-    //     await ValidateChanged.InvokeAsync(Validate);
-
-    //     // Fixed the issue by ensuring the correct type is passed to PostChanged.  
-    //     //PostData.TotalAmountOfVotes();
-    //     //await PostDataChanged.InvokeAsync(PostData);
-    // }  
+    
 
     private bool isLikeTurn = true;
     private async Task HandleAlternatingVote()
@@ -115,6 +50,5 @@
         }
         isLikeTurn = !isLikeTurn;
         await PostChanged.InvokeAsync(Post);
-        //StateHasChanged(); // Force UI update
     }
 }

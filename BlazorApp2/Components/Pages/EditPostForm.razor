@@ -28,7 +28,7 @@ else
 
 <EditForm Model="Post" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
-        @*  <div class="col-md-4">
+         <div class="col-md-4">
             <label for="firstname" class="form-label">First Name</label>
             <InputText @bind-Value="Post.User.FirstName"></InputText>
         </div>
@@ -36,7 +36,7 @@ else
         <div class="col-md-4">
             <label for="lastname" class="form-label">Last Name</label>
             <InputText @bind-Value="Post.User.LastName"></InputText>           
-        </div> *@
+        </div>
 
         <div class="col-md-4">
             <label for="picture" class="form-label">Picture</label>
@@ -77,6 +77,7 @@ else
     private int maxAllowedFiles = 3;
     private bool isLoading;
 
+    
     public Post Post { get; set; } = new(); // Does this need a parameter?
 
     // [Parameter]
@@ -91,19 +92,24 @@ else
         if (PostID != 0)
         {
             // Load the post data from the service based on PostID
-            Post = dbContext.Posts.Where(p => p.ID == PostID).First();
+            //Post = dbContext.Posts.Where(p => p.ID == PostID).First();
 
+            //Verbose
+            foreach (var post in dbContext.Posts)
+            {
+                if (post.ID == PostID)
+                {
+                    Post = post;
+                    break;
+                }
+            }
         }
 
-        // Ensure User is not null
-        // if (Post.User == null)
-        // {
-        //     Post.User = new User();
-        // }
-
+        
         base.OnParametersSet();
     }
 
+    
 
     async Task OnSubmit()
     {
