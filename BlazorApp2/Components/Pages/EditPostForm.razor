@@ -13,6 +13,7 @@
 @using System.IO
 @using Microsoft.AspNetCore.Hosting
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
 @inject IWebHostEnvironment Environment
 
 <PageTitle>PostInputInterface</PageTitle>
@@ -61,11 +62,8 @@ else
                 </select>
             </div>
         }
-
-        
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
-
     </div>
 </EditForm>
 
@@ -77,7 +75,7 @@ else
     private int maxAllowedFiles = 3;
     private bool isLoading;
 
-    
+
     public Post Post { get; set; } = new(); // Does this need a parameter?
 
     // [Parameter]
@@ -105,16 +103,14 @@ else
             }
         }
 
-        
+
         base.OnParametersSet();
     }
 
-    
+
 
     async Task OnSubmit()
     {
-        //LogicMethod.SavePostDataToDisk(pds.Posts);
-
         if (PostID == 0)
         {
 
@@ -122,23 +118,28 @@ else
             var claims = authState.User;
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
+
+            var userWithData = dbContext.Users.Include(u => u.FirstName).
+            FirstOrDefault(u => u.ID == currentlyLoggedInUser.Id);
+
             if (currentlyLoggedInUser == null) // nobody logged in
             {
                 return;
             }
 
-            dbContext.Posts.Add(Post);
+            //dbContext.Posts.Add(Post);
 
             Post.TimeStamp = DateTime.Now;
             Post.User = new User //TODO: replace with currently logged in user
             {
+                //Should I be getting data from database now?
                 FirstName = currentlyLoggedInUser.User?.FirstName,
                 LastName = currentlyLoggedInUser.User?.LastName,
                 // Picture = currentlyLoggedInUser.User.Picture, // Assuming Picture is a string or path to the image
                 // Sex = currentlyLoggedInUser.User.Sex
             };
 
-            // dbContext.Posts.Add(Post);
+            dbContext.Posts.Add(Post);
         }
         dbContext.SaveChanges(); // Save changes to the database
 

@@ -99,20 +99,10 @@ else
 
         if (UserID == 0) //adding new user
         {
-            // UserID = 0;
-            // dbContext.Users.Add(User);
-
-            //udx.Users.Add(User);
-            //
-
-            // UserID = 0;
-            // if (User.Phone != null) User.Phone.ID = 0;
-            // if (User.Validate != null) User.Validate.ID = 0;
-            // if (User.Vendor != null) User.Vendor.ID = 0;
             dbContext.Users.Add(User);
         }
         dbContext.SaveChanges();
-        //User = new User();
+        User = new User();
         //udx.Save();
 
     }
