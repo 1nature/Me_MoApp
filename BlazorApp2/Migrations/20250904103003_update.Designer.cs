@@ -4,6 +4,7 @@ using BlazorApp2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250904103003_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace BlazorApp2.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("UserDataID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -87,7 +90,7 @@ namespace BlazorApp2.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("UserDataID");
+                    b.HasIndex("UserID");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -222,7 +225,7 @@ namespace BlazorApp2.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Me_MoApp.UserData", b =>
+            modelBuilder.Entity("Me_MoApp.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -259,7 +262,7 @@ namespace BlazorApp2.Migrations
 
                     b.HasIndex("VendorID");
 
-                    b.ToTable("UserData");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Me_MoApp.Validate", b =>
@@ -488,11 +491,11 @@ namespace BlazorApp2.Migrations
 
             modelBuilder.Entity("BlazorApp2.Data.ApplicationUser", b =>
                 {
-                    b.HasOne("Me_MoApp.UserData", "UserData")
+                    b.HasOne("Me_MoApp.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserDataID");
+                        .HasForeignKey("UserID");
 
-                    b.Navigation("UserData");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Me_MoApp.Comment", b =>
@@ -501,7 +504,7 @@ namespace BlazorApp2.Migrations
                         .WithMany("TheComments")
                         .HasForeignKey("PostID");
 
-                    b.HasOne("Me_MoApp.UserData", "User")
+                    b.HasOne("Me_MoApp.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 
@@ -514,7 +517,7 @@ namespace BlazorApp2.Migrations
                         .WithMany()
                         .HasForeignKey("AddressID");
 
-                    b.HasOne("Me_MoApp.UserData", "User")
+                    b.HasOne("Me_MoApp.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 
@@ -523,7 +526,7 @@ namespace BlazorApp2.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Me_MoApp.UserData", b =>
+            modelBuilder.Entity("Me_MoApp.User", b =>
                 {
                     b.HasOne("Me_MoApp.Phone", "Phone")
                         .WithMany()
@@ -569,7 +572,7 @@ namespace BlazorApp2.Migrations
                         .WithMany("Votes")
                         .HasForeignKey("PostID");
 
-                    b.HasOne("Me_MoApp.UserData", "User")
+                    b.HasOne("Me_MoApp.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 

@@ -11,13 +11,13 @@
   
 
 <p>
-    @if(dbContext.Users == null || !dbContext.Users.Any())
+    @if(dbContext.UserData == null || !dbContext.UserData.Any())
     {
         <p>No users found.</p>
     }
     else
     {
-            @foreach (User user in dbContext.Users)
+            @foreach (UserData user in dbContext.UserData)
         {
         <UserDisplay DUser="user"></UserDisplay>
         }

@@ -56,8 +56,8 @@
             set { _address = value; }
         }
 
-        private User _user = new();
-        public User User
+        private UserData _user = new();
+        public UserData User
         {
             get { return _user; }
             set { _user = value; }
@@ -79,16 +79,7 @@
             set { _votes = value; }
         }
 
-        //public void UpVoteOnPost()
-        //{
-        //    Votes.Add(new Vote { Value = 1 });
-        //}
-
-        //public void DownVoteOnPost()
-        //{
-        //    Votes.Add(new Vote { Value = -1 });
-        //}
-
+        
         public void UpVoteOnPost()
         {
             var existingVote = Votes.FirstOrDefault(v => v.User == User);

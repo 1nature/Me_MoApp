@@ -17,9 +17,9 @@
             set { _timeStamp = value; }
         }
 
-        private User _user = new();
+        private UserData _user = new();
 
-        public User User
+        public UserData User
         {
             get { return _user; }
             set { _user = value; }

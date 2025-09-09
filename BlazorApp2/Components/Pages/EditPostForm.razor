@@ -29,14 +29,14 @@ else
 
 <EditForm Model="Post" OnSubmit="OnSubmit">
     <div class="card mx-auto" style="width: 40rem;">
-         <div class="col-md-4">
+        <div class="col-md-4">
             <label for="firstname" class="form-label">First Name</label>
             <InputText @bind-Value="Post.User.FirstName"></InputText>
         </div>
 
         <div class="col-md-4">
             <label for="lastname" class="form-label">Last Name</label>
-            <InputText @bind-Value="Post.User.LastName"></InputText>           
+            <InputText @bind-Value="Post.User.LastName"></InputText>
         </div>
 
         <div class="col-md-4">
@@ -119,8 +119,17 @@ else
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
 
-            var userWithData = dbContext.Users.Include(u => u.FirstName).
-            FirstOrDefault(u => u.ID == currentlyLoggedInUser.Id);
+            var userWithData = dbContext.Users.Include(u => u.UserData).
+            FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
+
+            
+            // var userWithData = dbContext.Users.Include(u => u.UserData).
+            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.User.ID);
+            
+
+            //do migration
+            //change user class to userdata class in applicationuser class
+            //try again
 
             if (currentlyLoggedInUser == null) // nobody logged in
             {
@@ -130,11 +139,11 @@ else
             //dbContext.Posts.Add(Post);
 
             Post.TimeStamp = DateTime.Now;
-            Post.User = new User //TODO: replace with currently logged in user
+            Post.User = new UserData //TODO: replace with currently logged in userData
             {
                 //Should I be getting data from database now?
-                FirstName = currentlyLoggedInUser.User?.FirstName,
-                LastName = currentlyLoggedInUser.User?.LastName,
+                FirstName = currentlyLoggedInUser.UserData?.FirstName,
+                LastName = currentlyLoggedInUser.UserData?.LastName,
                 // Picture = currentlyLoggedInUser.User.Picture, // Assuming Picture is a string or path to the image
                 // Sex = currentlyLoggedInUser.User.Sex
             };
@@ -145,7 +154,7 @@ else
 
     }
 
-
+    
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {

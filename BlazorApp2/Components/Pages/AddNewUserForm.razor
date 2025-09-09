@@ -76,19 +76,19 @@ else
     private List<IBrowserFile> loadedFiles = new();
     private long maxFileSize = 1024 * 15000;
     private int maxAllowedFiles = 3;
-    private bool isLoading;
+   
 
     [Parameter]
     public int UserID { get; set; }
 
-    public User User { get; set; } = new(); //find a specific user
+    public UserData User { get; set; } = new(); //find a specific user
 
     protected override void OnParametersSet()
     {
         if (UserID != 0)
         {
             //User = udx.Users.Where(u => u.ID == UserID).First();
-            User = dbContext.Users.Where(u => u.ID == UserID).First();
+            User = dbContext.UserData.Where(u => u.ID == UserID).First();
 
         }
         base.OnParametersSet();
@@ -99,17 +99,18 @@ else
 
         if (UserID == 0) //adding new user
         {
-            dbContext.Users.Add(User);
+            dbContext.UserData.Add(User);
         }
         dbContext.SaveChanges();
-        User = new User();
-        //udx.Save();
+        User = new UserData();
 
     }
 
+    
+
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
-        isLoading = true;
+        //isLoading = true;
         loadedFiles.Clear();
 
         foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
@@ -143,7 +144,7 @@ else
             }
         }
 
-        isLoading = false;
+       // isLoading = false;
     }
 
 }

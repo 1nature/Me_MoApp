@@ -1,6 +1,6 @@
 ﻿namespace Me_MoApp
 {
-    public class User 
+    public class UserData 
     {
 
         public int ID { get; set; } 

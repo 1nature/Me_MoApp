@@ -5,7 +5,7 @@ namespace BlazorApp2.Data
     public class UserDataService
     {
 
-        public List<Me_MoApp.User> GetUsers()
+        public List<Me_MoApp.UserData> GetUsers()
         {
             var users = Me_MoApp.TestData.GetUsers();
             return users;
@@ -18,7 +18,7 @@ namespace BlazorApp2.Data
             return comments;
         }
 
-        public List<User> Users { get; set; } = new();
+        public List<UserData> Users { get; set; } = new();
 
         public UserDataService()
         {

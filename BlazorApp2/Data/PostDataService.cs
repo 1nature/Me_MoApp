@@ -34,7 +34,7 @@ namespace BlazorApp2.Data
             return comments;
         }
 
-        public int TotalVotesForUser(User u)
+        public int TotalVotesForUser(UserData u)
         {
             int totalVotes = 0;
           
@@ -69,7 +69,7 @@ namespace BlazorApp2.Data
 
         }
 
-        public Validate GetValidation(User u)
+        public Validate GetValidation(UserData u)
         {
             var v = new Validate();
 

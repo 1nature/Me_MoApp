@@ -2,11 +2,11 @@
 {
     public static class TestData
     {
-        public static List<User> GetUsers()
+        public static List<UserData> GetUsers()
         {
-            var userList = new List<User>();
+            var userList = new List<UserData>();
 
-            User user1 = new();
+            UserData user1 = new();
             Phone phone1 = new Phone();
             user1.FirstName = "Ayokunle";
             user1.LastName = "Olanipekun";
@@ -16,7 +16,7 @@
             user1.Phone.PhoneNumber = "07340264066";
             user1.ID = 1;
             
-            User user2 = new();
+            UserData user2 = new();
             Phone phone2 = new Phone();
             user2.FirstName = "John";
             user2.LastName = "Briggs";
@@ -27,7 +27,7 @@
             user2.ID = 2;
 
 
-            User user3 = new();
+            UserData user3 = new();
             Phone phone3 = new Phone();
             user3.FirstName = "Sharon";
             user3.LastName = "Stone";
@@ -37,7 +37,7 @@
             user3.Phone.PhoneNumber = "07356784066";
             user3.ID = 3;
 
-            User user4 = new();
+            UserData user4 = new();
             Phone phone4 = new Phone(); //no need for this here. Should be elsewhere
             user4.FirstName = "Doga";
             user4.LastName = "Golizade";

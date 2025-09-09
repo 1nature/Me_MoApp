@@ -19,21 +19,21 @@ namespace Me_MoApp
             return total;
         }
 
-        public static void SaveUserDataToDisk(List<User> saveUser) //serialisation
+        public static void SaveUserDataToDisk(List<UserData> saveUser) //serialisation
         {
-            XmlSerializer writer = new(typeof(List<User>));
+            XmlSerializer writer = new(typeof(List<UserData>));
             using FileStream file = File.Create(Constants.savedUserPath);
             writer.Serialize(file, saveUser);
         }
 
-        public static List<User> LoadUserDataFromDisk()
+        public static List<UserData> LoadUserDataFromDisk()
         {
-            XmlSerializer xmlSerializer = new(typeof(List<User>));
-            List<User> storedUsers = new();
+            XmlSerializer xmlSerializer = new(typeof(List<UserData>));
+            List<UserData> storedUsers = new();
             if (File.Exists(Constants.savedUserPath))
             {
                 using FileStream file = File.OpenRead(Constants.savedUserPath);
-                storedUsers = xmlSerializer.Deserialize(file) as List<User>;
+                storedUsers = xmlSerializer.Deserialize(file) as List<UserData>;
             }
             return storedUsers;
         }

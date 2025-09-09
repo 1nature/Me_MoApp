@@ -5,7 +5,7 @@
         public int ID { get; set; }
         public int Value { get; set; } //either +1 or -1
         public DateTime TimeStamp { get; set; }
-        public User User { get; set; } //User who voted
+        public UserData User { get; set; } //User who voted
         public Post Post { get; set; } //Post that was voted on
 
     }
