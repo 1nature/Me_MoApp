@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BlazorApp2.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,6 +56,24 @@ namespace BlazorApp2.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Validate",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SumTheTotalVotesInAllPosts = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    ValidationScore = table.Column<double>(type: "float", nullable: false),
+                    TotalVotesGeneratedFromUserPosts = table.Column<int>(type: "int", nullable: false),
+                    IsValidated = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Validate", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -74,31 +92,6 @@ namespace BlazorApp2.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Vendor",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BusinessName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AddressID = table.Column<int>(type: "int", nullable: true),
-                    PhoneID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vendor", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Vendor_Address_AddressID",
-                        column: x => x.AddressID,
-                        principalTable: "Address",
-                        principalColumn: "ID");
-                    table.ForeignKey(
-                        name: "FK_Vendor_Phone_PhoneID",
-                        column: x => x.PhoneID,
-                        principalTable: "Phone",
-                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -153,9 +146,7 @@ namespace BlazorApp2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FavouriteColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserDataID = table.Column<int>(type: "int", nullable: false),
+                    UserDataID = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -197,7 +188,78 @@ namespace BlazorApp2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Comment",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
+                    PostID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Paths = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Categorization = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressID = table.Column<int>(type: "int", nullable: true),
+                    UserID = table.Column<int>(type: "int", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Posts_Address_AddressID",
+                        column: x => x.AddressID,
+                        principalTable: "Address",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vendor",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BusinessName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressID = table.Column<int>(type: "int", nullable: true),
+                    PhoneID = table.Column<int>(type: "int", nullable: true),
+                    PostID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vendor", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Vendor_Address_AddressID",
+                        column: x => x.AddressID,
+                        principalTable: "Address",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Vendor_Phone_PhoneID",
+                        column: x => x.PhoneID,
+                        principalTable: "Phone",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Vendor_Posts_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Posts",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserData",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -212,42 +274,47 @@ namespace BlazorApp2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.ID);
+                    table.PrimaryKey("PK_UserData", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_User_Phone_PhoneID",
+                        name: "FK_UserData_Phone_PhoneID",
                         column: x => x.PhoneID,
                         principalTable: "Phone",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_User_Vendor_VendorID",
+                        name: "FK_UserData_Validate_ValidateID",
+                        column: x => x.ValidateID,
+                        principalTable: "Validate",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_UserData_Vendor_VendorID",
                         column: x => x.VendorID,
                         principalTable: "Vendor",
                         principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Validate",
+                name: "Vote",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<int>(type: "int", nullable: false),
                     TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Total = table.Column<double>(type: "float", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    ValidationScore = table.Column<double>(type: "float", nullable: false),
-                    IsValidated = table.Column<bool>(type: "bit", nullable: false),
-                    HasValidated = table.Column<bool>(type: "bit", nullable: false),
-                    AllUserVotes = table.Column<double>(type: "float", nullable: false),
-                    EachUserVote = table.Column<double>(type: "float", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: true)
+                    UserID = table.Column<int>(type: "int", nullable: true),
+                    PostID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Validate", x => x.ID);
+                    table.PrimaryKey("PK_Vote", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Validate_User_UserID",
+                        name: "FK_Vote_Posts_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Posts",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Vote_UserData_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
+                        principalTable: "UserData",
                         principalColumn: "ID");
                 });
 
@@ -296,24 +363,39 @@ namespace BlazorApp2.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_PhoneID",
-                table: "User",
+                name: "IX_Comment_PostID",
+                table: "Comment",
+                column: "PostID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comment_UserID",
+                table: "Comment",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_AddressID",
+                table: "Posts",
+                column: "AddressID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_UserID",
+                table: "Posts",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserData_PhoneID",
+                table: "UserData",
                 column: "PhoneID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_ValidateID",
-                table: "User",
+                name: "IX_UserData_ValidateID",
+                table: "UserData",
                 column: "ValidateID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_VendorID",
-                table: "User",
+                name: "IX_UserData_VendorID",
+                table: "UserData",
                 column: "VendorID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Validate_UserID",
-                table: "Validate",
-                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vendor_AddressID",
@@ -324,6 +406,21 @@ namespace BlazorApp2.Migrations
                 name: "IX_Vendor_PhoneID",
                 table: "Vendor",
                 column: "PhoneID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vendor_PostID",
+                table: "Vendor",
+                column: "PostID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vote_PostID",
+                table: "Vote",
+                column: "PostID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vote_UserID",
+                table: "Vote",
+                column: "UserID");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_AspNetUserClaims_AspNetUsers_UserId",
@@ -350,18 +447,31 @@ namespace BlazorApp2.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUsers_User_UserDataID",
+                name: "FK_AspNetUsers_UserData_UserDataID",
                 table: "AspNetUsers",
                 column: "UserDataID",
-                principalTable: "User",
-                principalColumn: "ID",
-                onDelete: ReferentialAction.Cascade);
+                principalTable: "UserData",
+                principalColumn: "ID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_User_Validate_ValidateID",
-                table: "User",
-                column: "ValidateID",
-                principalTable: "Validate",
+                name: "FK_Comment_Posts_PostID",
+                table: "Comment",
+                column: "PostID",
+                principalTable: "Posts",
+                principalColumn: "ID");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Comment_UserData_UserID",
+                table: "Comment",
+                column: "UserID",
+                principalTable: "UserData",
+                principalColumn: "ID");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Posts_UserData_UserID",
+                table: "Posts",
+                column: "UserID",
+                principalTable: "UserData",
                 principalColumn: "ID");
         }
 
@@ -369,8 +479,8 @@ namespace BlazorApp2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Validate_User_UserID",
-                table: "Validate");
+                name: "FK_Posts_UserData_UserID",
+                table: "Posts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -388,13 +498,19 @@ namespace BlazorApp2.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Comment");
+
+            migrationBuilder.DropTable(
+                name: "Vote");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "UserData");
 
             migrationBuilder.DropTable(
                 name: "Validate");
@@ -403,10 +519,13 @@ namespace BlazorApp2.Migrations
                 name: "Vendor");
 
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "Phone");
 
             migrationBuilder.DropTable(
-                name: "Phone");
+                name: "Posts");
+
+            migrationBuilder.DropTable(
+                name: "Address");
         }
     }
 }

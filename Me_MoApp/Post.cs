@@ -199,10 +199,10 @@
 
 
 
-        public override string ToString()
-        {
-            return $"{User.FirstName} {User.LastName} - {Description}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{User.FirstName} {User.LastName} - {Description}";
+        //}
 
 
         //Render these

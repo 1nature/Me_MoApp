@@ -119,9 +119,14 @@ else
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
 
+            // var userWithData = dbContext.Users.Include(u => u.UserData).
+            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
+
             var userWithData = dbContext.Users.Include(u => u.UserData).
             FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
 
+            // Users.Include(u => u.UserData).
+            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
             
             // var userWithData = dbContext.Users.Include(u => u.UserData).
             // FirstOrDefault(u => u.Id == currentlyLoggedInUser.User.ID);

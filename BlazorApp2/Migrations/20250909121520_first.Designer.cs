@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250811221840_posts")]
-    partial class posts
+    [Migration("20250909121520_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace BlazorApp2.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -46,9 +43,6 @@ namespace BlazorApp2.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FavouriteColor")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -79,7 +73,7 @@ namespace BlazorApp2.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int?>("UserDataID")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -96,7 +90,7 @@ namespace BlazorApp2.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserDataID");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -158,25 +152,6 @@ namespace BlazorApp2.Migrations
                     b.ToTable("Comment");
                 });
 
-            modelBuilder.Entity("Me_MoApp.Page", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pages");
-                });
-
             modelBuilder.Entity("Me_MoApp.Phone", b =>
                 {
                     b.Property<int>("ID")
@@ -231,7 +206,7 @@ namespace BlazorApp2.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Me_MoApp.User", b =>
+            modelBuilder.Entity("Me_MoApp.UserData", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -268,7 +243,7 @@ namespace BlazorApp2.Migrations
 
                     b.HasIndex("VendorID");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserData");
                 });
 
             modelBuilder.Entity("Me_MoApp.Validate", b =>
@@ -497,11 +472,11 @@ namespace BlazorApp2.Migrations
 
             modelBuilder.Entity("BlazorApp2.Data.ApplicationUser", b =>
                 {
-                    b.HasOne("Me_MoApp.User", "User")
+                    b.HasOne("Me_MoApp.UserData", "UserData")
                         .WithMany()
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserDataID");
 
-                    b.Navigation("User");
+                    b.Navigation("UserData");
                 });
 
             modelBuilder.Entity("Me_MoApp.Comment", b =>
@@ -510,7 +485,7 @@ namespace BlazorApp2.Migrations
                         .WithMany("TheComments")
                         .HasForeignKey("PostID");
 
-                    b.HasOne("Me_MoApp.User", "User")
+                    b.HasOne("Me_MoApp.UserData", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 
@@ -523,7 +498,7 @@ namespace BlazorApp2.Migrations
                         .WithMany()
                         .HasForeignKey("AddressID");
 
-                    b.HasOne("Me_MoApp.User", "User")
+                    b.HasOne("Me_MoApp.UserData", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 
@@ -532,7 +507,7 @@ namespace BlazorApp2.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Me_MoApp.User", b =>
+            modelBuilder.Entity("Me_MoApp.UserData", b =>
                 {
                     b.HasOne("Me_MoApp.Phone", "Phone")
                         .WithMany()
@@ -578,7 +553,7 @@ namespace BlazorApp2.Migrations
                         .WithMany("Votes")
                         .HasForeignKey("PostID");
 
-                    b.HasOne("Me_MoApp.User", "User")
+                    b.HasOne("Me_MoApp.UserData", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
 

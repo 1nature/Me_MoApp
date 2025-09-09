@@ -149,25 +149,6 @@ namespace BlazorApp2.Migrations
                     b.ToTable("Comment");
                 });
 
-            modelBuilder.Entity("Me_MoApp.Page", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pages");
-                });
-
             modelBuilder.Entity("Me_MoApp.Phone", b =>
                 {
                     b.Property<int>("ID")
