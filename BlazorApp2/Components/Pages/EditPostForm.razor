@@ -119,22 +119,11 @@ else
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
 
-            // var userWithData = dbContext.Users.Include(u => u.UserData).
-            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
-
-            var userWithData = dbContext.Users.Include(u => u.UserData).
-            FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
-
-            // Users.Include(u => u.UserData).
-            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
+            // var firstNameData = dbContext.Users.Include(u => u.FirstName).
+            // FirstOrDefault(u => u.ID == currentlyLoggedInUser.User.ID);
             
-            // var userWithData = dbContext.Users.Include(u => u.UserData).
-            // FirstOrDefault(u => u.Id == currentlyLoggedInUser.User.ID);
-            
-
-            //do migration
-            //change user class to userdata class in applicationuser class
-            //try again
+            var firstNameData = dbContext.UserData.
+            FirstOrDefault(u => u.ID == currentlyLoggedInUser.UserData.ID);
 
             if (currentlyLoggedInUser == null) // nobody logged in
             {
@@ -144,6 +133,8 @@ else
             //dbContext.Posts.Add(Post);
 
             Post.TimeStamp = DateTime.Now;
+
+
             Post.User = new UserData //TODO: replace with currently logged in userData
             {
                 //Should I be getting data from database now?
@@ -159,7 +150,7 @@ else
 
     }
 
-    
+
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
