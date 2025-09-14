@@ -19,49 +19,49 @@ namespace Me_MoApp
             return total;
         }
 
-        public static void SaveUserDataToDisk(List<UserData> saveUser) //serialisation
-        {
-            XmlSerializer writer = new(typeof(List<UserData>));
-            using FileStream file = File.Create(Constants.savedUserPath);
-            writer.Serialize(file, saveUser);
-        }
+        //public static void SaveUserDataToDisk(List<UserData> saveUser) //serialisation
+        //{
+        //    XmlSerializer writer = new(typeof(List<UserData>));
+        //    using FileStream file = File.Create(Constants.savedUserPath);
+        //    writer.Serialize(file, saveUser);
+        //}
 
-        public static List<UserData> LoadUserDataFromDisk()
-        {
-            XmlSerializer xmlSerializer = new(typeof(List<UserData>));
-            List<UserData> storedUsers = new();
-            if (File.Exists(Constants.savedUserPath))
-            {
-                using FileStream file = File.OpenRead(Constants.savedUserPath);
-                storedUsers = xmlSerializer.Deserialize(file) as List<UserData>;
-            }
-            return storedUsers;
-        }
+        //public static List<UserData> LoadUserDataFromDisk()
+        //{
+        //    XmlSerializer xmlSerializer = new(typeof(List<UserData>));
+        //    List<UserData> storedUsers = new();
+        //    if (File.Exists(Constants.savedUserPath))
+        //    {
+        //        using FileStream file = File.OpenRead(Constants.savedUserPath);
+        //        storedUsers = xmlSerializer.Deserialize(file) as List<UserData>;
+        //    }
+        //    return storedUsers;
+        //}
 
-        public static void SavePostDataToDisk(List<Post> savePost) //serialisation
-        {
-            XmlSerializer writer = new(typeof(List<Post>));
+        //public static void SavePostDataToDisk(List<Post> savePost) //serialisation
+        //{
+        //    XmlSerializer writer = new(typeof(List<Post>));
 
-            using (FileStream file = File.Create(Constants.savedPostPath))
-            {
-                writer.Serialize(file, savePost);
-            }
-        }
+        //    using (FileStream file = File.Create(Constants.savedPostPath))
+        //    {
+        //        writer.Serialize(file, savePost);
+        //    }
+        //}
 
 
 
-        public static List<Post> LoadPostDataFromDisk()
-        {
-            XmlSerializer xmlSerializer = new(typeof(List<Post>));
-            List<Post> storedPosts = null;
+        //public static List<Post> LoadPostDataFromDisk()
+        //{
+        //    XmlSerializer xmlSerializer = new(typeof(List<Post>));
+        //    List<Post> storedPosts = null;
 
-            if (File.Exists(Constants.savedPostPath))
-            {
-                using FileStream file = File.OpenRead(Constants.savedPostPath);
-                storedPosts = xmlSerializer.Deserialize(file) as List<Post>;
-            }
-            return storedPosts;
-        }
+        //    if (File.Exists(Constants.savedPostPath))
+        //    {
+        //        using FileStream file = File.OpenRead(Constants.savedPostPath);
+        //        storedPosts = xmlSerializer.Deserialize(file) as List<Post>;
+        //    }
+        //    return storedPosts;
+        //}
 
         
         public static StatusCategory GetPostStatus(Post x, List<Post> allPosts)

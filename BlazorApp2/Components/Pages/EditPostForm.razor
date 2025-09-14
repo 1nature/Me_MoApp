@@ -119,12 +119,13 @@ else
             var currentlyLoggedInUser = await UserManager.GetUserAsync(claims);
             //additional code to  pull all user data but how?
 
-            // var firstNameData = dbContext.Users.Include(u => u.FirstName).
-            // FirstOrDefault(u => u.ID == currentlyLoggedInUser.User.ID);
             
-            var firstNameData = dbContext.UserData.
-            FirstOrDefault(u => u.ID == currentlyLoggedInUser.UserData.ID);
 
+            var currentlyLoggedInUserWithDetails = dbContext.Users
+                .Include(u => u.UserData) // Include the UserData navigation property
+                .FirstOrDefault(u => u.Id == currentlyLoggedInUser.Id);
+            
+           
             if (currentlyLoggedInUser == null) // nobody logged in
             {
                 return;

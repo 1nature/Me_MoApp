@@ -20,18 +20,18 @@ namespace BlazorApp2.Data
 
         public List<UserData> Users { get; set; } = new();
 
-        public UserDataService()
-        {
-            //Users = GetUsers();
-            Users = LogicMethod.LoadUserDataFromDisk(); //TODO: implement DE-serialisation
-            //Comments = GetTestComments();
-        }
+        //public UserDataService()
+        //{
+        //    //Users = GetUsers();
+        //    Users = LogicMethod.LoadUserDataFromDisk(); //TODO: implement DE-serialisation
+        //    //Comments = GetTestComments();
+        //}
 
-        public void Save()
-        {
-            LogicMethod.SaveUserDataToDisk(Users); 
+        //public void Save()
+        //{
+        //    LogicMethod.SaveUserDataToDisk(Users); 
 
-        }
+        //}
 
 
     }
