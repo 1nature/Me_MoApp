@@ -2,18 +2,50 @@
 @using BlazorApp2.Data
 @using Me_MoApp
 @inject VendorDataService vendorDataService;
+@inject Data.ApplicationDbContext dbContext
 
 <div class="col-md-8">
     <br />
     <label for="vendor_name" class="form-label">Choose from vendor list </label>
-    <InputText @bind-Value="_selectedVendorString" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." />
+    <InputText @bind-Value="_selectedVendorString" class="form-control" list="datalistOptions"
+               id="vendor_name" placeholder="Type to search..." />
+
     <datalist id="datalistOptions">
-        @foreach (var vendor in vendorDataService.GetVendors())
+        @foreach (var vendor in dbContext.VendorData)
         {
             <option value="@vendor.BusinessName" />
         }
 
+        @* //I need to rework the logic here to populate before displaying *@
+
+        @*   @foreach (var vendor in vendorDataService.GetVendors())
+        {
+            <option value="@vendor.BusinessName" />
+        } *@
+
     </datalist>
+
+    @* @if (dbContext.VendorData.FirstOrDefault(v => v.BusinessName == _selectedVendorString)
+    == null && !string.IsNullOrWhiteSpace(_selectedVendorString))
+    {
+        <AddVendorExample Vendor="selectedVendor" />
+    }
+    else if (!string.IsNullOrWhiteSpace(_selectedVendorString))
+    {
+        <button @onclick="UpdatePostValue">Select Vendor</button>
+    } *@
+
+    @if (dbContext.VendorData == null)
+    {
+        <AddVendorExample Vendor="selectedVendor" />
+    }
+    else
+    {
+        <button @onclick="UpdatePostValue">Select Vendor</button>
+    }
+
+
+    @* 
     @if (vendorDataService.GetVendorByName(_selectedVendorString) == null)
     {
         <AddVendorExample Vendor="selectedVendor"/>
@@ -22,7 +54,7 @@
     else
     {
         <button @onclick="UpdatePostValue">Select Vendor</button>
-    }
+    } *@
 
 </div>
 
@@ -37,7 +69,7 @@
     public Post Post { get; set; } = new();
 
     [Parameter]
-    public EventCallback<Post> PostChanged { get; set; } 
+    public EventCallback<Post> PostChanged { get; set; }
 
 
 
@@ -46,9 +78,30 @@
 
     async Task UpdatePostValue()
     {
-        selectedVendor = vendorDataService.GetVendorByName(_selectedVendorString);
 
-        Post.Vendor.Add(selectedVendor);
+        //searches the VendorData table (represented by the DbSet<Vendor> in your 
+        // ApplicationDbContext) for the first Vendor whose BusinessName property 
+        // matches the value of _selectedVendorString.
+
+        selectedVendor = dbContext.VendorData.FirstOrDefault(v => v.BusinessName == _selectedVendorString);
+        dbContext.VendorData.Add(selectedVendor);
+        //dbContext.VendorData.Attach(selectedVendor);
+        await dbContext.SaveChangesAsync();
         await PostChanged.InvokeAsync(Post);
-    }   
+        // Post.Vendor.Add(selectedVendor);
+        selectedVendor = new Vendor();
+
+
+
+
+
+        // Post.Vendor.Add(selectedVendor);
+        // await PostChanged.InvokeAsync(Post);
+        // selectedVendor = new Vendor();
+
+        // selectedVendor = vendorDataService.GetVendorByName(_selectedVendorString);
+
+        // Post.Vendor.Add(selectedVendor);
+        // await PostChanged.InvokeAsync(Post);
+    }
 }

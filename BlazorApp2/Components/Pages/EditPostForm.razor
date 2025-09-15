@@ -62,6 +62,9 @@ else
                 </select>
             </div>
         }
+
+
+
         <br />
         <button type="submit" class="col-md-2 md-start">Send</button>
     </div>
@@ -138,11 +141,21 @@ else
 
             Post.User = new UserData //TODO: replace with currently logged in userData
             {
+                FirstName = currentlyLoggedInUserWithDetails.UserData?.FirstName,
+                LastName = currentlyLoggedInUserWithDetails.UserData?.LastName,
+                
+                //currentlyLoggedInUserWithDetails have no first & last names
+                //Edit the Login component?
+                //Description & categorisation properties are rendering but not the names
+                //Because the names are empty
+
                 //Should I be getting data from database now?
-                FirstName = currentlyLoggedInUser.UserData?.FirstName,
-                LastName = currentlyLoggedInUser.UserData?.LastName,
+                //FirstName = currentlyLoggedInUser.UserData?.FirstName,
+                //LastName = currentlyLoggedInUser.UserData?.LastName,
                 // Picture = currentlyLoggedInUser.User.Picture, // Assuming Picture is a string or path to the image
                 // Sex = currentlyLoggedInUser.User.Sex
+
+
             };
 
             dbContext.Posts.Add(Post);

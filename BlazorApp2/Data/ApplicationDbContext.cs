@@ -8,6 +8,7 @@ namespace BlazorApp2.Data
     {
         public DbSet<UserData> UserData { get; set; } 
         //public DbSet<Page> Pages { get; set; }
+        public DbSet<Vendor> VendorData { get; set; }
 
         public DbSet<Post> Posts { get; set; }
     }

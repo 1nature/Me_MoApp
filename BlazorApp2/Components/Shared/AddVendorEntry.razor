@@ -2,6 +2,7 @@
 @using Me_MoApp
 @inject UserDataService userDataService
 @inject PostDataService postDataService
+@inject Data.ApplicationDbContext dbContext
 
 <EditForm Model="Vendor" OnSubmit="UpdatePostValue">
     <div class="col-md-6">
@@ -15,7 +16,7 @@
 
     </div>
     <br />
-    <button type="submit">Send</button>
+    @* <button type="submit">Send</button> *@
 
 </EditForm>
 
@@ -30,8 +31,14 @@
 
     async Task UpdatePostValue()
     {
-        Post.Vendor.Add(Vendor);
-        await PostChanged.InvokeAsync(Post); 
+
+        dbContext.VendorData.Add(Vendor);
+        await dbContext.SaveChangesAsync();
+        await PostChanged.InvokeAsync(Post);
+
+
+        // Post.Vendor.Add(Vendor);
+        // await PostChanged.InvokeAsync(Post); 
         Vendor = new();
     }
 }
