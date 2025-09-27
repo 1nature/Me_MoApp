@@ -19,15 +19,16 @@
                 <option value="@vendor.BusinessName" />
             }
 
-            @* //I need to rework the logic here to populate before displaying *@
+            @* Need to figure how the method below is linked to this dropdown *@
 
             @*   @foreach (var vendor in vendorDataService.GetVendors())
         {
             <option value="@vendor.BusinessName" />
         } *@
         </datalist>
-   
 
+    <button class="btn btn-primary mt-2" @onclick="UpdatePostValue">Select Vendor</button>
+    
     @* @if (dbContext.VendorData.FirstOrDefault(v => v.BusinessName == _selectedVendorString)
     == null && !string.IsNullOrWhiteSpace(_selectedVendorString))
     {
