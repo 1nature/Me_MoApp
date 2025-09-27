@@ -16,7 +16,7 @@
 
     </div>
     <br />
-    @* <button type="submit">Send</button> *@
+    <button type="submit">Send</button>
 
 </EditForm>
 
@@ -24,17 +24,18 @@
     [Parameter]
     public Post Post { get; set; }
 
+    [Parameter]
     public Vendor Vendor { get; set; } = new();
 
     [Parameter]
-    public EventCallback<Post> PostChanged { get; set; } 
+    public EventCallback<Post> VendorChanged { get; set; } 
 
     async Task UpdatePostValue()
     {
 
         dbContext.VendorData.Add(Vendor);
         await dbContext.SaveChangesAsync();
-        await PostChanged.InvokeAsync(Post);
+        await VendorChanged.InvokeAsync(Post);
 
 
         // Post.Vendor.Add(Vendor);

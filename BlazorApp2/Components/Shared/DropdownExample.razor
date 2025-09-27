@@ -6,24 +6,27 @@
 
 <div class="col-md-8">
     <br />
-    <label for="vendor_name" class="form-label">Choose from vendor list </label>
-    <InputText @bind-Value="_selectedVendorString" class="form-control" list="datalistOptions"
-               id="vendor_name" placeholder="Type to search..." />
+    @* @if (dbContext.VendorData != null) //this prevents rendering *@
+    @* { *@
+        <label for="vendor_name" class="form-label">Choose from vendor list </label>
+        <InputText @bind-Value="_selectedVendorString" class="form-control" list="datalistOptions"
+        id="vendor_name" placeholder="Type to search..." />
 
-    <datalist id="datalistOptions">
-        @foreach (var vendor in dbContext.VendorData)
-        {
-            <option value="@vendor.BusinessName" />
-        }
+        <datalist id="datalistOptions">
+        
+            @foreach (var vendor in dbContext.VendorData)
+            {
+                <option value="@vendor.BusinessName" />
+            }
 
-        @* //I need to rework the logic here to populate before displaying *@
+            @* //I need to rework the logic here to populate before displaying *@
 
-        @*   @foreach (var vendor in vendorDataService.GetVendors())
+            @*   @foreach (var vendor in vendorDataService.GetVendors())
         {
             <option value="@vendor.BusinessName" />
         } *@
-
-    </datalist>
+        </datalist>
+   
 
     @* @if (dbContext.VendorData.FirstOrDefault(v => v.BusinessName == _selectedVendorString)
     == null && !string.IsNullOrWhiteSpace(_selectedVendorString))
@@ -35,18 +38,27 @@
         <button @onclick="UpdatePostValue">Select Vendor</button>
     } *@
 
-    @if (dbContext.VendorData == null)
-    {
+    <br />
+    @* <AddVendorExample Vendor="selectedVendor" /> *@
+    <AddVendorEntry Vendor="selectedVendor" />
+    <br />
+
+
+@* 
+    @if (dbContext.VendorData == null) 
+    { 
         <AddVendorExample Vendor="selectedVendor" />
     }
     else
     {
         <button @onclick="UpdatePostValue">Select Vendor</button>
     }
+ *@
 
 
-    @* 
-    @if (vendorDataService.GetVendorByName(_selectedVendorString) == null)
+
+     
+  @*   @if (vendorDataService.GetVendorByName(_selectedVendorString) == null)
     {
         <AddVendorExample Vendor="selectedVendor"/>
         //2-way binding component for adding new vendor and updating the vendor list(parent)
@@ -79,8 +91,8 @@
     async Task UpdatePostValue()
     {
 
-        //searches the VendorData table (represented by the DbSet<Vendor> in your 
-        // ApplicationDbContext) for the first Vendor whose BusinessName property 
+        //searches the VendorData table (represented by the DbSet<Vendor> in your
+        // ApplicationDbContext) for the first Vendor whose BusinessName property
         // matches the value of _selectedVendorString.
 
         selectedVendor = dbContext.VendorData.FirstOrDefault(v => v.BusinessName == _selectedVendorString);
